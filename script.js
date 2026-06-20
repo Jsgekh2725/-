@@ -1,130 +1,281 @@
-let admin=false;
+let studentName="";
 
-function toggleMenu(){
-document.getElementById('sidebar').classList.toggle('active');
+const questions=[
+
+{
+
+q:"كم يساوي 4 × 3 ؟",
+
+a:["7","12","9","15"],
+
+c:1
+
+},
+
+{
+
+q:"كم عدد النواتج إذا كان هناك 5 ألوان و3 مقاسات؟",
+
+a:["8","10","15","20"],
+
+c:2
+
+},
+
+{
+
+q:"فضاء العينة هو:",
+
+a:["كل النواتج الممكنة","ناتج واحد","عدد الأسئلة","لا شيء"],
+
+c:0
+
+},
+
+{
+
+q:"إذا كانت زاوية 30° فما متتامتها؟",
+
+a:["60","150","120","90"],
+
+c:0
+
+},
+
+{
+
+q:"إذا كانت زاوية 70° فما متكاملتها؟",
+
+a:["20","90","110","70"],
+
+c:2
+
+},
+
+{
+
+q:"مجموع زوايا المثلث؟",
+
+a:["90","180","360","270"],
+
+c:1
+
+},
+
+{
+
+q:"إذا كانت زاويتان 50° و60° فالثالثة؟",
+
+a:["70","80","90","60"],
+
+c:0
+
+},
+
+{
+
+q:"الزاويتان المتتامتان مجموعهما؟",
+
+a:["90","180","360","45"],
+
+c:0
+
+},
+
+{
+
+q:"الزاويتان المتكاملتان مجموعهما؟",
+
+a:["90","180","360","45"],
+
+c:1
+
+},
+
+{
+
+q:"عدد نواتج رمي قطعة نقود؟",
+
+a:["1","2","3","4"],
+
+c:1
+
+},
+
+{
+
+q:"عدد نواتج مكعب الأرقام؟",
+
+a:["4","5","6","7"],
+
+c:2
+
+},
+
+{
+
+q:"2 × 6 = ؟",
+
+a:["8","10","12","14"],
+
+c:2
+
+},
+
+{
+
+q:"الرأس هو:",
+
+a:["مكان التقاء الضلعين","اسم الزاوية","عدد الدرجات","المستقيم"],
+
+c:0
+
+},
+
+{
+
+q:"في تسمية الزاوية يكون الرأس:",
+
+a:["في البداية","في الوسط","في النهاية","لا يهم"],
+
+c:1
+
+},
+
+{
+
+q:"إذا كانت الزوايا 25° و108° فالثالثة؟",
+
+a:["47","57","67","37"],
+
+c:0
+
+},
+
+{
+
+q:"5 ألوان و4 مقاسات = ؟",
+
+a:["20","15","10","25"],
+
+c:0
+
+},
+
+{
+
+q:"3 أنواع و2 ألوان = ؟",
+
+a:["4","5","6","8"],
+
+c:2
+
+},
+
+{
+
+q:"45° و45° زاويتان:",
+
+a:["متكاملتان","متتامتان","حادتان فقط","منفرجتان"],
+
+c:1
+
+},
+
+{
+
+q:"140° و40° زاويتان:",
+
+a:["متتامتان","متكاملتان","حادتان","قائمتان"],
+
+c:1
+
+},
+
+{
+
+q:"إذا كان مجموع زاويتين 90° فهما:",
+
+a:["متتامتان","متكاملتان","متقابلتان","متجاورتان"],
+
+c:0
+
 }
 
-function showPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-toggleMenu();
+];
+
+function startQuiz(){
+
+studentName=document.getElementById("name").value;
+
+if(studentName.length<5){
+
+alert("اكتب الاسم الثلاثي");
+
+return;
+
 }
 
-function generateLink(){
-const file=document.getElementById('mainFile').files[0];
-if(!file)return alert('اختر ملف');
+document.getElementById("start").classList.add("hidden");
 
-const reader=new FileReader();
+document.getElementById("quiz").classList.remove("hidden");
 
-reader.onload=e=>{
-const data=e.target.result;
+document.getElementById("student").innerText=studentName;
 
-const html=`<html><body style="background:#07111c;color:white;font-family:Arial;display:flex;justify-content:center;align-items:center;height:100vh"><div style="background:#0f2235;padding:40px;border-radius:25px;text-align:center"><h1 style="color:#55c8ff">BLACK VOID</h1><a href="${data}" download="${file.name}" style="background:#55c8ff;padding:15px 20px;border-radius:12px;color:black;text-decoration:none;font-weight:bold">تحميل مباشر</a></div></body></html>`;
+let html="";
 
-const blob=new Blob([html],{type:'text/html'});
-const url=URL.createObjectURL(blob);
+questions.forEach((q,i)=>{
 
-document.getElementById('result').innerHTML=`
-<input value="${url}" readonly>
-<div class="actions">
-<button class="small-btn" onclick="navigator.clipboard.writeText('${url}')">نسخ الرابط</button>
-<a class="small-btn" href="${url}" target="_blank">فتح الصفحة</a>
-<a class="small-btn" href="${data}" download="${file.name}">تحميل مباشر</a>
+html+=`
+
+<div class="question">
+
+<h3>${i+1}. ${q.q}</h3>
+
+${q.a.map((x,j)=>
+
+`<label><input type="radio" name="q${i}" value="${j}"> ${x}</label><br>`
+
+).join("")}
+
 </div>`;
-};
 
-reader.readAsDataURL(file);
-}
-
-function openAdmin(){
-if(prompt('كلمة السر')==='AdminBlackVoid'){
-admin=true;
-showPage('adminPage');
-loadMods();
-}else{
-alert('كلمة السر خاطئة');
-}
-}
-
-function saveMod(){
-const n=modName.value;
-const d=modDesc.value;
-const c=modCategory.value;
-const img=modImage.files[0];
-const file=modFile.files[0];
-
-if(!n||!d||!img||!file)return alert('اكمل البيانات');
-
-const ir=new FileReader();
-const fr=new FileReader();
-
-ir.onload=i=>{
-fr.onload=f=>{
-const mods=JSON.parse(localStorage.mods||'[]');
-
-mods.push({
-id:Date.now(),
-name:n,
-desc:d,
-cat:c,
-img:i.target.result,
-file:f.target.result,
-filename:file.name
 });
 
-localStorage.mods=JSON.stringify(mods);
-loadMods();
-showPage('modsPage');
-};
-fr.readAsDataURL(file);
-};
-ir.readAsDataURL(img);
+document.getElementById("quizForm").innerHTML=html;
+
 }
 
-function deleteMod(id){
-let mods=JSON.parse(localStorage.mods||'[]');
-mods=mods.filter(m=>m.id!==id);
-localStorage.mods=JSON.stringify(mods);
-loadMods();
+function finishQuiz(){
+
+let score=0;
+
+questions.forEach((q,i)=>{
+
+let ans=document.querySelector(`input[name="q${i}"]:checked`);
+
+if(ans && Number(ans.value)===q.c){
+
+score++;
+
 }
 
-function loadMods(){
-const container=document.getElementById('modsContainer');
-const adminContainer=document.getElementById('adminMods');
-
-container.innerHTML='';
-adminContainer.innerHTML='';
-
-let mods=JSON.parse(localStorage.mods||'[]');
-
-const search=(searchInput?.value||'').toLowerCase();
-const cat=categoryFilter?.value||'all';
-
-mods=mods.filter(m=>(m.name.toLowerCase().includes(search))&&(cat==='all'||m.cat===cat));
-
-mods.forEach(m=>{
-container.innerHTML+=`
-<div class="card">
-<img src="${m.img}">
-<h2>${m.name}</h2>
-<p>${m.desc}</p>
-<p>${m.cat}</p>
-<div class="actions">
-<a class="small-btn" href="${m.file}" download="${m.filename}">تحميل مباشر</a>
-</div>
-</div>`;
-
-if(admin){
-adminContainer.innerHTML+=`
-<div class="card">
-<img src="${m.img}">
-<h2>${m.name}</h2>
-<div class="actions">
-<button class="small-btn" onclick="deleteMod(${m.id})">حذف</button>
-</div>
-</div>`;
-}
 });
-}
 
-loadMods();
+document.getElementById("quiz").classList.add("hidden");
+
+document.getElementById("result").classList.remove("hidden");
+
+document.getElementById("result").innerHTML=
+
+`
+
+<h1>انتهى الاختبار</h1>
+
+<h2>${studentName}</h2>
+
+<h2>الدرجة: ${score} / 20</h2>
+
+`;
+
+}
