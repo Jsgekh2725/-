@@ -16,41 +16,21 @@
 
 <body>
 
-<div class="container" id="start">
+<div class="container">
 
-    <h1>اختبار الرياضيات</h1>
+<h1>اختبار الرياضيات</h1>
 
-    <input
+<form id="quizForm"></form>
 
-        type="text"
+<button type="button" onclick="finishQuiz()">
 
-        id="name"
+إنهاء الاختبار
 
-        placeholder="اكتب الاسم الثلاثي">
+</button>
 
-    <button type="button" onclick="startQuiz()">
-
-        بدء الاختبار
-
-    </button>
+<div id="result"></div>
 
 </div>
-
-<div class="container hidden" id="quiz">
-
-    <h2 id="student"></h2>
-
-    <form id="quizForm"></form>
-
-    <button type="button" onclick="finishQuiz()">
-
-        إنهاء الاختبار
-
-    </button>
-
-</div>
-
-<div class="container hidden" id="result"></div>
 
 <script src="script.js"></script>
 
