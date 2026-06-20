@@ -1,6 +1,6 @@
-let studentName="";
+let studentName = "";
 
-const questions=[
+const questions = [
 
 {
 
@@ -204,11 +204,13 @@ c:0
 
 ];
 
-function startQuiz(){
+function startQuiz() {
 
-studentName=document.getElementById("name").value;
+const input = document.getElementById("name");
 
-if(studentName.length<5){
+studentName = input.value.trim();
+
+if(studentName === ""){
 
 alert("اكتب الاسم الثلاثي");
 
@@ -220,43 +222,61 @@ document.getElementById("start").classList.add("hidden");
 
 document.getElementById("quiz").classList.remove("hidden");
 
-document.getElementById("student").innerText=studentName;
+document.getElementById("student").textContent =
 
-let html="";
+"الطالب: " + studentName;
+
+let html = "";
 
 questions.forEach((q,i)=>{
 
-html+=`
+html += `
 
 <div class="question">
 
-<h3>${i+1}. ${q.q}</h3>
+<h3>${i + 1}. ${q.q}</h3>
 
-${q.a.map((x,j)=>
+${q.a.map((choice,j)=>`
 
-`<label><input type="radio" name="q${i}" value="${j}"> ${x}</label><br>`
+<label>
 
-).join("")}
+<input type="radio" name="q${i}" value="${j}">
 
-</div>`;
+${choice}
+
+</label>
+
+<br>
+
+`).join("")}
+
+</div>
+
+`;
 
 });
 
-document.getElementById("quizForm").innerHTML=html;
+document.getElementById("quizForm").innerHTML = html;
 
 }
 
 function finishQuiz(){
 
-let score=0;
+let score = 0;
 
 questions.forEach((q,i)=>{
 
-let ans=document.querySelector(`input[name="q${i}"]:checked`);
+const answer =
 
-if(ans && Number(ans.value)===q.c){
+document.querySelector(`input[name="q${i}"]:checked`);
+
+if(answer){
+
+if(Number(answer.value) === q.c){
 
 score++;
+
+}
 
 }
 
@@ -266,15 +286,13 @@ document.getElementById("quiz").classList.add("hidden");
 
 document.getElementById("result").classList.remove("hidden");
 
-document.getElementById("result").innerHTML=
-
-`
+document.getElementById("result").innerHTML = `
 
 <h1>انتهى الاختبار</h1>
 
 <h2>${studentName}</h2>
 
-<h2>الدرجة: ${score} / 20</h2>
+<h2>درجتك: ${score} / 20</h2>
 
 `;
 
