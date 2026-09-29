@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>النشيد الوطني السعودي — Particle Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div class="scanlines"></div>
+  <div class="hud">
+    <div class="top">SAUDI NATIONAL ANTHEM // PARTICLE PROJECT</div>
+    <div class="status"><span class="dot"></span><span id="status">READY</span></div>
+  </div>
+  <main>
+    <section id="intro" class="scene active">
+      <div class="particle-text" id="introText">النشيد الوطني السعودي</div>
+      <div class="sub">DIGITAL NATIONAL IDENTITY</div>
+    </section>
+    <section id="lyrics" class="scene">
+      <div id="lyricText" class="particle-text"></div>
+      <div id="lyricIndex" class="counter">01 / 10</div>
+    </section>
+    <section id="end" class="scene">
+      <div class="particle-text small" id="endText">مشروع الطالب راكان بن سعد القحطاني</div>
+    </section>
+  </main>
+  <div class="controls">
+    <button id="play">تشغيل</button>
+    <button id="pause">إيقاف</button>
+    <button id="restart">إعادة</button>
+    <button id="record">تسجيل الفيديو</button>
+    <label>الصوت <input id="volume" type="range" min="0" max="1" step="0.01" value="1"></label>
+  </div>
+  <audio id="audio" preload="auto" src="reference-audio.mp3"></audio>
+  <script src="lyrics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
