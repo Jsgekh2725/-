@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020b07">
+<meta name="description" content="عرض Particle للنشيد الوطني السعودي — مشروع الطالب راكان بن سعد القحطاني">
+<title>النشيد الوطني السعودي | Particle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <canvas id="scene" aria-label="مشهد الجزيئات"></canvas>
+  <div class="vignette"></div>
+  <div class="scanlines"></div>
+  <main class="hud">
+    <div class="brand"><span class="dot"></span><span>SAUDI • PARTICLE</span></div>
+    <div class="title">النشيد الوطني السعودي</div>
+    <div class="subtitle">سارعي للمجد والعلياء</div>
+    <div class="controls">
+      <button id="playBtn">تشغيل</button>
+      <button id="restartBtn">إعادة</button>
+      <button id="recordBtn">تسجيل الفيديو</button>
+    </div>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div class="time"><span id="timeNow">00:00</span><span id="timeTotal">00:28</span></div>
+  </main>
+  <audio id="audio" preload="auto" src="nasheed-audio.mp3"></audio>
+</div>
+<script src="lyrics.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
