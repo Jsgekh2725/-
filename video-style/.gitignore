@@ -1,3 +1,6 @@
 node_modules
 out
 demo.mp4
+public/*.mp4
+public/*.wav
+scorb-final.mp4
