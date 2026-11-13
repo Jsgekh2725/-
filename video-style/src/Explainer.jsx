@@ -14,6 +14,7 @@ import {
 } from 'remotion';
 import '@fontsource/lalezar/arabic-400.css';
 import '@fontsource/lalezar/latin-400.css';
+import '@fontsource/noto-color-emoji/emoji-400.css';
 
 const FONT = 'Lalezar';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'};
@@ -29,11 +30,14 @@ const outline = (px, color = '#000') => {
   return s;
 };
 
-const useFont = () => {
+const useFont = (icons) => {
   const [handle] = useState(() => delayRender('font'));
   useEffect(() => {
-    document.fonts.load(`100px ${FONT}`, 'شرح 123').then(() => continueRender(handle));
-  }, [handle]);
+    Promise.all([
+      document.fonts.load(`100px ${FONT}`, 'شرح 123'),
+      document.fonts.load('100px "Noto Color Emoji"', icons || '🎸'),
+    ]).then(() => continueRender(handle));
+  }, [handle, icons]);
 };
 
 // Placeholder for gameplay footage: dark room swept by one coloured torch.
@@ -75,10 +79,16 @@ const Clip = ({video, seg, zoom}) => {
     top: cy - box.height / 2,
     maxWidth: 'none',
   });
+  const sound = seg.clip ? <Audio src={src(video)} startFrom={startFrom} volume={seg.volume} /> : null;
   if (seg.mode !== 'fit') {
     return (
       <AbsoluteFill style={{transform: `scale(${zoom})`}}>
-        <OffthreadVideo src={src(video)} startFrom={startFrom} volume={seg.volume} style={at(fill, seg.x, 960)} />
+        {seg.clip ? (
+          <OffthreadVideo src={src(seg.clip)} muted style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+        ) : (
+          <OffthreadVideo src={src(video)} startFrom={startFrom} volume={seg.volume} style={at(fill, seg.x, 960)} />
+        )}
+        {sound}
       </AbsoluteFill>
     );
   }
@@ -92,12 +102,21 @@ const Clip = ({video, seg, zoom}) => {
         style={{...at(fill, seg.x, 960), filter: 'blur(28px) brightness(0.45) saturate(1.3)'}}
       />
       <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '50% 44%'}}>
-        <OffthreadVideo
-          src={src(video)}
-          startFrom={startFrom}
-          volume={seg.volume}
-          style={{...at({width: 1280 * k, height: 720 * k}, seg.x, 850), boxShadow: '0 0 90px #000'}}
-        />
+        {seg.clip ? (
+          <OffthreadVideo
+            src={src(seg.clip)}
+            muted
+            style={{position: 'absolute', left: 0, width: 1080, top: 850 - 360 * k, boxShadow: '0 0 90px #000'}}
+          />
+        ) : (
+          <OffthreadVideo
+            src={src(video)}
+            startFrom={startFrom}
+            volume={seg.volume}
+            style={{...at({width: 1280 * k, height: 720 * k}, seg.x, 850), boxShadow: '0 0 90px #000'}}
+          />
+        )}
+        {sound}
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -250,8 +269,48 @@ const Caption = ({words, accent}) => {
   );
 };
 
+// Emoji sticker that pops in beside the subject when its word is spoken.
+const Icons = ({words}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const list = words.filter((w) => w.icon);
+  return (
+    <AbsoluteFill>
+      {list.map((w, i) => {
+        const start = Math.round(w.t * fps);
+        const next = list[i + 1] ? Math.round(list[i + 1].t * fps) : Infinity;
+        const end = Math.min(start + 30, next);
+        if (f < start || f >= end) return null;
+        const age = f - start;
+        const scale = interpolate(age, [0, 4, 8], [0.2, 1.22, 1], clamp) * interpolate(f, [end - 4, end], [1, 0.6], clamp);
+        const side = i % 2 ? 1 : -1;
+        return (
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              top: 800 + (i % 3) * 60,
+              left: 540 + side * 330 - 120,
+              width: 240,
+              textAlign: 'center',
+              fontFamily: '"Noto Color Emoji"',
+              fontSize: 200,
+              lineHeight: 1,
+              opacity: interpolate(age, [0, 2], [0, 1], clamp) * interpolate(f, [end - 4, end], [1, 0], clamp),
+              transform: `scale(${scale}) rotate(${side * interpolate(age, [0, 8], [26, 9], clamp)}deg)`,
+              filter: 'drop-shadow(0 10px 0 #000) drop-shadow(0 0 26px #000a)',
+            }}
+          >
+            {w.icon}
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
 export const Explainer = ({title, titleEnd, words, accent, video, audio, music, segments, cuts = []}) => {
-  useFont();
+  useFont(words.map((w) => w.icon || '').join(''));
   const {fps} = useVideoConfig();
   return (
     <AbsoluteFill style={{background: '#000'}}>
@@ -259,6 +318,7 @@ export const Explainer = ({title, titleEnd, words, accent, video, audio, music, 
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 38%, #000000e6 100%)'}} />
       <Title lines={title} end={titleEnd} accent={accent} />
       <Glitch at={Math.round(titleEnd * fps)} accent={accent} />
+      <Icons words={words} />
       <Caption words={words} accent={accent} />
       {audio ? <Audio src={src(audio)} /> : null}
       {music ? <Audio src={src(music)} volume={0.2} /> : null}
