@@ -309,7 +309,11 @@ const Icons = ({words}) => {
   );
 };
 
-export const Explainer = ({title, titleEnd, words, accent, video, audio, music, segments, cuts = []}) => {
+// House music bed, used by every edit unless a composition passes `music: null` or another file.
+export const DEFAULT_MUSIC = 'music/default.m4a';
+
+export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, cuts = []}) => {
+  const {durationInFrames} = useVideoConfig();
   useFont(words.map((w) => w.icon || '').join(''));
   const {fps} = useVideoConfig();
   return (
@@ -321,7 +325,13 @@ export const Explainer = ({title, titleEnd, words, accent, video, audio, music, 
       <Icons words={words} />
       <Caption words={words} accent={accent} />
       {audio ? <Audio src={src(audio)} /> : null}
-      {music ? <Audio src={src(music)} volume={0.2} /> : null}
+      {music ? (
+        <Audio
+          src={src(music)}
+          loop
+          volume={(f) => musicVolume * interpolate(f, [durationInFrames - 30, durationInFrames], [1, 0], clamp)}
+        />
+      ) : null}
     </AbsoluteFill>
   );
 };

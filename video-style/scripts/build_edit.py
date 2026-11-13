@@ -57,7 +57,7 @@ for i, (a, b, frame, text) in enumerate(SEGS):
             c += d
     t += dur
 
-out = {"accent": "#ff7a1a", "video": "scorb-raw.mp4", "title": TITLE,
+out = {"accent": "#ff7a1a", "video": "scorb-raw.mp4", "music": None, "title": TITLE,
        "titleEnd": segments[0]["dur"], "duration": round(t, 3), "segments": segments, "words": words}
 json.dump(out, open(sys.argv[1], "w"), ensure_ascii=False, indent=1)
 # Upscale jobs: source start, duration, crop x:y:w:h, output size (1.2x the on-screen size, for punch-ins).
