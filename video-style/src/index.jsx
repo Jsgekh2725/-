@@ -5,6 +5,7 @@ import {IconSheet} from './IconSheet';
 import demo from './demo.json';
 import edit from './edit.json';
 import mafqood from './edit-mafqood.json';
+import teatrader from './edit-teatrader.json';
 
 const FPS = 30;
 
@@ -39,6 +40,15 @@ const Root = () => (
     height={1920}
     defaultProps={mafqood}
     durationInFrames={Math.round(mafqood.duration * FPS)}
+  />
+  <Composition
+    id="TeaTrader"
+    component={Explainer}
+    fps={FPS}
+    width={1080}
+    height={1920}
+    defaultProps={teatrader}
+    durationInFrames={Math.round(teatrader.duration * FPS)}
   />
   <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={700} durationInFrames={1} />
   </>
