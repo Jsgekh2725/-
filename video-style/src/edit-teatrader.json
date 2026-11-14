@@ -1,0 +1,661 @@
+{
+ "accent": "#ffa21f",
+ "video": null,
+ "title": [
+  "افضل",
+  "ماب",
+  "تاجر الشاي"
+ ],
+ "titleEnd": 2.2,
+ "duration": 35.733,
+ "segments": [
+  {
+   "at": 0.0,
+   "dur": 2.2,
+   "src": "teatrader/raw.mp4",
+   "from": 102.5,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_00.mp4",
+   "audio": null,
+   "kind": "title"
+  },
+  {
+   "at": 2.2,
+   "dur": 2.066666666666667,
+   "src": "teatrader/raw.mp4",
+   "from": 0.73,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_01.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 0.73,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 4.267,
+   "dur": 1.5666666666666667,
+   "src": "teatrader/raw.mp4",
+   "from": 6.45,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_02.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 6.45,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 5.833,
+   "dur": 2.7,
+   "src": "teatrader/raw.mp4",
+   "from": 20.73,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_03.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 20.73,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 8.533,
+   "dur": 2.1333333333333333,
+   "src": "teatrader/raw.mp4",
+   "from": 23.57,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_04.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 23.57,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 10.667,
+   "dur": 1.7,
+   "src": "teatrader/raw.mp4",
+   "from": 34.18,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_05.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 34.18,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 12.367,
+   "dur": 1.8666666666666667,
+   "src": "teatrader/raw.mp4",
+   "from": 49.31,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_06.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 49.31,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 14.233,
+   "dur": 1.0666666666666667,
+   "src": "teatrader/raw.mp4",
+   "from": 51.35,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_07.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 51.35,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 15.3,
+   "dur": 1.5333333333333334,
+   "src": "teatrader/raw.mp4",
+   "from": 53.75,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_08.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 53.75,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 16.833,
+   "dur": 2.8,
+   "src": "teatrader/raw.mp4",
+   "from": 64.61,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_09.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 64.61,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 19.633,
+   "dur": 3.3333333333333335,
+   "src": "teatrader/raw.mp4",
+   "from": 71.79,
+   "mode": "fit",
+   "h": 1495,
+   "clip": "teatrader/sr/seg_10.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 71.79,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 22.967,
+   "dur": 3.2,
+   "src": "teatrader/raw.mp4",
+   "from": 95.09,
+   "mode": "fit",
+   "h": 1495,
+   "clip": "teatrader/sr/seg_11.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 95.09,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 26.167,
+   "dur": 3.3,
+   "src": "teatrader/raw.mp4",
+   "from": 108.34,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_12.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 108.34,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 29.467,
+   "dur": 1.8666666666666667,
+   "src": "teatrader/raw.mp4",
+   "from": 128.59,
+   "mode": "fit",
+   "h": 1495,
+   "clip": "teatrader/sr/seg_13.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 128.59,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 31.333,
+   "dur": 4.4,
+   "src": "teatrader/raw.mp4",
+   "from": 152.76,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "teatrader/sr/seg_14.mp4",
+   "audio": {
+    "src": "teatrader/raw.mp4",
+    "from": 152.76,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  }
+ ],
+ "words": [
+  {
+   "t": 2.3,
+   "d": 0.261,
+   "text": "هذا"
+  },
+  {
+   "t": 2.581,
+   "d": 0.322,
+   "text": "افضل",
+   "hot": true,
+   "icon": "🏆"
+  },
+  {
+   "t": 2.922,
+   "d": 0.261,
+   "text": "ماب"
+  },
+  {
+   "t": 3.203,
+   "d": 0.322,
+   "text": "عربي",
+   "icon": "@arabic"
+  },
+  {
+   "t": 3.544,
+   "d": 0.566,
+   "text": "بروبلوكس",
+   "icon": "🎮"
+  },
+  {
+   "t": 4.367,
+   "d": 0.347,
+   "text": "ماب"
+  },
+  {
+   "t": 4.734,
+   "d": 0.427,
+   "text": "تاجر",
+   "hot": true,
+   "icon": "@tea-trader"
+  },
+  {
+   "t": 5.18,
+   "d": 0.506,
+   "text": "الشاي",
+   "hot": true,
+   "icon": "@istikana"
+  },
+  {
+   "t": 5.933,
+   "d": 0.409,
+   "text": "فكرة"
+  },
+  {
+   "t": 6.362,
+   "d": 0.485,
+   "text": "الماب"
+  },
+  {
+   "t": 6.867,
+   "d": 0.332,
+   "text": "انك"
+  },
+  {
+   "t": 7.22,
+   "d": 0.638,
+   "text": "راح تبدأ"
+  },
+  {
+   "t": 7.878,
+   "d": 0.485,
+   "text": "من هنا",
+   "icon": "👉"
+  },
+  {
+   "t": 8.633,
+   "d": 0.387,
+   "text": "وتبدأ"
+  },
+  {
+   "t": 9.04,
+   "d": 0.325,
+   "text": "تسوي"
+  },
+  {
+   "t": 9.385,
+   "d": 0.325,
+   "text": "شاهي",
+   "hot": true,
+   "icon": "🫖"
+  },
+  {
+   "t": 9.73,
+   "d": 0.387,
+   "text": "وتبيع"
+  },
+  {
+   "t": 10.137,
+   "d": 0.387,
+   "text": "للناس",
+   "icon": "👥"
+  },
+  {
+   "t": 10.767,
+   "d": 0.443,
+   "text": "الشاهي"
+  },
+  {
+   "t": 11.23,
+   "d": 0.565,
+   "text": "راح تسويه"
+  },
+  {
+   "t": 11.815,
+   "d": 0.382,
+   "text": "من هنا"
+  },
+  {
+   "t": 12.467,
+   "d": 0.548,
+   "text": "عشان تسوي"
+  },
+  {
+   "t": 13.034,
+   "d": 0.311,
+   "text": "شاهي",
+   "hot": true
+  },
+  {
+   "t": 13.365,
+   "d": 0.429,
+   "text": "راح تجي",
+   "icon": "🏃"
+  },
+  {
+   "t": 13.815,
+   "d": 0.252,
+   "text": "هنا"
+  },
+  {
+   "t": 14.333,
+   "d": 0.37,
+   "text": "وتسوي"
+  },
+  {
+   "t": 14.724,
+   "d": 0.43,
+   "text": "الشاهي"
+  },
+  {
+   "t": 15.4,
+   "d": 0.274,
+   "text": "وراح"
+  },
+  {
+   "t": 15.694,
+   "d": 0.274,
+   "text": "تروح"
+  },
+  {
+   "t": 15.988,
+   "d": 0.326,
+   "text": "تسلمه",
+   "icon": "🤝"
+  },
+  {
+   "t": 16.334,
+   "d": 0.326,
+   "text": "من هنا"
+  },
+  {
+   "t": 16.933,
+   "d": 0.458,
+   "text": "والمميز"
+  },
+  {
+   "t": 17.412,
+   "d": 0.403,
+   "text": "بالماب"
+  },
+  {
+   "t": 17.835,
+   "d": 0.18,
+   "text": "مو"
+  },
+  {
+   "t": 18.035,
+   "d": 0.403,
+   "text": "الفكرة"
+  },
+  {
+   "t": 18.458,
+   "d": 0.403,
+   "text": "المميز"
+  },
+  {
+   "t": 18.88,
+   "d": 0.18,
+   "text": "هي"
+  },
+  {
+   "t": 19.081,
+   "d": 0.403,
+   "text": "المهام",
+   "hot": true,
+   "icon": "📋"
+  },
+  {
+   "t": 19.733,
+   "d": 0.407,
+   "text": "الماب"
+  },
+  {
+   "t": 20.16,
+   "d": 0.407,
+   "text": "مليان"
+  },
+  {
+   "t": 20.587,
+   "d": 0.342,
+   "text": "مهام"
+  },
+  {
+   "t": 20.949,
+   "d": 0.277,
+   "text": "مرة"
+  },
+  {
+   "t": 21.246,
+   "d": 0.407,
+   "text": "كثيرة"
+  },
+  {
+   "t": 21.673,
+   "d": 0.407,
+   "text": "ومهام"
+  },
+  {
+   "t": 22.099,
+   "d": 0.277,
+   "text": "مرة"
+  },
+  {
+   "t": 22.397,
+   "d": 0.407,
+   "text": "جامدة",
+   "hot": true,
+   "icon": "🔥"
+  },
+  {
+   "t": 23.067,
+   "d": 0.321,
+   "text": "عندك"
+  },
+  {
+   "t": 23.408,
+   "d": 0.321,
+   "text": "مهمة",
+   "icon": "✅"
+  },
+  {
+   "t": 23.749,
+   "d": 0.321,
+   "text": "شاهي",
+   "hot": true
+  },
+  {
+   "t": 24.091,
+   "d": 0.26,
+   "text": "ابو"
+  },
+  {
+   "t": 24.371,
+   "d": 0.26,
+   "text": "فهد",
+   "icon": "🧔"
+  },
+  {
+   "t": 24.651,
+   "d": 0.443,
+   "text": "المهمة"
+  },
+  {
+   "t": 25.115,
+   "d": 0.26,
+   "text": "هاي"
+  },
+  {
+   "t": 25.395,
+   "d": 0.26,
+   "text": "مرة"
+  },
+  {
+   "t": 25.675,
+   "d": 0.321,
+   "text": "حلوة",
+   "icon": "😍"
+  },
+  {
+   "t": 26.267,
+   "d": 0.422,
+   "text": "والماب"
+  },
+  {
+   "t": 26.709,
+   "d": 0.306,
+   "text": "كمان"
+  },
+  {
+   "t": 27.034,
+   "d": 0.247,
+   "text": "فيه"
+  },
+  {
+   "t": 27.302,
+   "d": 0.364,
+   "text": "الغاز",
+   "hot": true,
+   "icon": "🧩"
+  },
+  {
+   "t": 27.685,
+   "d": 0.247,
+   "text": "مرة"
+  },
+  {
+   "t": 27.953,
+   "d": 0.306,
+   "text": "كثير"
+  },
+  {
+   "t": 28.278,
+   "d": 0.538,
+   "text": "مثل الرقم"
+  },
+  {
+   "t": 28.837,
+   "d": 0.48,
+   "text": "المجهول",
+   "hot": true,
+   "icon": "@mystery"
+  },
+  {
+   "t": 29.567,
+   "d": 0.227,
+   "text": "هاي"
+  },
+  {
+   "t": 29.814,
+   "d": 0.281,
+   "text": "مهمة"
+  },
+  {
+   "t": 30.114,
+   "d": 0.227,
+   "text": "لغز",
+   "icon": "🔐"
+  },
+  {
+   "t": 30.361,
+   "d": 0.334,
+   "text": "الرقم"
+  },
+  {
+   "t": 30.715,
+   "d": 0.442,
+   "text": "المجهول",
+   "hot": true
+  },
+  {
+   "t": 31.433,
+   "d": 0.424,
+   "text": "الماب"
+  },
+  {
+   "t": 31.877,
+   "d": 0.289,
+   "text": "مرة"
+  },
+  {
+   "t": 32.187,
+   "d": 0.357,
+   "text": "جامد",
+   "hot": true
+  },
+  {
+   "t": 32.563,
+   "d": 0.491,
+   "text": "انصحكم",
+   "icon": "👍"
+  },
+  {
+   "t": 33.074,
+   "d": 0.357,
+   "text": "انكم"
+  },
+  {
+   "t": 33.451,
+   "d": 0.558,
+   "text": "تلعبونه",
+   "icon": "🕹️"
+  },
+  {
+   "t": 34.029,
+   "d": 0.289,
+   "text": "اسم"
+  },
+  {
+   "t": 34.339,
+   "d": 0.424,
+   "text": "الماب"
+  },
+  {
+   "t": 34.783,
+   "d": 0.357,
+   "text": "تاجر",
+   "hot": true
+  },
+  {
+   "t": 35.159,
+   "d": 0.424,
+   "text": "الشاي",
+   "hot": true
+  }
+ ],
+ "stickers": []
+}

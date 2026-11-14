@@ -40,7 +40,7 @@ const Root = () => (
     defaultProps={mafqood}
     durationInFrames={Math.round(mafqood.duration * FPS)}
   />
-  <Composition id="IconSheet" component={IconSheet} fps={30} width={1800} height={700} durationInFrames={1} />
+  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={700} durationInFrames={1} />
   </>
 );
 

@@ -42,6 +42,8 @@ dims = {k: probe("public/" + v) for k, v in videos.items() if not v.endswith((".
 
 segments, words, jobs, t, used_icons = [], [], [], 0.0, set()
 for i, s in enumerate(cfg["segments"]):
+    if "start" not in s:  # picture in sync with the voice line
+        s["start"] = round(s["say"][0] - PRE, 3)
     W, H = dims[s["video"]]
     if "say" in s:
         a, b = s["say"]

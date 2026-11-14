@@ -89,10 +89,55 @@ const Calendar = () => (
   </svg>
 );
 
+// Gulf istikana tea glass on a saucer, for tea.
+const Istikana = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <path d="M96 22 C86 34 106 42 96 56 M122 16 C112 30 132 38 122 54 M148 22 C138 34 158 42 148 56" fill="none" stroke="#fff" strokeWidth="8" strokeLinecap="round" opacity="0.9" />
+    <ellipse cx="120" cy="208" rx="92" ry="18" fill="#fff" stroke="#111" strokeWidth="9" />
+    <ellipse cx="120" cy="204" rx="50" ry="8" fill="#e8e3da" />
+    <path d="M70 66 H170 C170 104 140 118 140 136 C140 156 168 168 166 200 H74 C72 168 100 156 100 136 C100 118 70 104 70 66 Z" fill="#ffffffcc" stroke="#111" strokeWidth="9" strokeLinejoin="round" />
+    <path d="M80 92 H160 C154 110 134 120 134 136 C134 156 158 166 158 192 H82 C82 166 106 156 106 136 C106 120 86 110 80 92 Z" fill="#c4410f" />
+    <path d="M88 100 C92 108 100 114 104 122" stroke="#ffb07a" strokeWidth="7" strokeLinecap="round" fill="none" />
+    <rect x="66" y="60" width="108" height="12" rx="6" fill="#f2c230" stroke="#111" strokeWidth="6" />
+  </svg>
+);
+
+// Orange teapot with a stack of coins, for the tea trader.
+const TeaTrader = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <path d="M150 112 C186 96 206 70 214 56 C218 70 206 112 168 144" fill="#ff8a1f" stroke="#111" strokeWidth="9" strokeLinejoin="round" />
+    <path d="M58 104 C30 104 26 158 64 160" fill="none" stroke="#111" strokeWidth="22" strokeLinecap="round" />
+    <path d="M58 104 C30 104 26 158 64 160" fill="none" stroke="#ff8a1f" strokeWidth="10" strokeLinecap="round" />
+    <path d="M56 96 H164 C176 130 172 176 150 196 H70 C48 176 44 130 56 96 Z" fill="#ff8a1f" stroke="#111" strokeWidth="9" strokeLinejoin="round" />
+    <path d="M70 96 C74 70 146 70 150 96 Z" fill="#ffa64d" stroke="#111" strokeWidth="9" strokeLinejoin="round" />
+    <circle cx="110" cy="66" r="11" fill="#ffa64d" stroke="#111" strokeWidth="8" />
+    <path d="M74 118 C72 140 76 160 84 176" stroke="#ffc58f" strokeWidth="8" strokeLinecap="round" fill="none" />
+    {[0, 1, 2].map((i) => (
+      <g key={i}>
+        <ellipse cx="184" cy={212 - i * 18} rx="40" ry="13" fill="#f6c431" stroke="#111" strokeWidth="7" />
+      </g>
+    ))}
+    <text x="184" y="184" textAnchor="middle" fontFamily={FONT} fontSize="22" fill="#8a5a00">$</text>
+  </svg>
+);
+
+// Purple badge with a big question mark over hidden digits, for the "unknown number" puzzle.
+const Mystery = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <rect x="34" y="20" width="172" height="204" rx="30" fill="#6b2fd6" stroke="#111" strokeWidth="9" />
+    <rect x="54" y="168" width="132" height="38" rx="10" fill="#1d1238" stroke="#111" strokeWidth="5" />
+    <text x="120" y="197" textAnchor="middle" fontFamily={FONT} fontSize="30" fill="#ffd21f" letterSpacing="6">* * *</text>
+    <text x="120" y="150" textAnchor="middle" fontFamily={FONT} fontSize="150" fill="#fff" stroke="#111" strokeWidth="9" paintOrder="stroke">؟</text>
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
   studio: Studio,
   new: New,
   calendar: Calendar,
+  istikana: Istikana,
+  'tea-trader': TeaTrader,
+  mystery: Mystery,
 };
