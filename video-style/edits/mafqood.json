@@ -2,25 +2,117 @@
   "name": "mafqood",
   "out": "src/edit-mafqood.json",
   "accent": "#ff2340",
-  "title": ["افضل", "ماب رعب", "عربي"],
-  "hot": ["افضل", "رعب", "عربي", "جامد", "سما", "تلعبونه"],
+  "title": [
+    "افضل",
+    "ماب رعب",
+    "عربي"
+  ],
+  "hot": [
+    "افضل",
+    "رعب",
+    "عربي",
+    "جامد",
+    "سما",
+    "تلعبونه"
+  ],
   "icons": {
-    "افضل": "🏆", "عربي": "@arabic", "رعب": "@ghost-shmagh", "روبلوكس": "🎮",
-    "ستوديو": "@studio", "جامد": "🔥", "انصحكم": "👍", "تلعبونه": "🕹️", "لقطات": "🎬"
+    "افضل": "🏆",
+    "عربي": "@arabic",
+    "رعب": "@ghost-shmagh",
+    "روبلوكس": "🎮",
+    "ستوديو": "@studio",
+    "جامد": "🔥",
+    "انصحكم": "👍",
+    "تلعبونه": "🕹️",
+    "لقطات": "🎬"
   },
   "stickers": [
-    {"src": "v3", "t": 3.0, "icon": "📱"},
-    {"src": "v3", "t": 7.0, "icon": "@new"},
-    {"src": "v3", "t": 12.2, "icon": "😱"},
-    {"src": "v3", "t": 19.6, "icon": "@calendar"}
+    {
+      "src": "v3",
+      "t": 3.0,
+      "icon": "📱"
+    },
+    {
+      "src": "v3",
+      "t": 7.0,
+      "icon": "@new"
+    },
+    {
+      "src": "v3",
+      "t": 12.2,
+      "icon": "😱"
+    },
+    {
+      "src": "v3",
+      "t": 19.6,
+      "icon": "@calendar"
+    }
   ],
-  "videos": {"v2": "mafqood/v2.mp4", "v3": "mafqood/v3.mp4", "voice": "mafqood/voice.m4a"},
+  "videos": {
+    "v2": "mafqood/v2.mp4",
+    "v3": "mafqood/v3.mp4",
+    "voice": "mafqood/voice.m4a"
+  },
   "segments": [
-    {"video": "v2", "start": 18.0, "dur": 2.2, "frame": "fill", "kind": "title"},
-    {"video": "v2", "start": 4.0, "voice": "voice", "say": [1.23, 3.96], "frame": "fill", "text": "هذا افضل ماب عربي رعب نزل الى الان"},
-    {"video": "v2", "start": 9.0, "voice": "voice", "say": [5.07, 6.77], "frame": "fill", "text": "في روبلوكس الماب من سما ستوديو"},
-    {"video": "v2", "start": 24.0, "voice": "voice", "say": [16.24, 19.06], "frame": "fill", "text": "الماب رعب والماب مرة جامد انصحكم انكم تلعبونه"},
-    {"video": "v2", "start": 42.0, "voice": "voice", "say": [20.05, 21.12], "frame": "fill", "text": "وهذي لقطات من الماب"},
-    {"video": "v3", "start": 0, "dur": 24.5, "frame": "fit", "audio": 1.0, "kind": "outro"}
+    {
+      "video": "v2",
+      "start": 18.0,
+      "dur": 2.2,
+      "frame": "fill",
+      "kind": "title"
+    },
+    {
+      "video": "v2",
+      "start": 4.0,
+      "voice": "voice",
+      "say": [
+        1.23,
+        3.96
+      ],
+      "frame": "fill",
+      "text": "هذا افضل ماب عربي رعب نزل الى الان"
+    },
+    {
+      "video": "v2",
+      "start": 9.0,
+      "voice": "voice",
+      "say": [
+        5.07,
+        6.77
+      ],
+      "frame": "fill",
+      "text": "في روبلوكس الماب من سما ستوديو"
+    },
+    {
+      "video": "v2",
+      "start": 24.0,
+      "voice": "voice",
+      "say": [
+        16.24,
+        19.06
+      ],
+      "frame": "fill",
+      "text": "الماب رعب والماب مرة جامد انصحكم انكم تلعبونه"
+    },
+    {
+      "video": "v2",
+      "start": 42.0,
+      "voice": "voice",
+      "say": [
+        20.05,
+        21.12
+      ],
+      "frame": "fill",
+      "text": "وهذي لقطات من الماب"
+    },
+    {
+      "video": "v3",
+      "start": 0,
+      "dur": 24.5,
+      "frame": "fit",
+      "audio": 1.0,
+      "kind": "outro",
+      "w": 460
+    }
   ]
 }
