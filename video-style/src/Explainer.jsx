@@ -15,6 +15,7 @@ import {
 import '@fontsource/lalezar/arabic-400.css';
 import '@fontsource/lalezar/latin-400.css';
 import '@fontsource/noto-color-emoji/emoji-400.css';
+import {CUSTOM_ICONS} from './icons';
 
 const FONT = 'Lalezar';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'};
@@ -67,8 +68,11 @@ const Placeholder = ({accent}) => {
 };
 
 // One source clip framed for 9:16: "fill" crops full-bleed, "fit" shows a wider area over a blurred copy.
+// `seg.src` overrides the composition video; `seg.audio` ({src, from, volume}) plays a separate sound,
+// e.g. a voice recorded on its own over other footage.
 const Clip = ({video, seg, zoom}) => {
   const {fps} = useVideoConfig();
+  const source = seg.src || video;
   const startFrom = Math.round(seg.from * fps);
   const fill = {height: 1920, width: (1920 * 16) / 9};
   const at = (box, x, cy) => ({
@@ -79,41 +83,43 @@ const Clip = ({video, seg, zoom}) => {
     top: cy - box.height / 2,
     maxWidth: 'none',
   });
-  const sound = seg.clip ? <Audio src={src(video)} startFrom={startFrom} volume={seg.volume} /> : null;
+  const legacyAudio = seg.clip && !('audio' in seg) ? {src: video, from: seg.from, volume: seg.volume} : null;
+  const a = seg.audio || legacyAudio;
+  const sound = a ? <Audio src={src(a.src)} startFrom={Math.round(a.from * fps)} volume={a.volume} /> : null;
   if (seg.mode !== 'fit') {
     return (
       <AbsoluteFill style={{transform: `scale(${zoom})`}}>
         {seg.clip ? (
           <OffthreadVideo src={src(seg.clip)} muted style={{width: '100%', height: '100%', objectFit: 'cover'}} />
         ) : (
-          <OffthreadVideo src={src(video)} startFrom={startFrom} volume={seg.volume} style={at(fill, seg.x, 960)} />
+          <OffthreadVideo src={src(source)} startFrom={startFrom} volume={seg.volume} style={at(fill, seg.x, 960)} />
         )}
         {sound}
       </AbsoluteFill>
     );
   }
-  const k = 1080 / seg.w;
+  const h = seg.h || (720 * 1080) / seg.w;
   return (
     <AbsoluteFill>
       <OffthreadVideo
-        src={src(video)}
+        src={src(source)}
         startFrom={startFrom}
         muted
-        style={{...at(fill, seg.x, 960), filter: 'blur(28px) brightness(0.45) saturate(1.3)'}}
+        style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(28px) brightness(0.45) saturate(1.3)', transform: 'scale(1.15)'}}
       />
       <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '50% 44%'}}>
         {seg.clip ? (
           <OffthreadVideo
             src={src(seg.clip)}
             muted
-            style={{position: 'absolute', left: 0, width: 1080, top: 850 - 360 * k, boxShadow: '0 0 90px #000'}}
+            style={{position: 'absolute', left: 0, width: 1080, top: 850 - h / 2, boxShadow: '0 0 90px #000'}}
           />
         ) : (
           <OffthreadVideo
-            src={src(video)}
+            src={src(source)}
             startFrom={startFrom}
             volume={seg.volume}
-            style={{...at({width: 1280 * k, height: 720 * k}, seg.x, 850), boxShadow: '0 0 90px #000'}}
+            style={{...at({width: (1280 * 1080) / seg.w, height: h}, seg.x, 850), boxShadow: '0 0 90px #000'}}
           />
         )}
         {sound}
@@ -270,10 +276,15 @@ const Caption = ({words, accent}) => {
 };
 
 // Emoji sticker that pops in beside the subject when its word is spoken.
-const Icons = ({words}) => {
+const CustomIcon = ({name}) => {
+  const C = CUSTOM_ICONS[name];
+  return C ? <div style={{width: 230, height: 230, display: 'inline-block'}}><C /></div> : null;
+};
+
+const Icons = ({words, stickers = []}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const list = words.filter((w) => w.icon);
+  const list = [...words.filter((w) => w.icon), ...stickers].sort((x, y) => x.t - y.t);
   return (
     <AbsoluteFill>
       {list.map((w, i) => {
@@ -289,8 +300,8 @@ const Icons = ({words}) => {
             key={i}
             style={{
               position: 'absolute',
-              top: 800 + (i % 3) * 60,
-              left: 540 + side * 330 - 120,
+              top: 470 + (i % 3) * 50,
+              left: 540 + side * 280 - 120,
               width: 240,
               textAlign: 'center',
               fontFamily: '"Noto Color Emoji"',
@@ -301,7 +312,7 @@ const Icons = ({words}) => {
               filter: 'drop-shadow(0 10px 0 #000) drop-shadow(0 0 26px #000a)',
             }}
           >
-            {w.icon}
+            {w.icon.startsWith('@') ? <CustomIcon name={w.icon.slice(1)} /> : w.icon}
           </div>
         );
       })}
@@ -312,24 +323,28 @@ const Icons = ({words}) => {
 // House music bed, used by every edit unless a composition passes `music: null` or another file.
 export const DEFAULT_MUSIC = 'music/default.m4a';
 
-export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, cuts = []}) => {
+export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, stickers = [], cuts = []}) => {
   const {durationInFrames} = useVideoConfig();
-  useFont(words.map((w) => w.icon || '').join(''));
+  useFont([...words, ...stickers].map((w) => (w.icon && !w.icon.startsWith('@') ? w.icon : '')).join(''));
   const {fps} = useVideoConfig();
+  // Lower the music under segments that carry their own soundtrack (kind "outro").
+  const ducked = (segments || []).filter((g) => g.kind === 'outro').map((g) => [g.at * fps, (g.at + g.dur) * fps]);
+  const duck = (f) =>
+    ducked.reduce((v, [a, b]) => v * (1 - 0.8 * interpolate(f, [a - 8, a + 8], [0, 1], clamp) * interpolate(f, [b - 8, b + 8], [1, 0], clamp)), 1);
   return (
     <AbsoluteFill style={{background: '#000'}}>
       <Footage video={video} accent={accent} cuts={cuts} segments={segments} />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 38%, #000000e6 100%)'}} />
       <Title lines={title} end={titleEnd} accent={accent} />
       <Glitch at={Math.round(titleEnd * fps)} accent={accent} />
-      <Icons words={words} />
+      <Icons words={words} stickers={stickers} />
       <Caption words={words} accent={accent} />
       {audio ? <Audio src={src(audio)} /> : null}
       {music ? (
         <Audio
           src={src(music)}
           loop
-          volume={(f) => musicVolume * interpolate(f, [durationInFrames - 30, durationInFrames], [1, 0], clamp)}
+          volume={(f) => musicVolume * duck(f) * interpolate(f, [durationInFrames - 30, durationInFrames], [1, 0], clamp)}
         />
       ) : null}
     </AbsoluteFill>

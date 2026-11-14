@@ -1,0 +1,245 @@
+{
+ "accent": "#ff2340",
+ "video": null,
+ "title": [
+  "افضل",
+  "ماب رعب",
+  "عربي"
+ ],
+ "titleEnd": 2.2,
+ "duration": 35.967,
+ "segments": [
+  {
+   "at": 0.0,
+   "dur": 2.2,
+   "src": "mafqood/v2.mp4",
+   "from": 18.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "mafqood/sr/seg_00.mp4",
+   "audio": null,
+   "kind": "title"
+  },
+  {
+   "at": 2.2,
+   "dur": 2.966666666666667,
+   "src": "mafqood/v2.mp4",
+   "from": 4.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "mafqood/sr/seg_01.mp4",
+   "audio": {
+    "src": "mafqood/voice.m4a",
+    "from": 1.13,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 5.167,
+   "dur": 1.9333333333333333,
+   "src": "mafqood/v2.mp4",
+   "from": 9.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "mafqood/sr/seg_02.mp4",
+   "audio": {
+    "src": "mafqood/voice.m4a",
+    "from": 4.97,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 7.1,
+   "dur": 3.066666666666667,
+   "src": "mafqood/v2.mp4",
+   "from": 24.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "mafqood/sr/seg_03.mp4",
+   "audio": {
+    "src": "mafqood/voice.m4a",
+    "from": 16.14,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 10.167,
+   "dur": 1.3,
+   "src": "mafqood/v2.mp4",
+   "from": 42.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "mafqood/sr/seg_04.mp4",
+   "audio": {
+    "src": "mafqood/voice.m4a",
+    "from": 19.95,
+    "volume": 1.7
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 11.467,
+   "dur": 24.5,
+   "src": "mafqood/v3.mp4",
+   "from": 0,
+   "mode": "fit",
+   "h": 610,
+   "clip": "mafqood/sr/seg_05.mp4",
+   "audio": {
+    "src": "mafqood/v3.mp4",
+    "from": 0,
+    "volume": 1.0
+   },
+   "kind": "outro"
+  }
+ ],
+ "words": [
+  {
+   "t": 2.3,
+   "d": 0.309,
+   "text": "هذا"
+  },
+  {
+   "t": 2.629,
+   "d": 0.38,
+   "text": "افضل",
+   "hot": true,
+   "icon": "🏆"
+  },
+  {
+   "t": 3.029,
+   "d": 0.309,
+   "text": "ماب"
+  },
+  {
+   "t": 3.358,
+   "d": 0.38,
+   "text": "عربي",
+   "hot": true,
+   "icon": "@arabic"
+  },
+  {
+   "t": 3.758,
+   "d": 0.309,
+   "text": "رعب",
+   "hot": true,
+   "icon": "@ghost-shmagh"
+  },
+  {
+   "t": 4.087,
+   "d": 0.309,
+   "text": "نزل"
+  },
+  {
+   "t": 4.415,
+   "d": 0.595,
+   "text": "الى الان"
+  },
+  {
+   "t": 5.267,
+   "d": 0.554,
+   "text": "في روبلوكس",
+   "icon": "🎮"
+  },
+  {
+   "t": 5.841,
+   "d": 0.337,
+   "text": "الماب"
+  },
+  {
+   "t": 6.198,
+   "d": 0.337,
+   "text": "من سما",
+   "hot": true
+  },
+  {
+   "t": 6.555,
+   "d": 0.391,
+   "text": "ستوديو",
+   "icon": "@studio"
+  },
+  {
+   "t": 7.2,
+   "d": 0.346,
+   "text": "الماب"
+  },
+  {
+   "t": 7.566,
+   "d": 0.235,
+   "text": "رعب",
+   "hot": true
+  },
+  {
+   "t": 7.822,
+   "d": 0.402,
+   "text": "والماب"
+  },
+  {
+   "t": 8.244,
+   "d": 0.235,
+   "text": "مرة"
+  },
+  {
+   "t": 8.499,
+   "d": 0.291,
+   "text": "جامد",
+   "hot": true,
+   "icon": "🔥"
+  },
+  {
+   "t": 8.81,
+   "d": 0.402,
+   "text": "انصحكم",
+   "icon": "👍"
+  },
+  {
+   "t": 9.232,
+   "d": 0.291,
+   "text": "انكم"
+  },
+  {
+   "t": 9.543,
+   "d": 0.457,
+   "text": "تلعبونه",
+   "hot": true,
+   "icon": "🕹️"
+  },
+  {
+   "t": 10.267,
+   "d": 0.268,
+   "text": "وهذي"
+  },
+  {
+   "t": 10.555,
+   "d": 0.32,
+   "text": "لقطات",
+   "icon": "🎬"
+  },
+  {
+   "t": 10.894,
+   "d": 0.422,
+   "text": "من الماب"
+  }
+ ],
+ "stickers": [
+  {
+   "t": 14.467,
+   "icon": "📱"
+  },
+  {
+   "t": 18.467,
+   "icon": "@new"
+  },
+  {
+   "t": 23.667,
+   "icon": "😱"
+  },
+  {
+   "t": 31.067,
+   "icon": "@calendar"
+  }
+ ]
+}
