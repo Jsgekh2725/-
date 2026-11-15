@@ -6,6 +6,7 @@ import demo from './demo.json';
 import edit from './edit.json';
 import mafqood from './edit-mafqood.json';
 import teatrader from './edit-teatrader.json';
+import akharharf from './edit-akharharf.json';
 
 const FPS = 30;
 
@@ -50,7 +51,16 @@ const Root = () => (
     defaultProps={teatrader}
     durationInFrames={Math.round(teatrader.duration * FPS)}
   />
-  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={700} durationInFrames={1} />
+  <Composition
+    id="AkharHarf"
+    component={Explainer}
+    fps={FPS}
+    width={1080}
+    height={1920}
+    defaultProps={akharharf}
+    durationInFrames={Math.round(akharharf.duration * FPS)}
+  />
+  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1000} durationInFrames={1} />
   </>
 );
 

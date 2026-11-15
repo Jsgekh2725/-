@@ -131,6 +131,58 @@ const Mystery = () => (
   </svg>
 );
 
+// Wooden letter tile, shared by the word-game icons.
+const Tile = ({x, y, size = 80, letter, hot = false}) => (
+  <g>
+    <rect x={x} y={y + 6} width={size} height={size} rx="12" fill="#7a4a17" />
+    <rect x={x} y={y} width={size} height={size} rx="12" fill={hot ? '#ffcc00' : '#f3d29a'} stroke="#111" strokeWidth="7" />
+    <text x={x + size / 2} y={y + size * 0.74} textAnchor="middle" fontFamily={FONT} fontSize={size * 0.7} fill="#111">{letter}</text>
+  </g>
+);
+
+// "Last letter" chain: the word's last letter starts the next word.
+const LastLetter = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <Tile x={128} y={22} letter="ق" />
+    <Tile x={40} y={22} letter="م" hot />
+    <path d="M70 116 C60 150 80 172 112 176" fill="none" stroke="#fff" strokeWidth="18" strokeLinecap="round" />
+    <path d="M70 116 C60 150 80 172 112 176" fill="none" stroke="#111" strokeWidth="8" strokeLinecap="round" />
+    <path d="M100 160 L124 178 L100 196" fill="none" stroke="#111" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+    <Tile x={132} y={136} letter="م" hot />
+  </svg>
+);
+
+// Green refresh badge reading "تحديث".
+const Update = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <circle cx="120" cy="120" r="102" fill="#19b35a" stroke="#111" strokeWidth="9" />
+    <path d="M58 104 A66 66 0 0 1 176 88" fill="none" stroke="#fff" strokeWidth="14" strokeLinecap="round" />
+    <path d="M182 136 A66 66 0 0 1 64 152" fill="none" stroke="#fff" strokeWidth="14" strokeLinecap="round" />
+    <path d="M160 66 L182 90 L150 98 Z" fill="#fff" />
+    <path d="M80 174 L58 150 L90 142 Z" fill="#fff" />
+    <text x="120" y="138" textAnchor="middle" fontFamily={FONT} fontSize="52" fill="#fff" stroke="#111" strokeWidth="7" paintOrder="stroke">تحديث</text>
+  </svg>
+);
+
+// "برا السالفة": two chatting bubbles and one lost "؟" bubble left outside.
+const BaraSalfa = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <path d="M24 30 H124 A14 14 0 0 1 138 44 V92 A14 14 0 0 1 124 106 H60 L40 126 L44 106 H24 A14 14 0 0 1 10 92 V44 A14 14 0 0 1 24 30 Z" fill="#fff" stroke="#111" strokeWidth="7" />
+    <circle cx="48" cy="68" r="8" fill="#111" /><circle cx="74" cy="68" r="8" fill="#111" /><circle cx="100" cy="68" r="8" fill="#111" />
+    <path d="M150 50 H218 A12 12 0 0 1 230 62 V98 A12 12 0 0 1 218 110 H206 L210 126 L190 110 H150 A12 12 0 0 1 138 98 V62 A12 12 0 0 1 150 50 Z" fill="#fff" stroke="#111" strokeWidth="7" />
+    <circle cx="164" cy="80" r="7" fill="#111" /><circle cx="184" cy="80" r="7" fill="#111" /><circle cx="204" cy="80" r="7" fill="#111" />
+    <path d="M86 140 H190 A16 16 0 0 1 206 156 V206 A16 16 0 0 1 190 222 H86 A16 16 0 0 1 70 206 V156 A16 16 0 0 1 86 140 Z" fill="#ff2340" stroke="#111" strokeWidth="8" />
+    <text x="138" y="208" textAnchor="middle" fontFamily={FONT} fontSize="78" fill="#fff" stroke="#111" strokeWidth="6" paintOrder="stroke">؟</text>
+  </svg>
+);
+
+// A single tile with the letter و.
+const WawTile = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <Tile x={40} y={34} size={160} letter="و" hot />
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
@@ -140,4 +192,8 @@ export const CUSTOM_ICONS = {
   istikana: Istikana,
   'tea-trader': TeaTrader,
   mystery: Mystery,
+  'last-letter': LastLetter,
+  update: Update,
+  'bara-salfa': BaraSalfa,
+  'waw-tile': WawTile,
 };
