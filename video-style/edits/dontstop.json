@@ -173,9 +173,10 @@
       "video": "clips",
       "start": 49.9,
       "dur": 3.8,
-      "frame": "fill",
+      "frame": "fit",
       "kind": "broll",
-      "music_gain": 2.6
+      "music_gain": 2.6,
+      "w": 1280
     }
   ],
   "sfx": [
