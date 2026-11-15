@@ -8,6 +8,7 @@ import mafqood from './edit-mafqood.json';
 import teatrader from './edit-teatrader.json';
 import akharharf from './edit-akharharf.json';
 import rank3 from './edit-rank3.json';
+import dontstop from './edit-dontstop.json';
 
 const FPS = 30;
 
@@ -70,7 +71,16 @@ const Root = () => (
     defaultProps={rank3}
     durationInFrames={Math.round(rank3.duration * FPS)}
   />
-  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1000} durationInFrames={1} />
+  <Composition
+    id="DontStop"
+    component={Explainer}
+    fps={FPS}
+    width={1080}
+    height={1920}
+    defaultProps={dontstop}
+    durationInFrames={Math.round(dontstop.duration * FPS)}
+  />
+  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1300} durationInFrames={1} />
   </>
 );
 

@@ -333,9 +333,11 @@ export const Explainer = ({title, titleEnd, words, accent, video, audio, music =
   useFont([...words, ...stickers].map((w) => (w.icon && !w.icon.startsWith('@') ? w.icon : '')).join(''));
   const {fps} = useVideoConfig();
   // Lower the music under segments that carry their own soundtrack (kind "outro").
-  const ducked = (segments || []).filter((g) => g.kind === 'outro').map((g) => [g.at * fps, (g.at + g.dur) * fps]);
+  // Music level per segment: "outro" segments (their own soundtrack) drop to 20%, and any segment can set
+  // musicGain (e.g. louder under a wordless montage). Changes ramp over ~8 frames.
+  const gains = (segments || []).map((g) => [g.at * fps, (g.at + g.dur) * fps, g.musicGain ?? (g.kind === 'outro' ? 0.2 : 1)]);
   const duck = (f) =>
-    ducked.reduce((v, [a, b]) => v * (1 - 0.8 * interpolate(f, [a - 8, a + 8], [0, 1], clamp) * interpolate(f, [b - 8, b + 8], [1, 0], clamp)), 1);
+    gains.reduce((v, [a, b, k]) => v * (1 + (k - 1) * interpolate(f, [a - 8, a + 8], [0, 1], clamp) * interpolate(f, [b - 8, b + 8], [1, 0], clamp)), 1);
   return (
     <AbsoluteFill style={{background: '#000'}}>
       <Footage video={video} accent={accent} cuts={cuts} segments={segments} />

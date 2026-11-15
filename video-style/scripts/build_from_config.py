@@ -12,7 +12,7 @@ import sys
 
 FPS = 30
 PRE, POST = 0.10, 0.14
-GLUE = {"او", "في", "من", "ما", "لما", "هو", "مثل", "عشان", "راح", "الى"}  # shown together with the next word
+GLUE = {"او", "في", "من", "ما", "لما", "هو", "مثل", "عشان", "راح", "الى", "مع", "يا"}  # shown together with the next word
 OUT_W = 1296  # upscale target width: 1.2x the 1080 frame, so punch-ins stay sharp
 
 
@@ -65,7 +65,8 @@ for i, s in enumerate(cfg["segments"]):
     jobs.append(f"public/{videos[s['video']]} {s['start']} {dur} {cx}:0:{cw}:{H} {OUT_W} {oh} public/{clip}"
                 + (" fast" if s.get("fast") else ""))  # "fast": picture is covered/blurred, skip the AI model
     segments.append({"at": round(t, 3), "dur": dur, "src": videos[s["video"]], "from": s["start"], "mode": s["frame"],
-                     "h": round(1080 * H / cw), "clip": clip, "audio": audio, "kind": s.get("kind", "talk")})
+                     "h": round(1080 * H / cw), "clip": clip, "audio": audio, "kind": s.get("kind", "talk"),
+                     **({"musicGain": s["music_gain"]} if "music_gain" in s else {})})
     if s.get("text"):
         groups = caption_groups(s["text"])
         weights = [len(g.replace(" ", "")) + 1.6 for g in groups]

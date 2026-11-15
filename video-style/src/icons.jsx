@@ -196,6 +196,61 @@ const PodiumIcon = () => (
   </svg>
 );
 
+// Stop sign reading "قف" with a big green X over it: "don't stop".
+const DontStop = () => {
+  const oct = Array.from({length: 8}, (_, i) => {
+    const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
+    return `${120 + Math.cos(a) * 100},${120 + Math.sin(a) * 100}`;
+  }).join(' ');
+  return (
+    <svg viewBox="0 0 240 240" width="100%" height="100%">
+      <polygon points={oct} fill="#e3202b" stroke="#111" strokeWidth="9" strokeLinejoin="round" />
+      <polygon points={oct} fill="none" stroke="#fff" strokeWidth="6" transform="translate(120 120) scale(0.86) translate(-120 -120)" />
+      <text x="120" y="152" textAnchor="middle" fontFamily={FONT} fontSize="96" fill="#fff" stroke="#111" strokeWidth="5" paintOrder="stroke">قف</text>
+      <path d="M30 30 L210 210" stroke="#111" strokeWidth="26" strokeLinecap="round" />
+      <path d="M30 30 L210 210" stroke="#22d36b" strokeWidth="14" strokeLinecap="round" />
+    </svg>
+  );
+};
+
+// Square maze with a red dot finding its way out.
+const Maze = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <rect x="20" y="20" width="200" height="200" rx="22" fill="#2a2440" stroke="#111" strokeWidth="9" />
+    <path
+      d="M44 44 H196 V120 M44 44 V196 H150 M76 76 H164 V164 H76 V108 M108 108 H132 V132 M196 152 V196 H182 M44 120 H60"
+      fill="none"
+      stroke="#b9a7ff"
+      strokeWidth="12"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="120" cy="120" r="12" fill="#ff3b30" stroke="#111" strokeWidth="5" />
+    <path d="M166 196 L180 180" stroke="#22d36b" strokeWidth="10" strokeLinecap="round" />
+  </svg>
+);
+
+// Green radar screen with a sweep and a red blip.
+const Radar = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <defs>
+      <radialGradient id="radarbg">
+        <stop offset="0" stopColor="#0f5a2e" />
+        <stop offset="1" stopColor="#062312" />
+      </radialGradient>
+    </defs>
+    <circle cx="120" cy="120" r="104" fill="url(#radarbg)" stroke="#111" strokeWidth="9" />
+    {[34, 64, 94].map((r) => (
+      <circle key={r} cx="120" cy="120" r={r} fill="none" stroke="#2bff88" strokeOpacity="0.45" strokeWidth="4" />
+    ))}
+    <path d="M120 24 V216 M24 120 H216" stroke="#2bff88" strokeOpacity="0.35" strokeWidth="4" />
+    <path d="M120 120 L120 26 A94 94 0 0 1 200 72 Z" fill="#2bff88" fillOpacity="0.45" />
+    <path d="M120 120 L200 72" stroke="#b6ffd5" strokeWidth="6" strokeLinecap="round" />
+    <circle cx="160" cy="70" r="12" fill="#ff3b30" stroke="#111" strokeWidth="4" />
+    <circle cx="86" cy="156" r="8" fill="#2bff88" />
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
@@ -210,4 +265,7 @@ export const CUSTOM_ICONS = {
   'bara-salfa': BaraSalfa,
   'waw-tile': WawTile,
   podium: PodiumIcon,
+  'dont-stop': DontStop,
+  maze: Maze,
+  radar: Radar,
 };

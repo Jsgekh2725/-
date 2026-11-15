@@ -1,0 +1,291 @@
+{
+  "name": "dontstop",
+  "out": "src/edit-dontstop.json",
+  "accent": "#ff3b30",
+  "title": [
+    "افضل ماب",
+    "مع اخويك",
+    "لا تتوقف"
+  ],
+  "hot": [
+    "افضل",
+    "اخويك",
+    "تتوقف",
+    "جامد",
+    "سيارة",
+    "وحش",
+    "تهرب",
+    "متاهة",
+    "تدعس",
+    "الرادار",
+    "السواق",
+    "ممتع"
+  ],
+  "icons": {
+    "افضل": "🏆",
+    "اخويك": "👬",
+    "تتوقف": "@dont-stop",
+    "جامد": "🔥",
+    "فكرة": "💡",
+    "سيارة": "🚗",
+    "لحالك": "🧍",
+    "وحش": "👹",
+    "تهرب": "🏃",
+    "بالسيارة": "💨",
+    "متاهة": "@maze",
+    "تضيعه": "👀",
+    "تدعس": "🏎️",
+    "الرادار": "@radar",
+    "بالدرب": "🗺️",
+    "تتبادلون": "🔄",
+    "السواق": "🛞",
+    "انصحكم": "👍",
+    "ممتع": "🤩",
+    "الكومنتات": "💬"
+  },
+  "videos": {
+    "main": "dontstop/main.mp4",
+    "clips": "dontstop/clips.mp4"
+  },
+  "segments": [
+    {
+      "video": "clips",
+      "start": 25.0,
+      "dur": 2.2,
+      "frame": "fill",
+      "kind": "title"
+    },
+    {
+      "video": "main",
+      "say": [
+        9.97,
+        11.91
+      ],
+      "text": "هذا افضل ماب تلعبه مع اخويك",
+      "frame": "fill"
+    },
+    {
+      "video": "main",
+      "say": [
+        13.08,
+        13.94
+      ],
+      "text": "حاليا",
+      "frame": "fill"
+    },
+    {
+      "video": "main",
+      "say": [
+        15.48,
+        16.57
+      ],
+      "text": "ماب لا تتوقف",
+      "frame": "fill"
+    },
+    {
+      "video": "clips",
+      "start": 2.0,
+      "voice": "main",
+      "say": [
+        22.92,
+        29.8
+      ],
+      "text": "الماب صراحة مرة جامد فكرة الماب انك لما تبدأ بيكون معك سيارة ويمديك تلعب يا لحالك يا مع اخويك",
+      "frame": "fill"
+    },
+    {
+      "video": "clips",
+      "start": 33.0,
+      "voice": "main",
+      "say": [
+        30.4,
+        34.45
+      ],
+      "text": "راح يكون فيه وحش يلحقك وانت لازم تهرب منه بالسيارة",
+      "frame": "fill"
+    },
+    {
+      "video": "clips",
+      "start": 44.0,
+      "voice": "main",
+      "say": [
+        41.2,
+        46.9
+      ],
+      "text": "بتكون خاش متاهة الطرق وبيكون فيه وحش يلحقك وانت لازم تضيعه",
+      "frame": "fill"
+    },
+    {
+      "video": "clips",
+      "start": 12.5,
+      "voice": "main",
+      "say": [
+        56.4,
+        59.14
+      ],
+      "text": "ولازم تدعس بالسيارة وما توقف ولا مرة",
+      "frame": "fill"
+    },
+    {
+      "video": "main",
+      "say": [
+        61.22,
+        67.0
+      ],
+      "text": "واذا معك اخويك بيكون معه الرادار ويساعدك بالدرب",
+      "frame": "fill"
+    },
+    {
+      "video": "main",
+      "say": [
+        73.46,
+        76.4
+      ],
+      "text": "ويمديكم تتبادلون الاماكن يكون هو السواق وانت الرادار",
+      "frame": "fill"
+    },
+    {
+      "video": "main",
+      "say": [
+        80.77,
+        85.95
+      ],
+      "text": "انصحكم تلعبون الماب مع اخوياكم مرة ممتع واسم الماب لا تتوقف موجود في الكومنتات",
+      "frame": "fill"
+    },
+    {
+      "video": "clips",
+      "start": 26.5,
+      "dur": 2.5,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "clips",
+      "start": 38.0,
+      "dur": 2.5,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "clips",
+      "start": 49.9,
+      "dur": 3.8,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    }
+  ],
+  "sfx": [
+    {
+      "seg": 0,
+      "at": 0.1,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.47,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.83,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 1,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 3,
+      "at": 0.05,
+      "src": "sfx/impact.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 4,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 5,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 5,
+      "at": 0.6,
+      "src": "sfx/impact.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 6,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 7,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 8,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.4
+    },
+    {
+      "seg": 11,
+      "at": -1.3,
+      "src": "sfx/riser.wav",
+      "volume": 0.35
+    },
+    {
+      "seg": 11,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 11,
+      "at": 0.02,
+      "src": "sfx/impact.wav",
+      "volume": 0.7
+    },
+    {
+      "seg": 12,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 13,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 13,
+      "at": 2.27,
+      "src": "sfx/glitch.wav",
+      "volume": 0.7
+    },
+    {
+      "seg": 13,
+      "at": 2.3,
+      "src": "sfx/impact.wav",
+      "volume": 0.8
+    }
+  ]
+}
