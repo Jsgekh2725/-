@@ -34,6 +34,14 @@ class SRVGG(nn.Module):
 
 weights, src, ss, dur, crop, outw, outh, dst = sys.argv[1:9]
 x, y, w, h = map(int, crop.split(":"))
+# Crops this wide need under ~2x enlargement; a sharpened Lanczos resize is close in quality and far faster.
+LANCZOS_FROM = 640
+if w >= LANCZOS_FROM:
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", ss, "-t", dur, "-i", src, "-vf",
+                    f"fps=30,crop={w}:{h}:{x}:{y},scale={outw}:{outh}:flags=lanczos,unsharp=5:5:0.8",
+                    "-an", "-c:v", "libx264", "-crf", "12", "-preset", "fast", "-pix_fmt", "yuv420p", dst], check=True)
+    print(f"{dst}: lanczos (crop {w}px)", flush=True)
+    sys.exit(0)
 sd = torch.load(weights, map_location="cpu", weights_only=True)
 sd = sd.get("params_ema", sd.get("params", sd))
 nc = sum(1 for k in sd if k.endswith(".weight") and sd[k].dim() == 4) - 2
