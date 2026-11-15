@@ -16,6 +16,7 @@ import '@fontsource/lalezar/arabic-400.css';
 import '@fontsource/lalezar/latin-400.css';
 import '@fontsource/noto-color-emoji/emoji-400.css';
 import {CUSTOM_ICONS} from './icons';
+import {Podium, RankCards, Sfx} from './Ranking';
 
 const FONT = 'Lalezar';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'};
@@ -85,7 +86,11 @@ const Clip = ({video, seg, zoom}) => {
   });
   const legacyAudio = seg.clip && !('audio' in seg) ? {src: video, from: seg.from, volume: seg.volume} : null;
   const a = seg.audio || legacyAudio;
-  const sound = a ? <Audio src={src(a.src)} startFrom={Math.round(a.from * fps)} volume={a.volume} /> : null;
+  const sound = a ? (
+    <Sequence durationInFrames={a.dur ? Math.round(a.dur * fps) : Infinity} layout="none">
+      <Audio src={src(a.src)} startFrom={Math.round(a.from * fps)} volume={a.volume} />
+    </Sequence>
+  ) : null;
   if (seg.mode !== 'fit') {
     return (
       <AbsoluteFill style={{transform: `scale(${zoom})`}}>
@@ -290,7 +295,7 @@ const Icons = ({words, stickers = []}) => {
       {list.map((w, i) => {
         const start = Math.round(w.t * fps);
         const next = list[i + 1] ? Math.round(list[i + 1].t * fps) : Infinity;
-        const end = Math.min(start + 30, next);
+        const end = Math.min(start + 30, next, w.iend ? Math.round(w.iend * fps) : Infinity);
         if (f < start || f >= end) return null;
         const age = f - start;
         const scale = interpolate(age, [0, 4, 8], [0.2, 1.22, 1], clamp) * interpolate(f, [end - 4, end], [1, 0.6], clamp);
@@ -323,7 +328,7 @@ const Icons = ({words, stickers = []}) => {
 // House music bed, used by every edit unless a composition passes `music: null` or another file.
 export const DEFAULT_MUSIC = 'music/default.m4a';
 
-export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, stickers = [], cuts = []}) => {
+export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, stickers = [], cards = [], podium = [], sfx = [], cuts = []}) => {
   const {durationInFrames} = useVideoConfig();
   useFont([...words, ...stickers].map((w) => (w.icon && !w.icon.startsWith('@') ? w.icon : '')).join(''));
   const {fps} = useVideoConfig();
@@ -337,9 +342,12 @@ export const Explainer = ({title, titleEnd, words, accent, video, audio, music =
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 38%, #000000e6 100%)'}} />
       <Title lines={title} end={titleEnd} accent={accent} />
       <Glitch at={Math.round(titleEnd * fps)} accent={accent} />
+      <RankCards cards={cards} />
+      <Podium podium={podium} />
       <Icons words={words} stickers={stickers} />
       <Caption words={words} accent={accent} />
       {audio ? <Audio src={src(audio)} /> : null}
+      <Sfx sfx={sfx} />
       {music ? (
         <Audio
           src={src(music)}

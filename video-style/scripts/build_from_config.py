@@ -47,8 +47,10 @@ for i, s in enumerate(cfg["segments"]):
     W, H = dims[s["video"]]
     if "say" in s:
         a, b = s["say"]
-        dur = round((b - a + PRE + POST) * FPS) / FPS
-        audio = {"src": videos[s.get("voice", s["video"])], "from": round(a - PRE, 3), "volume": s.get("volume", 1.7)}
+        spoken = round((b - a + PRE + POST) * FPS) / FPS
+        dur = round((spoken + s.get("hold", 0)) * FPS) / FPS  # "hold" keeps the picture on after the line ends
+        audio = {"src": videos[s.get("voice", s["video"])], "from": round(a - PRE, 3), "volume": s.get("volume", 1.7),
+                 "dur": spoken}
     else:
         dur = round(s["dur"] * FPS) / FPS
         audio = {"src": videos[s["video"]], "from": s["start"], "volume": s["audio"]} if s.get("audio") else None
@@ -60,7 +62,8 @@ for i, s in enumerate(cfg["segments"]):
         cx = int(s.get("x", W / 2) - cw / 2)
     oh = round(H * OUT_W / cw / 2) * 2
     clip = f"{cfg['name']}/sr/seg_{i:02d}.mp4"
-    jobs.append(f"public/{videos[s['video']]} {s['start']} {dur} {cx}:0:{cw}:{H} {OUT_W} {oh} public/{clip}")
+    jobs.append(f"public/{videos[s['video']]} {s['start']} {dur} {cx}:0:{cw}:{H} {OUT_W} {oh} public/{clip}"
+                + (" fast" if s.get("fast") else ""))  # "fast": picture is covered/blurred, skip the AI model
     segments.append({"at": round(t, 3), "dur": dur, "src": videos[s["video"]], "from": s["start"], "mode": s["frame"],
                      "h": round(1080 * H / cw), "clip": clip, "audio": audio, "kind": s.get("kind", "talk")})
     if s.get("text"):
@@ -72,9 +75,10 @@ for i, s in enumerate(cfg["segments"]):
             w = {"t": round(c, 3), "d": round(d - 0.02, 3), "text": g}
             if any(x in hot for x in g.split()):
                 w["hot"] = True
-            ic = next((icons[x] for x in g.split() if x in icons and x not in used_icons), None)
+            ic = None if s.get("noicons") else next((icons[x] for x in g.split() if x in icons and x not in used_icons), None)
             if ic:
                 w["icon"] = ic
+                w["iend"] = round(t + dur, 3)  # icon never outlives its segment
                 used_icons.update(x for x in g.split() if x in icons)
             words.append(w)
             c += d
@@ -87,8 +91,21 @@ for g, s in zip(segments, cfg["segments"]):
 stickers = [{"t": round(starts[k["src"]][0] + k["t"] - starts[k["src"]][1], 3), "icon": k["icon"]}
             for k in cfg.get("stickers", [])]
 
+# Overlays pinned to segments: {"seg": index, "at": offset, ...} -> absolute time "t".
+def pin(item):
+    g = segments[item["seg"]]
+    o = {k: v for k, v in item.items() if k not in ("seg", "at", "until")}
+    o["t"] = round(g["at"] + item.get("at", 0), 3)
+    if "until" in item:
+        e = segments[item["until"]]
+        o["end"] = round(e["at"] + e["dur"], 3)
+    return o
+
+
+extra = {k: [pin(x) for x in cfg[k]] for k in ("cards", "sfx", "podium") if k in cfg}
+
 out = {"accent": cfg["accent"], "video": None, "title": cfg["title"], "titleEnd": segments[0]["dur"],
-       "duration": round(t, 3), "segments": segments, "words": words, "stickers": stickers}
+       "duration": round(t, 3), "segments": segments, "words": words, "stickers": stickers, **extra}
 if "music" in cfg:
     out["music"] = cfg["music"]
 json.dump(out, open(cfg["out"], "w"), ensure_ascii=False, indent=1)

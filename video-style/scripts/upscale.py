@@ -1,6 +1,6 @@
 """Upscale one video segment x4 with Real-ESRGAN's compact general model (CPU, bf16), via raw ffmpeg pipes.
 
-Usage: upscale.py WEIGHTS SRC START DURATION X:Y:W:H OUT_W OUT_H DST
+Usage: upscale.py WEIGHTS SRC START DURATION X:Y:W:H OUT_W OUT_H DST [fast]
 Run with the torch env from tools/setup-tools.sh: /opt/vtools/bin/python
 """
 import subprocess
@@ -36,7 +36,7 @@ weights, src, ss, dur, crop, outw, outh, dst = sys.argv[1:9]
 x, y, w, h = map(int, crop.split(":"))
 # Crops this wide need under ~2x enlargement; a sharpened Lanczos resize is close in quality and far faster.
 LANCZOS_FROM = 640
-if w >= LANCZOS_FROM:
+if w >= LANCZOS_FROM or sys.argv[9:10] == ["fast"]:
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", ss, "-t", dur, "-i", src, "-vf",
                     f"fps=30,crop={w}:{h}:{x}:{y},scale={outw}:{outh}:flags=lanczos,unsharp=5:5:0.8",
                     "-an", "-c:v", "libx264", "-crf", "12", "-preset", "fast", "-pix_fmt", "yuv420p", dst], check=True)

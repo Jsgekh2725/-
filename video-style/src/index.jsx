@@ -7,6 +7,7 @@ import edit from './edit.json';
 import mafqood from './edit-mafqood.json';
 import teatrader from './edit-teatrader.json';
 import akharharf from './edit-akharharf.json';
+import rank3 from './edit-rank3.json';
 
 const FPS = 30;
 
@@ -59,6 +60,15 @@ const Root = () => (
     height={1920}
     defaultProps={akharharf}
     durationInFrames={Math.round(akharharf.duration * FPS)}
+  />
+  <Composition
+    id="Rank3"
+    component={Explainer}
+    fps={FPS}
+    width={1080}
+    height={1920}
+    defaultProps={rank3}
+    durationInFrames={Math.round(rank3.duration * FPS)}
   />
   <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1000} durationInFrames={1} />
   </>

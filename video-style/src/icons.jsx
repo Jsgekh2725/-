@@ -183,6 +183,19 @@ const WawTile = () => (
   </svg>
 );
 
+// Three-step podium with 1, 2, 3, for ranking.
+const PodiumIcon = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <rect x="86" y="70" width="68" height="150" rx="6" fill="#ffc531" stroke="#111" strokeWidth="8" />
+    <rect x="18" y="116" width="70" height="104" rx="6" fill="#cfd8e3" stroke="#111" strokeWidth="8" />
+    <rect x="152" y="146" width="70" height="74" rx="6" fill="#e0863a" stroke="#111" strokeWidth="8" />
+    <text x="120" y="140" textAnchor="middle" fontFamily={FONT} fontSize="66" fill="#111">1</text>
+    <text x="53" y="182" textAnchor="middle" fontFamily={FONT} fontSize="56" fill="#111">2</text>
+    <text x="187" y="206" textAnchor="middle" fontFamily={FONT} fontSize="50" fill="#111">3</text>
+    <path d="M100 52 L108 24 L120 42 L132 24 L140 52 Z" fill="#ffc531" stroke="#111" strokeWidth="6" strokeLinejoin="round" />
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
@@ -196,4 +209,5 @@ export const CUSTOM_ICONS = {
   update: Update,
   'bara-salfa': BaraSalfa,
   'waw-tile': WawTile,
+  podium: PodiumIcon,
 };
