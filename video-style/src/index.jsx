@@ -10,6 +10,7 @@ import akharharf from './edit-akharharf.json';
 import rank3 from './edit-rank3.json';
 import dontstop from './edit-dontstop.json';
 import coffee from './edit-coffee.json';
+import water from './edit-water.json';
 
 const FPS = 30;
 
@@ -90,7 +91,16 @@ const Root = () => (
     defaultProps={coffee}
     durationInFrames={Math.round(coffee.duration * FPS)}
   />
-  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1300} durationInFrames={1} />
+  <Composition
+    id="Water"
+    component={Explainer}
+    fps={FPS}
+    width={1080}
+    height={1920}
+    defaultProps={water}
+    durationInFrames={Math.round(water.duration * FPS)}
+  />
+  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1500} durationInFrames={1} />
   </>
 );
 

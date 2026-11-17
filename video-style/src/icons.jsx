@@ -285,6 +285,35 @@ const Grow = () => (
   </svg>
 );
 
+// Hand reaching for water, crossed out: "don't touch the water".
+const NoTouchWater = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <circle cx="120" cy="120" r="104" fill="#e9f8ff" stroke="#111" strokeWidth="9" />
+    <path d="M30 150 Q52 134 74 150 T118 150 T162 150 T210 150 V170 Q200 210 120 222 Q40 210 30 170 Z" fill="#2fa8ff" stroke="#111" strokeWidth="6" strokeLinejoin="round" />
+    <path d="M40 176 Q60 164 80 176 T120 176 T160 176 T200 176" fill="none" stroke="#bfe9ff" strokeWidth="6" strokeLinecap="round" />
+    <path d="M104 132 V64 A9 9 0 0 1 122 64 V104 M122 100 V56 A9 9 0 0 1 140 56 V104 M140 102 V64 A9 9 0 0 1 158 64 V110 M104 112 V88 A9 9 0 0 0 86 88 V126 C86 140 98 148 112 148 H140 C152 148 158 136 158 124 V108"
+      fill="#ffd2a6" stroke="#111" strokeWidth="7" strokeLinejoin="round" strokeLinecap="round" />
+    <circle cx="120" cy="120" r="96" fill="none" stroke="#e3202b" strokeWidth="18" />
+    <path d="M52 52 L188 188" stroke="#e3202b" strokeWidth="18" strokeLinecap="round" />
+  </svg>
+);
+
+// Pale bald monster head peeking out of the water.
+const WaterMonster = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <path d="M70 160 C60 100 80 40 120 40 C160 40 180 100 170 160 Z" fill="#b9a6c9" stroke="#111" strokeWidth="8" strokeLinejoin="round" />
+    <ellipse cx="98" cy="104" rx="20" ry="24" fill="#fff" stroke="#111" strokeWidth="6" />
+    <ellipse cx="142" cy="104" rx="20" ry="24" fill="#fff" stroke="#111" strokeWidth="6" />
+    <circle cx="101" cy="110" r="8" fill="#111" />
+    <circle cx="139" cy="110" r="8" fill="#111" />
+    <path d="M96 140 Q120 156 144 140" fill="none" stroke="#111" strokeWidth="7" strokeLinecap="round" />
+    <path d="M14 158 Q38 142 62 158 T110 158 T158 158 T206 158 T230 154 V226 H14 Z" fill="#2fa8ff" stroke="#111" strokeWidth="8" strokeLinejoin="round" />
+    <path d="M30 186 Q50 174 70 186 T110 186 T150 186 T190 186" fill="none" stroke="#bfe9ff" strokeWidth="6" strokeLinecap="round" />
+    <circle cx="60" cy="140" r="7" fill="#bfe9ff" stroke="#111" strokeWidth="3" />
+    <circle cx="186" cy="132" r="5" fill="#bfe9ff" stroke="#111" strokeWidth="3" />
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
@@ -304,4 +333,6 @@ export const CUSTOM_ICONS = {
   radar: Radar,
   'coffee-shop': CoffeeShop,
   grow: Grow,
+  'no-touch-water': NoTouchWater,
+  'water-monster': WaterMonster,
 };
