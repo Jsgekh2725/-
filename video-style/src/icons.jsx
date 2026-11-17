@@ -251,6 +251,40 @@ const Radar = () => (
   </svg>
 );
 
+// Little café storefront: striped awning and a coffee-cup sign.
+const CoffeeShop = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <rect x="34" y="96" width="172" height="120" rx="8" fill="#f3e2c7" stroke="#111" strokeWidth="8" />
+    <rect x="58" y="128" width="62" height="56" rx="6" fill="#8fd3ff" stroke="#111" strokeWidth="6" />
+    <rect x="136" y="128" width="46" height="88" rx="6" fill="#8a4b22" stroke="#111" strokeWidth="6" />
+    <circle cx="172" cy="174" r="5" fill="#ffc531" />
+    <path d="M24 64 H216 L206 104 H34 Z" fill="#fff" stroke="#111" strokeWidth="8" strokeLinejoin="round" />
+    {[0, 1, 2, 3, 4].map((i) => (
+      <path key={i} d={`M${24 + i * 38.4 + 19} 64 h19 l-3 40 h-18 z`} fill="#d7262f" />
+    ))}
+    <path d="M24 64 H216 L206 104 H34 Z" fill="none" stroke="#111" strokeWidth="8" strokeLinejoin="round" />
+    <rect x="70" y="14" width="100" height="44" rx="12" fill="#5a2e12" stroke="#111" strokeWidth="6" />
+    <path d="M100 26 H134 V40 A14 14 0 0 1 120 52 H114 A14 14 0 0 1 100 40 Z" fill="#fff" />
+    <path d="M134 30 A7 7 0 0 1 134 44" fill="none" stroke="#fff" strokeWidth="4" />
+  </svg>
+);
+
+// Small café growing into a big one, for "make it bigger".
+const Grow = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <rect x="18" y="160" width="56" height="56" rx="6" fill="#f3e2c7" stroke="#111" strokeWidth="7" />
+    <path d="M12 160 H80 L74 142 H18 Z" fill="#d7262f" stroke="#111" strokeWidth="6" strokeLinejoin="round" />
+    <rect x="112" y="74" width="112" height="142" rx="8" fill="#f3e2c7" stroke="#111" strokeWidth="8" />
+    <path d="M104 74 H232 L222 44 H114 Z" fill="#d7262f" stroke="#111" strokeWidth="7" strokeLinejoin="round" />
+    <rect x="128" y="100" width="32" height="30" rx="4" fill="#8fd3ff" stroke="#111" strokeWidth="5" />
+    <rect x="176" y="100" width="32" height="30" rx="4" fill="#8fd3ff" stroke="#111" strokeWidth="5" />
+    <rect x="150" y="150" width="36" height="66" rx="5" fill="#8a4b22" stroke="#111" strokeWidth="5" />
+    <path d="M44 126 C52 84 76 66 100 60" fill="none" stroke="#111" strokeWidth="18" strokeLinecap="round" />
+    <path d="M44 126 C52 84 76 66 100 60" fill="none" stroke="#22d36b" strokeWidth="10" strokeLinecap="round" />
+    <path d="M86 44 L112 58 L88 78" fill="none" stroke="#111" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
@@ -268,4 +302,6 @@ export const CUSTOM_ICONS = {
   'dont-stop': DontStop,
   maze: Maze,
   radar: Radar,
+  'coffee-shop': CoffeeShop,
+  grow: Grow,
 };

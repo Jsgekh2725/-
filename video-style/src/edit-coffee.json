@@ -1,0 +1,532 @@
+{
+ "accent": "#ffb347",
+ "video": null,
+ "title": [
+  "امتع ماب",
+  "بروبلوكس",
+  "بولد كوفي"
+ ],
+ "titleEnd": 2.2,
+ "duration": 29.133,
+ "segments": [
+  {
+   "at": 0.0,
+   "dur": 2.2,
+   "src": "coffee/raw.mp4",
+   "from": 115.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_00.mp4",
+   "audio": null,
+   "kind": "title"
+  },
+  {
+   "at": 2.2,
+   "dur": 2.2333333333333334,
+   "src": "coffee/raw.mp4",
+   "from": 127.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_01.mp4",
+   "audio": {
+    "src": "coffee/raw.mp4",
+    "from": 6.29,
+    "volume": 1.7,
+    "dur": 2.2333333333333334
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 4.433,
+   "dur": 5.8,
+   "src": "coffee/raw.mp4",
+   "from": 121.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_02.mp4",
+   "audio": {
+    "src": "coffee/raw.mp4",
+    "from": 30.52,
+    "volume": 1.7,
+    "dur": 5.8
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 10.233,
+   "dur": 4.933333333333334,
+   "src": "coffee/raw.mp4",
+   "from": 174.0,
+   "mode": "fit",
+   "h": 771,
+   "clip": "coffee/sr/seg_03.mp4",
+   "audio": {
+    "src": "coffee/raw.mp4",
+    "from": 41.94,
+    "volume": 1.7,
+    "dur": 4.933333333333334
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 15.167,
+   "dur": 1.3,
+   "src": "coffee/raw.mp4",
+   "from": 63.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_04.mp4",
+   "audio": {
+    "src": "coffee/raw.mp4",
+    "from": 51.03,
+    "volume": 1.7,
+    "dur": 1.3
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 16.467,
+   "dur": 2.3,
+   "src": "coffee/raw.mp4",
+   "from": 64.6,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_05.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 18.767,
+   "dur": 2.3,
+   "src": "coffee/raw.mp4",
+   "from": 140.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_06.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 21.067,
+   "dur": 2.3,
+   "src": "coffee/raw.mp4",
+   "from": 156.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_07.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 23.367,
+   "dur": 2.3,
+   "src": "coffee/raw.mp4",
+   "from": 181.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_08.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 25.667,
+   "dur": 3.466666666666667,
+   "src": "coffee/raw.mp4",
+   "from": 187.07,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "coffee/sr/seg_09.mp4",
+   "audio": {
+    "src": "coffee/raw.mp4",
+    "from": 187.07,
+    "volume": 1.7,
+    "dur": 3.466666666666667
+   },
+   "kind": "talk"
+  }
+ ],
+ "words": [
+  {
+   "t": 2.3,
+   "d": 0.217,
+   "text": "هذا"
+  },
+  {
+   "t": 2.537,
+   "d": 0.269,
+   "text": "امتع",
+   "hot": true,
+   "icon": "🤩",
+   "iend": 4.433
+  },
+  {
+   "t": 2.826,
+   "d": 0.217,
+   "text": "ماب"
+  },
+  {
+   "t": 3.063,
+   "d": 0.32,
+   "text": "تلعبه"
+  },
+  {
+   "t": 3.403,
+   "d": 0.526,
+   "text": "في روبلوكس",
+   "icon": "🎮",
+   "iend": 4.433
+  },
+  {
+   "t": 3.95,
+   "d": 0.32,
+   "text": "حاليا",
+   "icon": "⏰",
+   "iend": 4.433
+  },
+  {
+   "t": 4.533,
+   "d": 0.233,
+   "text": "ماب"
+  },
+  {
+   "t": 4.787,
+   "d": 0.288,
+   "text": "بولد"
+  },
+  {
+   "t": 5.095,
+   "d": 0.288,
+   "text": "كوفي",
+   "hot": true,
+   "icon": "@coffee-shop",
+   "iend": 10.233
+  },
+  {
+   "t": 5.403,
+   "d": 0.343,
+   "text": "وفكرة"
+  },
+  {
+   "t": 5.766,
+   "d": 0.343,
+   "text": "الماب"
+  },
+  {
+   "t": 6.129,
+   "d": 0.233,
+   "text": "انه"
+  },
+  {
+   "t": 6.383,
+   "d": 0.398,
+   "text": "لما انت"
+  },
+  {
+   "t": 6.801,
+   "d": 0.288,
+   "text": "تبدأ"
+  },
+  {
+   "t": 7.109,
+   "d": 0.288,
+   "text": "يكون"
+  },
+  {
+   "t": 7.417,
+   "d": 0.233,
+   "text": "معك"
+  },
+  {
+   "t": 7.671,
+   "d": 0.288,
+   "text": "كوفي",
+   "hot": true
+  },
+  {
+   "t": 7.979,
+   "d": 0.288,
+   "text": "صغير",
+   "hot": true,
+   "icon": "🤏",
+   "iend": 10.233
+  },
+  {
+   "t": 8.287,
+   "d": 0.288,
+   "text": "وانت"
+  },
+  {
+   "t": 8.595,
+   "d": 0.288,
+   "text": "لازم"
+  },
+  {
+   "t": 8.903,
+   "d": 0.343,
+   "text": "تكبره",
+   "hot": true,
+   "icon": "@grow",
+   "iend": 10.233
+  },
+  {
+   "t": 9.267,
+   "d": 0.453,
+   "text": "وتأثثها",
+   "hot": true,
+   "icon": "🛋️",
+   "iend": 10.233
+  },
+  {
+   "t": 9.74,
+   "d": 0.343,
+   "text": "بعدين"
+  },
+  {
+   "t": 10.333,
+   "d": 0.396,
+   "text": "والماب"
+  },
+  {
+   "t": 10.75,
+   "d": 0.287,
+   "text": "عربي",
+   "hot": true,
+   "icon": "@arabic",
+   "iend": 15.167
+  },
+  {
+   "t": 11.057,
+   "d": 0.287,
+   "text": "بشكل"
+  },
+  {
+   "t": 11.364,
+   "d": 0.287,
+   "text": "كامل",
+   "hot": true,
+   "icon": "✅",
+   "iend": 15.167
+  },
+  {
+   "t": 11.67,
+   "d": 0.396,
+   "text": "والماب"
+  },
+  {
+   "t": 12.087,
+   "d": 0.232,
+   "text": "مرة"
+  },
+  {
+   "t": 12.339,
+   "d": 0.287,
+   "text": "ممتع",
+   "hot": true,
+   "icon": "🔥",
+   "iend": 15.167
+  },
+  {
+   "t": 12.646,
+   "d": 0.287,
+   "text": "وفيه"
+  },
+  {
+   "t": 12.953,
+   "d": 0.451,
+   "text": "الاشياء",
+   "icon": "📦",
+   "iend": 15.167
+  },
+  {
+   "t": 13.424,
+   "d": 0.232,
+   "text": "مرة"
+  },
+  {
+   "t": 13.676,
+   "d": 0.287,
+   "text": "كثير",
+   "hot": true
+  },
+  {
+   "t": 13.983,
+   "d": 0.451,
+   "text": "وتفاصيل",
+   "icon": "🔍",
+   "iend": 15.167
+  },
+  {
+   "t": 14.454,
+   "d": 0.232,
+   "text": "مرة"
+  },
+  {
+   "t": 14.706,
+   "d": 0.287,
+   "text": "كثير",
+   "hot": true
+  },
+  {
+   "t": 15.267,
+   "d": 0.268,
+   "text": "وهاي"
+  },
+  {
+   "t": 15.555,
+   "d": 0.32,
+   "text": "لقطات",
+   "icon": "🎬",
+   "iend": 16.467
+  },
+  {
+   "t": 15.894,
+   "d": 0.422,
+   "text": "من الماب"
+  },
+  {
+   "t": 25.767,
+   "d": 0.251,
+   "text": "وهذا"
+  },
+  {
+   "t": 26.037,
+   "d": 0.202,
+   "text": "ماب"
+  },
+  {
+   "t": 26.26,
+   "d": 0.251,
+   "text": "كامل",
+   "hot": true
+  },
+  {
+   "t": 26.531,
+   "d": 0.299,
+   "text": "يستحق",
+   "hot": true,
+   "icon": "💯",
+   "iend": 29.133
+  },
+  {
+   "t": 26.85,
+   "d": 0.251,
+   "text": "انكم"
+  },
+  {
+   "t": 27.121,
+   "d": 0.396,
+   "text": "تلعبونه",
+   "icon": "🕹️",
+   "iend": 29.133
+  },
+  {
+   "t": 27.537,
+   "d": 0.251,
+   "text": "واسم"
+  },
+  {
+   "t": 27.807,
+   "d": 0.299,
+   "text": "الماب"
+  },
+  {
+   "t": 28.127,
+   "d": 0.299,
+   "text": "موجود"
+  },
+  {
+   "t": 28.446,
+   "d": 0.541,
+   "text": "بالكومنتات",
+   "icon": "💬",
+   "iend": 29.133
+  }
+ ],
+ "stickers": [],
+ "sfx": [
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.1
+  },
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.47
+  },
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.83
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.5,
+   "t": 2.14
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 4.313
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 10.113
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 15.047
+  },
+  {
+   "src": "sfx/riser.wav",
+   "volume": 0.3,
+   "t": 15.167
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.6,
+   "t": 16.347
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.6,
+   "t": 16.487
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 18.647
+  },
+  {
+   "src": "sfx/coin.wav",
+   "volume": 0.6,
+   "t": 19.267
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 20.947
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 23.247
+  },
+  {
+   "src": "sfx/coin.wav",
+   "volume": 0.6,
+   "t": 23.767
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.45,
+   "t": 25.607
+  }
+ ]
+}

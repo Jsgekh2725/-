@@ -1,6 +1,6 @@
 """Synthesize the template's sound effects into public/sfx/ (original, royalty-free).
 
-whoosh, impact, pop, ding, riser, glitch — all 48 kHz stereo WAV.
+whoosh, impact, pop, ding, riser, glitch, coin — all 48 kHz stereo WAV.
 """
 import os
 import wave
@@ -84,5 +84,13 @@ for i, (dur, hold) in enumerate([(0.05, 12), (0.04, 40), (0.07, 7)]):
     seg = np.round(seg * 3) / 3
     parts += [seg, np.zeros(int(SR * 0.025))]
 save("glitch", np.concatenate(parts) * 0.8)
+
+# Coin: two quick bright tones (ka-ching).
+t = t_(0.7)
+def tone(f, start, dur):
+    x = np.zeros(len(t)); i = int(start * SR); tt = t[: len(t) - i]
+    x[i:] = (np.sin(2 * np.pi * f * tt) + 0.5 * np.sin(2 * np.pi * 2.01 * f * tt)) * np.exp(-tt / dur)
+    return x
+save("coin", tone(1976, 0, 0.08) + 1.2 * tone(2637, 0.07, 0.25), width=0.002)
 
 print("sfx:", sorted(os.listdir(OUT)))
