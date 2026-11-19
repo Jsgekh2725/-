@@ -1,5 +1,11 @@
 # Project notes for Claude
 
+## House style — follow it in EVERY video
+Read `assets/style/STYLE.md` before editing or rendering any video. It describes the user's style
+(vertical Arabic gaming shorts: red circle/arrow hook, one-word white captions at center,
+2–3 s cuts, pop-in proof cards, hook callback + outro, loud mix with continuous music).
+Be inspired by it — never copy the reference videos literally.
+
 ## Default background music — use it in EVERY video you edit or render
 - File: `assets/music/background-music.m4a` (AAC stereo 44.1 kHz, 63.6 s, ≈ -15.6 LUFS), supplied by the user.
 - Every video produced for this user (FFmpeg, Auto-Editor, Remotion, HyperFrames, …) gets this music unless they say otherwise for that video.
