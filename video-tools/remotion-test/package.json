@@ -1,0 +1,11 @@
+{
+  "name": "remotion-test",
+  "private": true,
+  "scripts": { "render": "remotion render src/index.ts Hello out/hello.mp4" },
+  "dependencies": {
+    "@remotion/cli": "4.0.545",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.545"
+  }
+}
