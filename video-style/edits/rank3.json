@@ -1,0 +1,278 @@
+{
+  "name": "rank3",
+  "out": "src/edit-rank3.json",
+  "accent": "#ffc531",
+  "title": [
+    "افضل",
+    "3 مابات",
+    "عربية"
+  ],
+  "hot": [
+    "افضل",
+    "ثلاث",
+    "عربية",
+    "الافضل",
+    "للاسوء",
+    "الاول",
+    "مفقود",
+    "والثاني",
+    "الشاهي",
+    "والاخير",
+    "سراب",
+    "رأيي"
+  ],
+  "icons": {
+    "افضل": "🏆",
+    "ثلاث": "3️⃣",
+    "مابات": "🗺️",
+    "عربية": "@arabic",
+    "برتبهم": "@podium",
+    "الافضل": "👍",
+    "للاسوء": "👎"
+  },
+  "videos": {
+    "v2": "rank3/v2.mp4",
+    "voice": "rank3/voice.m4a"
+  },
+  "segments": [
+    {
+      "video": "v2",
+      "start": 30.0,
+      "dur": 2.2,
+      "frame": "fill",
+      "kind": "title"
+    },
+    {
+      "video": "v2",
+      "start": 4.0,
+      "voice": "voice",
+      "say": [
+        2.38,
+        5.05
+      ],
+      "text": "اليوم بقولكم ايش افضل ثلاث مابات عربية بالنسبة لي",
+      "frame": "fill"
+    },
+    {
+      "video": "v2",
+      "start": 9.0,
+      "voice": "voice",
+      "say": [
+        11.64,
+        13.73
+      ],
+      "text": "هي ثلاث مابات برتبهم من الافضل للاسوء",
+      "frame": "fill"
+    },
+    {
+      "video": "v2",
+      "start": 24.0,
+      "voice": "voice",
+      "say": [
+        33.71,
+        35.37
+      ],
+      "text": "بالنسبة لي الاول ماب مفقود",
+      "frame": "fill",
+      "hold": 1.4,
+      "noicons": true,
+      "fast": true
+    },
+    {
+      "video": "v2",
+      "start": 44.0,
+      "voice": "voice",
+      "say": [
+        38.68,
+        40.12
+      ],
+      "text": "والثاني تاجر الشاهي",
+      "frame": "fill",
+      "hold": 1.3,
+      "noicons": true,
+      "fast": true
+    },
+    {
+      "video": "v2",
+      "start": 34.0,
+      "voice": "voice",
+      "say": [
+        42.02,
+        43.29
+      ],
+      "text": "والاخير سراب",
+      "frame": "fill",
+      "hold": 1.3,
+      "noicons": true,
+      "fast": true
+    },
+    {
+      "video": "v2",
+      "start": 18.0,
+      "voice": "voice",
+      "say": [
+        56.88,
+        60.61
+      ],
+      "text": "هذا رأيي الخاص فممكن رأيك يختلف عن رأيي بس هذا رأيي",
+      "frame": "fill",
+      "hold": 0.8,
+      "noicons": true,
+      "fast": true
+    }
+  ],
+  "cards": [
+    {
+      "seg": 3,
+      "until": 3,
+      "at": 0,
+      "rank": 1,
+      "img": "rank3/mafqood.jpg",
+      "name": "مفقود",
+      "color": "#ffc531"
+    },
+    {
+      "seg": 4,
+      "until": 4,
+      "at": 0,
+      "rank": 2,
+      "img": "rank3/tea.jpg",
+      "name": "تاجر الشاي",
+      "color": "#cfd8e3"
+    },
+    {
+      "seg": 5,
+      "until": 5,
+      "at": 0,
+      "rank": 3,
+      "img": "rank3/sarab.jpg",
+      "name": "سراب",
+      "color": "#e0863a"
+    }
+  ],
+  "podium": [
+    {
+      "seg": 6,
+      "until": 6,
+      "at": 0,
+      "items": [
+        {
+          "rank": 1,
+          "img": "rank3/mafqood.jpg",
+          "name": "مفقود",
+          "color": "#ffc531"
+        },
+        {
+          "rank": 2,
+          "img": "rank3/tea.jpg",
+          "name": "تاجر الشاي",
+          "color": "#cfd8e3"
+        },
+        {
+          "rank": 3,
+          "img": "rank3/sarab.jpg",
+          "name": "سراب",
+          "color": "#e0863a"
+        }
+      ]
+    }
+  ],
+  "sfx": [
+    {
+      "seg": 0,
+      "at": 0.1,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.47,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.83,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 1,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 3,
+      "at": -1.3,
+      "src": "sfx/riser.wav",
+      "volume": 0.35
+    },
+    {
+      "seg": 3,
+      "at": -0.14,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 3,
+      "at": 0.03,
+      "src": "sfx/impact.wav",
+      "volume": 0.9
+    },
+    {
+      "seg": 3,
+      "at": 0.12,
+      "src": "sfx/ding.wav",
+      "volume": 0.45
+    },
+    {
+      "seg": 4,
+      "at": -0.14,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 4,
+      "at": 0.03,
+      "src": "sfx/impact.wav",
+      "volume": 0.75
+    },
+    {
+      "seg": 5,
+      "at": -0.14,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 5,
+      "at": 0.03,
+      "src": "sfx/impact.wav",
+      "volume": 0.65
+    },
+    {
+      "seg": 6,
+      "at": -0.14,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 6,
+      "at": 0.2,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 6,
+      "at": 0.4,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 6,
+      "at": 0.6,
+      "src": "sfx/ding.wav",
+      "volume": 0.35
+    }
+  ]
+}

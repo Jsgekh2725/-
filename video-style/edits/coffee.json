@@ -1,0 +1,234 @@
+{
+  "name": "coffee",
+  "out": "src/edit-coffee.json",
+  "accent": "#ffb347",
+  "title": [
+    "امتع ماب",
+    "بروبلوكس",
+    "بولد كوفي"
+  ],
+  "hot": [
+    "امتع",
+    "كوفي",
+    "صغير",
+    "تكبره",
+    "وتأثثها",
+    "عربي",
+    "ممتع",
+    "كثير",
+    "كامل",
+    "يستحق"
+  ],
+  "icons": {
+    "امتع": "🤩",
+    "روبلوكس": "🎮",
+    "حاليا": "⏰",
+    "كوفي": "@coffee-shop",
+    "صغير": "🤏",
+    "تكبره": "@grow",
+    "وتأثثها": "🛋️",
+    "عربي": "@arabic",
+    "ممتع": "🔥",
+    "الاشياء": "📦",
+    "وتفاصيل": "🔍",
+    "لقطات": "🎬",
+    "كامل": "✅",
+    "يستحق": "💯",
+    "تلعبونه": "🕹️",
+    "بالكومنتات": "💬"
+  },
+  "videos": {
+    "raw": "coffee/raw.mp4"
+  },
+  "segments": [
+    {
+      "video": "raw",
+      "start": 115.0,
+      "dur": 2.2,
+      "frame": "fill",
+      "kind": "title"
+    },
+    {
+      "video": "raw",
+      "start": 127.0,
+      "say": [
+        6.39,
+        8.38
+      ],
+      "text": "هذا امتع ماب تلعبه في روبلوكس حاليا",
+      "frame": "fill"
+    },
+    {
+      "video": "raw",
+      "start": 121.0,
+      "say": [
+        30.62,
+        36.19
+      ],
+      "text": "ماب بولد كوفي وفكرة الماب انه لما انت تبدأ يكون معك كوفي صغير وانت لازم تكبره وتأثثها بعدين",
+      "frame": "fill"
+    },
+    {
+      "video": "raw",
+      "start": 174.0,
+      "say": [
+        42.04,
+        46.72
+      ],
+      "text": "والماب عربي بشكل كامل والماب مرة ممتع وفيه الاشياء مرة كثير وتفاصيل مرة كثير",
+      "frame": "fit",
+      "w": 1000,
+      "x": 700
+    },
+    {
+      "video": "raw",
+      "start": 63.0,
+      "say": [
+        51.13,
+        52.2
+      ],
+      "text": "وهاي لقطات من الماب",
+      "frame": "fill"
+    },
+    {
+      "video": "raw",
+      "start": 64.6,
+      "dur": 2.3,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 140.0,
+      "dur": 2.3,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 156.0,
+      "dur": 2.3,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 181.0,
+      "dur": 2.3,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 187.07,
+      "say": [
+        187.17,
+        190.41
+      ],
+      "text": "وهذا ماب كامل يستحق انكم تلعبونه واسم الماب موجود بالكومنتات",
+      "frame": "fill"
+    }
+  ],
+  "sfx": [
+    {
+      "seg": 0,
+      "at": 0.1,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.47,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.83,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 1,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 2,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 3,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 4,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 5,
+      "at": -1.3,
+      "src": "sfx/riser.wav",
+      "volume": 0.3
+    },
+    {
+      "seg": 5,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 5,
+      "at": 0.02,
+      "src": "sfx/impact.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 6,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 6,
+      "at": 0.5,
+      "src": "sfx/coin.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 7,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 8,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 8,
+      "at": 0.4,
+      "src": "sfx/coin.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 9,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.45
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "name": "water",
+  "out": "src/edit-water.json",
+  "accent": "#3fd8ff",
+  "title": [
+    "ارعب ماب",
+    "لا تلمس",
+    "الموية"
+  ],
+  "hot": [
+    "ارعب",
+    "تلمس",
+    "الموية",
+    "لمست",
+    "وحش",
+    "تهرب",
+    "انصحكم",
+    "كامل"
+  ],
+  "icons": {
+    "ارعب": "😱",
+    "بحالك": "🧍",
+    "اخويك": "👬",
+    "تلمس": "@no-touch-water",
+    "لمست": "✋",
+    "وحش": "@water-monster",
+    "تهرب": "🏃",
+    "لقطات": "🎬",
+    "انصحكم": "👍",
+    "اخوياكم": "👥",
+    "كامل": "✅"
+  },
+  "videos": {
+    "raw": "water/raw.mp4"
+  },
+  "segments": [
+    {
+      "video": "raw",
+      "start": 41.0,
+      "dur": 2.2,
+      "frame": "fill",
+      "kind": "title"
+    },
+    {
+      "video": "raw",
+      "say": [
+        2.9,
+        5.3
+      ],
+      "text": "هذا ارعب ماب ممكن تلعبه بحالك او مع اخويك",
+      "frame": "fill"
+    },
+    {
+      "video": "raw",
+      "say": [
+        17.94,
+        23.0
+      ],
+      "text": "اسم الماب لا تلمس الموية وفكرة الماب اذا لمست الموية بيجي يهاجمك وحش وانت لازم تهرب منه",
+      "frame": "fill",
+      "start": 36.0
+    },
+    {
+      "video": "raw",
+      "say": [
+        29.16,
+        31.85
+      ],
+      "text": "وهذي لقطات من الماب انصحكم انكم تلعبونه مع اخوياكم",
+      "frame": "fill"
+    },
+    {
+      "video": "raw",
+      "start": 34.0,
+      "dur": 2.0,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 45.6,
+      "dur": 3.0,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 50.0,
+      "dur": 2.5,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "start": 58.0,
+      "dur": 2.0,
+      "frame": "fill",
+      "kind": "broll",
+      "music_gain": 2.6
+    },
+    {
+      "video": "raw",
+      "say": [
+        77.85,
+        80.26
+      ],
+      "text": "هذا الماب كامل اسم الماب لا تلمس الموية",
+      "frame": "fill"
+    }
+  ],
+  "sfx": [
+    {
+      "seg": 0,
+      "at": 0.1,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.47,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 0,
+      "at": 0.83,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 1,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 2,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 3,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 4,
+      "at": -1.3,
+      "src": "sfx/riser.wav",
+      "volume": 0.3
+    },
+    {
+      "seg": 4,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 5,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 5,
+      "at": 0.05,
+      "src": "sfx/impact.wav",
+      "volume": 0.7
+    },
+    {
+      "seg": 5,
+      "at": 2.3,
+      "src": "sfx/glitch.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 6,
+      "at": 0.02,
+      "src": "sfx/impact.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 7,
+      "at": -0.12,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.55
+    },
+    {
+      "seg": 8,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.45
+    }
+  ]
+}

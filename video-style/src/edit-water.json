@@ -1,0 +1,439 @@
+{
+ "accent": "#3fd8ff",
+ "video": null,
+ "title": [
+  "ارعب ماب",
+  "لا تلمس",
+  "الموية"
+ ],
+ "titleEnd": 2.2,
+ "duration": 25.233,
+ "segments": [
+  {
+   "at": 0.0,
+   "dur": 2.2,
+   "src": "water/raw.mp4",
+   "from": 41.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_00.mp4",
+   "audio": null,
+   "kind": "title"
+  },
+  {
+   "at": 2.2,
+   "dur": 2.6333333333333333,
+   "src": "water/raw.mp4",
+   "from": 2.8,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_01.mp4",
+   "audio": {
+    "src": "water/raw.mp4",
+    "from": 2.8,
+    "volume": 1.7,
+    "dur": 2.6333333333333333
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 4.833,
+   "dur": 5.3,
+   "src": "water/raw.mp4",
+   "from": 36.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_02.mp4",
+   "audio": {
+    "src": "water/raw.mp4",
+    "from": 17.84,
+    "volume": 1.7,
+    "dur": 5.3
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 10.133,
+   "dur": 2.933333333333333,
+   "src": "water/raw.mp4",
+   "from": 29.06,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_03.mp4",
+   "audio": {
+    "src": "water/raw.mp4",
+    "from": 29.06,
+    "volume": 1.7,
+    "dur": 2.933333333333333
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 13.067,
+   "dur": 2.0,
+   "src": "water/raw.mp4",
+   "from": 34.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_04.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 15.067,
+   "dur": 3.0,
+   "src": "water/raw.mp4",
+   "from": 45.6,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_05.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 18.067,
+   "dur": 2.5,
+   "src": "water/raw.mp4",
+   "from": 50.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_06.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 20.567,
+   "dur": 2.0,
+   "src": "water/raw.mp4",
+   "from": 58.0,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_07.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 22.567,
+   "dur": 2.6666666666666665,
+   "src": "water/raw.mp4",
+   "from": 77.75,
+   "mode": "fill",
+   "h": 1918,
+   "clip": "water/sr/seg_08.mp4",
+   "audio": {
+    "src": "water/raw.mp4",
+    "from": 77.75,
+    "volume": 1.7,
+    "dur": 2.6666666666666665
+   },
+   "kind": "talk"
+  }
+ ],
+ "words": [
+  {
+   "t": 2.3,
+   "d": 0.23,
+   "text": "هذا"
+  },
+  {
+   "t": 2.55,
+   "d": 0.284,
+   "text": "ارعب",
+   "hot": true,
+   "icon": "😱",
+   "iend": 4.833
+  },
+  {
+   "t": 2.854,
+   "d": 0.23,
+   "text": "ماب"
+  },
+  {
+   "t": 3.104,
+   "d": 0.284,
+   "text": "ممكن"
+  },
+  {
+   "t": 3.408,
+   "d": 0.338,
+   "text": "تلعبه"
+  },
+  {
+   "t": 3.766,
+   "d": 0.338,
+   "text": "بحالك",
+   "icon": "🧍",
+   "iend": 4.833
+  },
+  {
+   "t": 4.124,
+   "d": 0.556,
+   "text": "او مع اخويك",
+   "icon": "👬",
+   "iend": 4.833
+  },
+  {
+   "t": 4.933,
+   "d": 0.217,
+   "text": "اسم"
+  },
+  {
+   "t": 5.17,
+   "d": 0.32,
+   "text": "الماب"
+  },
+  {
+   "t": 5.51,
+   "d": 0.165,
+   "text": "لا"
+  },
+  {
+   "t": 5.696,
+   "d": 0.269,
+   "text": "تلمس",
+   "hot": true,
+   "icon": "@no-touch-water",
+   "iend": 10.133
+  },
+  {
+   "t": 5.984,
+   "d": 0.372,
+   "text": "الموية",
+   "hot": true
+  },
+  {
+   "t": 6.376,
+   "d": 0.32,
+   "text": "وفكرة"
+  },
+  {
+   "t": 6.716,
+   "d": 0.32,
+   "text": "الماب"
+  },
+  {
+   "t": 7.056,
+   "d": 0.217,
+   "text": "اذا"
+  },
+  {
+   "t": 7.293,
+   "d": 0.269,
+   "text": "لمست",
+   "hot": true,
+   "icon": "✋",
+   "iend": 10.133
+  },
+  {
+   "t": 7.582,
+   "d": 0.372,
+   "text": "الموية",
+   "hot": true
+  },
+  {
+   "t": 7.973,
+   "d": 0.269,
+   "text": "بيجي"
+  },
+  {
+   "t": 8.262,
+   "d": 0.372,
+   "text": "يهاجمك"
+  },
+  {
+   "t": 8.654,
+   "d": 0.217,
+   "text": "وحش",
+   "hot": true,
+   "icon": "@water-monster",
+   "iend": 10.133
+  },
+  {
+   "t": 8.891,
+   "d": 0.269,
+   "text": "وانت"
+  },
+  {
+   "t": 9.179,
+   "d": 0.269,
+   "text": "لازم"
+  },
+  {
+   "t": 9.468,
+   "d": 0.269,
+   "text": "تهرب",
+   "hot": true,
+   "icon": "🏃",
+   "iend": 10.133
+  },
+  {
+   "t": 9.756,
+   "d": 0.217,
+   "text": "منه"
+  },
+  {
+   "t": 10.233,
+   "d": 0.263,
+   "text": "وهذي"
+  },
+  {
+   "t": 10.516,
+   "d": 0.314,
+   "text": "لقطات",
+   "icon": "🎬",
+   "iend": 13.067
+  },
+  {
+   "t": 10.85,
+   "d": 0.415,
+   "text": "من الماب"
+  },
+  {
+   "t": 11.285,
+   "d": 0.364,
+   "text": "انصحكم",
+   "hot": true,
+   "icon": "👍",
+   "iend": 13.067
+  },
+  {
+   "t": 11.669,
+   "d": 0.263,
+   "text": "انكم"
+  },
+  {
+   "t": 11.953,
+   "d": 0.415,
+   "text": "تلعبونه"
+  },
+  {
+   "t": 12.387,
+   "d": 0.516,
+   "text": "مع اخوياكم",
+   "icon": "👥",
+   "iend": 13.067
+  },
+  {
+   "t": 22.667,
+   "d": 0.227,
+   "text": "هذا"
+  },
+  {
+   "t": 22.914,
+   "d": 0.335,
+   "text": "الماب"
+  },
+  {
+   "t": 23.269,
+   "d": 0.281,
+   "text": "كامل",
+   "hot": true,
+   "icon": "✅",
+   "iend": 25.233
+  },
+  {
+   "t": 23.57,
+   "d": 0.227,
+   "text": "اسم"
+  },
+  {
+   "t": 23.818,
+   "d": 0.335,
+   "text": "الماب"
+  },
+  {
+   "t": 24.173,
+   "d": 0.174,
+   "text": "لا"
+  },
+  {
+   "t": 24.367,
+   "d": 0.281,
+   "text": "تلمس",
+   "hot": true
+  },
+  {
+   "t": 24.668,
+   "d": 0.389,
+   "text": "الموية",
+   "hot": true
+  }
+ ],
+ "stickers": [],
+ "sfx": [
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.1
+  },
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.47
+  },
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.83
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.5,
+   "t": 2.14
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 4.713
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 10.013
+  },
+  {
+   "src": "sfx/riser.wav",
+   "volume": 0.3,
+   "t": 11.767
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.6,
+   "t": 12.947
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 14.947
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.7,
+   "t": 15.117
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.6,
+   "t": 17.367
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.6,
+   "t": 18.087
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 20.447
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.45,
+   "t": 22.507
+  }
+ ]
+}

@@ -1,0 +1,762 @@
+{
+ "accent": "#ff3b30",
+ "video": null,
+ "title": [
+  "افضل ماب",
+  "مع اخويك",
+  "لا تتوقف"
+ ],
+ "titleEnd": 2.2,
+ "duration": 50.567,
+ "segments": [
+  {
+   "at": 0.0,
+   "dur": 2.2,
+   "src": "dontstop/clips.mp4",
+   "from": 25.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_00.mp4",
+   "audio": null,
+   "kind": "title"
+  },
+  {
+   "at": 2.2,
+   "dur": 2.1666666666666665,
+   "src": "dontstop/main.mp4",
+   "from": 9.87,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_01.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 9.87,
+    "volume": 1.7,
+    "dur": 2.1666666666666665
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 4.367,
+   "dur": 1.1,
+   "src": "dontstop/main.mp4",
+   "from": 12.98,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_02.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 12.98,
+    "volume": 1.7,
+    "dur": 1.1
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 5.467,
+   "dur": 1.3333333333333333,
+   "src": "dontstop/main.mp4",
+   "from": 15.38,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_03.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 15.38,
+    "volume": 1.7,
+    "dur": 1.3333333333333333
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 6.8,
+   "dur": 7.133333333333334,
+   "src": "dontstop/clips.mp4",
+   "from": 2.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_04.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 22.82,
+    "volume": 1.7,
+    "dur": 7.133333333333334
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 13.933,
+   "dur": 4.3,
+   "src": "dontstop/clips.mp4",
+   "from": 33.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_05.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 30.3,
+    "volume": 1.7,
+    "dur": 4.3
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 18.233,
+   "dur": 5.933333333333334,
+   "src": "dontstop/clips.mp4",
+   "from": 44.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_06.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 41.1,
+    "volume": 1.7,
+    "dur": 5.933333333333334
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 24.167,
+   "dur": 2.966666666666667,
+   "src": "dontstop/clips.mp4",
+   "from": 12.5,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_07.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 56.3,
+    "volume": 1.7,
+    "dur": 2.966666666666667
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 27.133,
+   "dur": 6.033333333333333,
+   "src": "dontstop/main.mp4",
+   "from": 61.12,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_08.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 61.12,
+    "volume": 1.7,
+    "dur": 6.033333333333333
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 33.167,
+   "dur": 3.1666666666666665,
+   "src": "dontstop/main.mp4",
+   "from": 73.36,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_09.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 73.36,
+    "volume": 1.7,
+    "dur": 3.1666666666666665
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 36.333,
+   "dur": 5.433333333333334,
+   "src": "dontstop/main.mp4",
+   "from": 80.67,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_10.mp4",
+   "audio": {
+    "src": "dontstop/main.mp4",
+    "from": 80.67,
+    "volume": 1.7,
+    "dur": 5.433333333333334
+   },
+   "kind": "talk"
+  },
+  {
+   "at": 41.767,
+   "dur": 2.5,
+   "src": "dontstop/clips.mp4",
+   "from": 26.5,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_11.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 44.267,
+   "dur": 2.5,
+   "src": "dontstop/clips.mp4",
+   "from": 38.0,
+   "mode": "fill",
+   "h": 1925,
+   "clip": "dontstop/sr/seg_12.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  },
+  {
+   "at": 46.767,
+   "dur": 3.8,
+   "src": "dontstop/clips.mp4",
+   "from": 49.9,
+   "mode": "fit",
+   "h": 608,
+   "clip": "dontstop/sr/seg_13.mp4",
+   "audio": null,
+   "kind": "broll",
+   "musicGain": 2.6
+  }
+ ],
+ "words": [
+  {
+   "t": 2.3,
+   "d": 0.277,
+   "text": "هذا"
+  },
+  {
+   "t": 2.597,
+   "d": 0.342,
+   "text": "افضل",
+   "hot": true,
+   "icon": "🏆",
+   "iend": 4.367
+  },
+  {
+   "t": 2.96,
+   "d": 0.277,
+   "text": "ماب"
+  },
+  {
+   "t": 3.257,
+   "d": 0.407,
+   "text": "تلعبه"
+  },
+  {
+   "t": 3.684,
+   "d": 0.536,
+   "text": "مع اخويك",
+   "hot": true,
+   "icon": "👬",
+   "iend": 4.367
+  },
+  {
+   "t": 4.467,
+   "d": 0.84,
+   "text": "حاليا"
+  },
+  {
+   "t": 5.567,
+   "d": 0.319,
+   "text": "ماب"
+  },
+  {
+   "t": 5.905,
+   "d": 0.245,
+   "text": "لا"
+  },
+  {
+   "t": 6.171,
+   "d": 0.466,
+   "text": "تتوقف",
+   "hot": true,
+   "icon": "@dont-stop",
+   "iend": 6.8
+  },
+  {
+   "t": 6.9,
+   "d": 0.439,
+   "text": "الماب"
+  },
+  {
+   "t": 7.359,
+   "d": 0.439,
+   "text": "صراحة"
+  },
+  {
+   "t": 7.817,
+   "d": 0.3,
+   "text": "مرة"
+  },
+  {
+   "t": 8.137,
+   "d": 0.369,
+   "text": "جامد",
+   "hot": true,
+   "icon": "🔥",
+   "iend": 13.933
+  },
+  {
+   "t": 8.526,
+   "d": 0.369,
+   "text": "فكرة",
+   "icon": "💡",
+   "iend": 13.933
+  },
+  {
+   "t": 8.915,
+   "d": 0.439,
+   "text": "الماب"
+  },
+  {
+   "t": 9.374,
+   "d": 0.3,
+   "text": "انك"
+  },
+  {
+   "t": 9.694,
+   "d": 0.578,
+   "text": "لما تبدأ"
+  },
+  {
+   "t": 10.291,
+   "d": 0.439,
+   "text": "بيكون"
+  },
+  {
+   "t": 10.75,
+   "d": 0.3,
+   "text": "معك"
+  },
+  {
+   "t": 11.07,
+   "d": 0.439,
+   "text": "سيارة",
+   "hot": true,
+   "icon": "🚗",
+   "iend": 13.933
+  },
+  {
+   "t": 11.528,
+   "d": 0.508,
+   "text": "ويمديك"
+  },
+  {
+   "t": 12.057,
+   "d": 0.369,
+   "text": "تلعب"
+  },
+  {
+   "t": 12.446,
+   "d": 0.578,
+   "text": "يا لحالك",
+   "icon": "🧍",
+   "iend": 13.933
+  },
+  {
+   "t": 13.043,
+   "d": 0.717,
+   "text": "يا مع اخويك",
+   "hot": true
+  },
+  {
+   "t": 14.033,
+   "d": 0.609,
+   "text": "راح يكون"
+  },
+  {
+   "t": 14.662,
+   "d": 0.316,
+   "text": "فيه"
+  },
+  {
+   "t": 14.998,
+   "d": 0.316,
+   "text": "وحش",
+   "hot": true,
+   "icon": "👹",
+   "iend": 18.233
+  },
+  {
+   "t": 15.335,
+   "d": 0.462,
+   "text": "يلحقك"
+  },
+  {
+   "t": 15.817,
+   "d": 0.389,
+   "text": "وانت"
+  },
+  {
+   "t": 16.226,
+   "d": 0.389,
+   "text": "لازم"
+  },
+  {
+   "t": 16.636,
+   "d": 0.389,
+   "text": "تهرب",
+   "hot": true,
+   "icon": "🏃",
+   "iend": 18.233
+  },
+  {
+   "t": 17.045,
+   "d": 0.316,
+   "text": "منه"
+  },
+  {
+   "t": 17.382,
+   "d": 0.682,
+   "text": "بالسيارة",
+   "icon": "💨",
+   "iend": 18.233
+  },
+  {
+   "t": 18.333,
+   "d": 0.553,
+   "text": "بتكون"
+  },
+  {
+   "t": 18.907,
+   "d": 0.38,
+   "text": "خاش"
+  },
+  {
+   "t": 19.307,
+   "d": 0.553,
+   "text": "متاهة",
+   "hot": true,
+   "icon": "@maze",
+   "iend": 24.167
+  },
+  {
+   "t": 19.88,
+   "d": 0.553,
+   "text": "الطرق"
+  },
+  {
+   "t": 20.453,
+   "d": 0.64,
+   "text": "وبيكون"
+  },
+  {
+   "t": 21.114,
+   "d": 0.38,
+   "text": "فيه"
+  },
+  {
+   "t": 21.514,
+   "d": 0.38,
+   "text": "وحش",
+   "hot": true
+  },
+  {
+   "t": 21.913,
+   "d": 0.553,
+   "text": "يلحقك"
+  },
+  {
+   "t": 22.487,
+   "d": 0.467,
+   "text": "وانت"
+  },
+  {
+   "t": 22.973,
+   "d": 0.467,
+   "text": "لازم"
+  },
+  {
+   "t": 23.46,
+   "d": 0.553,
+   "text": "تضيعه",
+   "icon": "👀",
+   "iend": 24.167
+  },
+  {
+   "t": 24.267,
+   "d": 0.419,
+   "text": "ولازم"
+  },
+  {
+   "t": 24.706,
+   "d": 0.352,
+   "text": "تدعس",
+   "hot": true,
+   "icon": "🏎️",
+   "iend": 27.133
+  },
+  {
+   "t": 25.078,
+   "d": 0.618,
+   "text": "بالسيارة"
+  },
+  {
+   "t": 25.716,
+   "d": 0.286,
+   "text": "وما"
+  },
+  {
+   "t": 26.022,
+   "d": 0.352,
+   "text": "توقف"
+  },
+  {
+   "t": 26.395,
+   "d": 0.286,
+   "text": "ولا"
+  },
+  {
+   "t": 26.701,
+   "d": 0.286,
+   "text": "مرة"
+  },
+  {
+   "t": 27.233,
+   "d": 0.593,
+   "text": "واذا"
+  },
+  {
+   "t": 27.846,
+   "d": 0.484,
+   "text": "معك"
+  },
+  {
+   "t": 28.35,
+   "d": 0.703,
+   "text": "اخويك",
+   "hot": true
+  },
+  {
+   "t": 29.072,
+   "d": 0.703,
+   "text": "بيكون"
+  },
+  {
+   "t": 29.795,
+   "d": 0.484,
+   "text": "معه"
+  },
+  {
+   "t": 30.298,
+   "d": 0.921,
+   "text": "الرادار",
+   "hot": true,
+   "icon": "@radar",
+   "iend": 33.167
+  },
+  {
+   "t": 31.24,
+   "d": 0.921,
+   "text": "ويساعدك"
+  },
+  {
+   "t": 32.181,
+   "d": 0.812,
+   "text": "بالدرب",
+   "icon": "🗺️",
+   "iend": 33.167
+  },
+  {
+   "t": 33.267,
+   "d": 0.43,
+   "text": "ويمديكم"
+  },
+  {
+   "t": 33.717,
+   "d": 0.482,
+   "text": "تتبادلون",
+   "icon": "🔄",
+   "iend": 36.333
+  },
+  {
+   "t": 34.219,
+   "d": 0.43,
+   "text": "الاماكن"
+  },
+  {
+   "t": 34.669,
+   "d": 0.273,
+   "text": "يكون"
+  },
+  {
+   "t": 34.962,
+   "d": 0.482,
+   "text": "هو السواق",
+   "hot": true,
+   "icon": "🛞",
+   "iend": 36.333
+  },
+  {
+   "t": 35.464,
+   "d": 0.273,
+   "text": "وانت"
+  },
+  {
+   "t": 35.757,
+   "d": 0.43,
+   "text": "الرادار",
+   "hot": true
+  },
+  {
+   "t": 36.433,
+   "d": 0.448,
+   "text": "انصحكم",
+   "icon": "👍",
+   "iend": 41.767
+  },
+  {
+   "t": 36.901,
+   "d": 0.448,
+   "text": "تلعبون"
+  },
+  {
+   "t": 37.368,
+   "d": 0.386,
+   "text": "الماب"
+  },
+  {
+   "t": 37.774,
+   "d": 0.632,
+   "text": "مع اخوياكم"
+  },
+  {
+   "t": 38.427,
+   "d": 0.263,
+   "text": "مرة"
+  },
+  {
+   "t": 38.71,
+   "d": 0.325,
+   "text": "ممتع",
+   "hot": true,
+   "icon": "🤩",
+   "iend": 41.767
+  },
+  {
+   "t": 39.054,
+   "d": 0.325,
+   "text": "واسم"
+  },
+  {
+   "t": 39.399,
+   "d": 0.386,
+   "text": "الماب"
+  },
+  {
+   "t": 39.805,
+   "d": 0.201,
+   "text": "لا"
+  },
+  {
+   "t": 40.026,
+   "d": 0.386,
+   "text": "تتوقف",
+   "hot": true
+  },
+  {
+   "t": 40.432,
+   "d": 0.386,
+   "text": "موجود"
+  },
+  {
+   "t": 40.838,
+   "d": 0.755,
+   "text": "في الكومنتات",
+   "icon": "💬",
+   "iend": 41.767
+  }
+ ],
+ "stickers": [],
+ "sfx": [
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.1
+  },
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.47
+  },
+  {
+   "src": "sfx/pop.wav",
+   "volume": 0.6,
+   "t": 0.83
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.5,
+   "t": 2.14
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.5,
+   "t": 5.517
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.55,
+   "t": 6.68
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 13.813
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.55,
+   "t": 14.533
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 18.113
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.5,
+   "t": 24.047
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.4,
+   "t": 27.073
+  },
+  {
+   "src": "sfx/riser.wav",
+   "volume": 0.35,
+   "t": 40.467
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.6,
+   "t": 41.647
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.7,
+   "t": 41.787
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.6,
+   "t": 44.147
+  },
+  {
+   "src": "sfx/whoosh.wav",
+   "volume": 0.6,
+   "t": 46.647
+  },
+  {
+   "src": "sfx/glitch.wav",
+   "volume": 0.7,
+   "t": 49.037
+  },
+  {
+   "src": "sfx/impact.wav",
+   "volume": 0.8,
+   "t": 49.067
+  }
+ ]
+}
