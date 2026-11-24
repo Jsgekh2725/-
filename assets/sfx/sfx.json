@@ -1,0 +1,60 @@
+{
+  "note": "Sound effects extracted from the user's two reference videos (voice removed with UVR-MDX-NET-Inst_HQ_3). Files are peak-normalised to -1 dBFS; multiply by suggested_volume to match the original level relative to a ~-11 LUFS voice mix.",
+  "sample_rate": 44100,
+  "items": [
+    {
+      "file": "card-pop.wav",
+      "duration_s": 0.9,
+      "description": "Low punchy \"thump\" with short tail — the signature sound used every time a proof card (tweet / screenshot / UI panel) pops in. Reused 6× across both videos.",
+      "use_when": "A card, screenshot or overlay pops onto the screen (sync the hit to the first frame of the card).",
+      "source": "v2 @4.3/9.7/14.1/17.6/22.1s + v1 @27.7s (median of 6 copies)",
+      "original_peak_dbfs": -17.4,
+      "suggested_volume": 0.151
+    },
+    {
+      "file": "hook-sting-horror.wav",
+      "duration_s": 2.416,
+      "description": "Dark low rumble/sting under the opening hook of the horror video (continues ~2 s into the story).",
+      "use_when": "Opening hook of a scary / tense video.",
+      "source": "v1 0.0–2.4s",
+      "original_peak_dbfs": -11.8,
+      "suggested_volume": 0.288
+    },
+    {
+      "file": "outro-sting-horror.wav",
+      "duration_s": 1.774,
+      "description": "Closing sting when the hook graphic returns before the end card (includes a card pop at the end-card moment).",
+      "use_when": "Hook callback + end card of a scary / tense video.",
+      "source": "v1 27.6–29.4s",
+      "original_peak_dbfs": -12.0,
+      "suggested_volume": 0.282
+    },
+    {
+      "file": "hook-alert.wav",
+      "duration_s": 0.75,
+      "description": "Bright tonal alert (two quick hits) on the red circle/arrow hook frame.",
+      "use_when": "Opening hook of an energetic / news video — on the frame the red circle appears.",
+      "source": "v2 0.0–0.7s",
+      "original_peak_dbfs": -16.6,
+      "suggested_volume": 0.166
+    },
+    {
+      "file": "transition-swoosh.wav",
+      "duration_s": 0.4,
+      "description": "Short swoosh on the quick dissolve from the hook into the story.",
+      "use_when": "Cut/dissolve out of the hook into the main story, or any quick transition.",
+      "source": "v2 1.1–1.45s",
+      "original_peak_dbfs": -15.7,
+      "suggested_volume": 0.184
+    },
+    {
+      "file": "transition-fire-swipe.wav",
+      "duration_s": 0.7,
+      "description": "Bigger whoosh/impact that goes with the orange fire-streak swipe transition.",
+      "use_when": "Full-screen swipe transition between two sections / topic change.",
+      "source": "v2 7.8–8.45s",
+      "original_peak_dbfs": -13.8,
+      "suggested_volume": 0.229
+    }
+  ]
+}

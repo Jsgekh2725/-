@@ -6,6 +6,12 @@ Read `assets/style/STYLE.md` before editing or rendering any video. It describes
 2–3 s cuts, pop-in proof cards, hook callback + outro, loud mix with continuous music).
 Be inspired by it — never copy the reference videos literally.
 
+## Sound effects — use them in EVERY video
+`assets/sfx/` holds SFX extracted from the user's reference videos (catalog + suggested levels in `assets/sfx/sfx.json`):
+`card-pop` (every card/screenshot pop-in — the signature sound), `hook-alert` / `hook-sting-horror` (hook frame),
+`transition-swoosh` (hook → story dissolve), `transition-fire-swipe` (section swipe), `outro-sting-horror` (hook callback + end card).
+Place them with `bash video-tools/add-sfx.sh in.mp4 out.mp4 name@seconds[@volume] ...`, then add music, then loudnorm to -11 LUFS.
+
 ## Default background music — use it in EVERY video you edit or render
 - File: `assets/music/background-music.m4a` (AAC stereo 44.1 kHz, 63.6 s, ≈ -15.6 LUFS), supplied by the user.
 - Every video produced for this user (FFmpeg, Auto-Editor, Remotion, HyperFrames, …) gets this music unless they say otherwise for that video.

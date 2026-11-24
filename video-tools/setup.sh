@@ -9,7 +9,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -q || true
 apt-get install -y -q ffmpeg unzip mesa-vulkan-drivers vulkan-tools libvulkan1 libgomp1
 
-pip install -q -U yt-dlp scenedetect opencv-python-headless auto-editor openai-whisper faster-whisper
+pip install -q -U yt-dlp scenedetect opencv-python-headless auto-editor openai-whisper faster-whisper "audio-separator[cpu]" audioread standard-aifc standard-sunau
 
 npm install -g -q hyperframes@0.9.70 @remotion/cli@4.0.545
 
