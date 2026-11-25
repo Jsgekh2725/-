@@ -31,7 +31,7 @@ const Shots: React.FC = () => {
           <Sequence key={i} from={from} durationInFrames={f(s.to) - from} layout="none">
             <AbsoluteFill style={{ opacity: fadeIn, overflow: 'hidden' }}>
               <OffthreadVideo
-                src={staticFile('gameplay.mp4')}
+                src={staticFile(s.video ?? 'gameplay.mp4')}
                 startFrom={f(s.src) - (f(s.from) - from)}
                 muted
                 style={{
@@ -94,7 +94,9 @@ const ProofCard: React.FC<{ card: Card }> = ({ card }) => {
   const sc = interpolate(frame, [0, 3, 6], [0.88, 1.05, 1], { extrapolateRight: 'clamp', easing: Easing.out(Easing.quad) });
   const op = Math.min(interpolate(frame, [0, 2], [0, 1], { extrapolateRight: 'clamp' }),
     interpolate(frame, [len - 6, len], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }));
-  let inner: React.ReactNode = <Img src={staticFile(card.src)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
+  let inner: React.ReactNode = card.src.endsWith('.mp4')
+    ? <OffthreadVideo src={staticFile(card.src)} muted style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    : <Img src={staticFile(card.src)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
   if (card.scroll) {
     // tall screenshot: show it in a window and scroll down slowly
     const imgH = card.w * (1504 / 828);
@@ -180,8 +182,8 @@ export const Main: React.FC = () => {
         </Sequence>
       ))}
       <Sequence from={0} durationInFrames={f(HOOK.until)} layout="none">
-        <HookMark cx={540} cy={950} rx={250} ry={330} text={HOOK.text} tx={0} ty={1440} textSize={90}
-          arrow={arrowPath(700, 1430, 850, 1360, 720, 1255)} />
+        <HookMark cx={540} cy={1455} rx={290} ry={165} text={HOOK.text} tx={0} ty={560} textSize={90}
+          arrow={arrowPath(720, 700, 900, 1000, 720, 1280)} />
       </Sequence>
       <Sequence from={f(CALLBACK.at)} layout="none">
         <HookMark cx={nameCx} cy={nameCy} rx={255} ry={62} text={CALLBACK.text} tx={0} ty={cardTop - 230} textSize={92}

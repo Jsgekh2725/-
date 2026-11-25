@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Render the video, then add voice -> SFX -> music -> loudnorm (-11 LUFS).
 set -euo pipefail; cd "$(dirname "$0")"; T=../../video-tools
-[ -f public/gameplay.mp4 ] || bash prep.sh
+[ -f public/gameplay.mp4 ] && [ -f public/gameplay2.mp4 ] || bash prep.sh
 [ -d node_modules ] || npm install --no-audit --no-fund -q
 npx remotion render src/index.ts Main out/video_silent.mp4 --muted --concurrency=4 --crf=18 \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
