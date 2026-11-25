@@ -12,8 +12,8 @@
   {
    "at": 0.0,
    "dur": 2.2,
-   "src": "keyitem/raw.mp4",
-   "from": 0.0,
+   "src": "keyitem/gameplay.mp4",
+   "from": 18.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_00.mp4",
@@ -23,8 +23,8 @@
   {
    "at": 2.2,
    "dur": 2.3333333333333335,
-   "src": "keyitem/raw.mp4",
-   "from": 2.41,
+   "src": "keyitem/gameplay.mp4",
+   "from": 4.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_01.mp4",
@@ -39,8 +39,8 @@
   {
    "at": 4.533,
    "dur": 4.4,
-   "src": "keyitem/raw.mp4",
-   "from": 8.74,
+   "src": "keyitem/gameplay.mp4",
+   "from": 24.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_02.mp4",
@@ -55,8 +55,8 @@
   {
    "at": 8.933,
    "dur": 2.8666666666666667,
-   "src": "keyitem/raw.mp4",
-   "from": 20.26,
+   "src": "keyitem/gameplay.mp4",
+   "from": 9.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_03.mp4",
@@ -71,8 +71,8 @@
   {
    "at": 11.8,
    "dur": 5.2,
-   "src": "keyitem/raw.mp4",
-   "from": 25.74,
+   "src": "keyitem/gameplay.mp4",
+   "from": 30.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_04.mp4",
@@ -87,8 +87,8 @@
   {
    "at": 17.0,
    "dur": 4.8,
-   "src": "keyitem/raw.mp4",
-   "from": 36.35,
+   "src": "keyitem/gameplay.mp4",
+   "from": 42.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_05.mp4",
@@ -103,8 +103,8 @@
   {
    "at": 21.8,
    "dur": 3.7333333333333334,
-   "src": "keyitem/raw.mp4",
-   "from": 43.04,
+   "src": "keyitem/gameplay.mp4",
+   "from": 50.0,
    "mode": "fill",
    "h": 1925,
    "clip": "keyitem/sr/seg_06.mp4",
@@ -548,6 +548,9 @@
    "img": "keyitem/key.png",
    "bg": "keyitem/home.jpg",
    "color": "#ffc531",
+   "transparent": true,
+   "cy": 560,
+   "size": 520,
    "t": 0.0,
    "end": 25.533
   }
@@ -590,5 +593,5 @@
    "end": 25.533
   }
  ],
- "iconY": 230
+ "iconY": 200
 }

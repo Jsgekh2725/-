@@ -15,11 +15,10 @@ const outline = (px, color = '#000') =>
     return `${(Math.cos(r) * px).toFixed(1)}px ${(Math.sin(r) * px).toFixed(1)}px 0 ${color}`;
   }).join(',');
 
-const CX = 540;
-const CY = 800;
-const SIZE = 760;
+// Default layout; a showcase entry can override cy/size, and set transparent to sit over footage.
+const DEFAULT = {cx: 540, cy: 800, size: 760};
 
-const Sparks = ({age, color, count = 26, seed = 's'}) => (
+const Sparks = ({age, color, count = 26, seed = 's', CX, CY, K = 1}) => (
   <>
     {Array.from({length: count}).map((_, i) => {
       const a = (i / count) * Math.PI * 2 + random(`${seed}a${i}`) * 0.4;
@@ -32,8 +31,8 @@ const Sparks = ({age, color, count = 26, seed = 's'}) => (
           key={i}
           style={{
             position: 'absolute',
-            left: CX + Math.cos(a) * (120 + d) - s / 2,
-            top: CY + Math.sin(a) * (120 + d) - s / 2,
+            left: CX + Math.cos(a) * (120 * K + d) - s / 2,
+            top: CY + Math.sin(a) * (120 * K + d) - s / 2,
             width: s,
             height: s,
             background: i % 3 ? color : '#fff',
@@ -65,6 +64,10 @@ export const Showcase = ({showcase = [], phases = []}) => {
   if (f < start || f >= stop) return null;
   const color = sc.color || '#ffc531';
   const t = f - start;
+  const CX = DEFAULT.cx;
+  const CY = sc.cy ?? DEFAULT.cy;
+  const SIZE = sc.size ?? DEFAULT.size;
+  const K = SIZE / DEFAULT.size;
 
   const slam = phaseAge(phases, 'slam', f, fps);
   const sparkle = phaseAge(phases, 'sparkle', f, fps);
@@ -104,10 +107,16 @@ export const Showcase = ({showcase = [], phases = []}) => {
   return (
     <AbsoluteFill style={{overflow: 'hidden'}}>
       {/* Backdrop: the blurred source screen under a navy wash and turning gold rays. */}
-      <AbsoluteFill style={{transform: `scale(${1.25 + t * 0.0006})`}}>
-        <Img src={src(sc.bg)} style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(26px) brightness(0.35) saturate(1.3)'}} />
-      </AbsoluteFill>
-      <AbsoluteFill style={{background: 'linear-gradient(180deg, #0b1240cc 0%, #160b38aa 55%, #050510ee 100%)'}} />
+      {sc.transparent ? (
+        <AbsoluteFill style={{background: `radial-gradient(circle at 50% ${(CY / 1920) * 100}%, #000a 0%, #0006 ${SIZE * 0.05}%, transparent ${SIZE * 0.06}%)`}} />
+      ) : (
+        <>
+          <AbsoluteFill style={{transform: `scale(${1.25 + t * 0.0006})`}}>
+            <Img src={src(sc.bg)} style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(26px) brightness(0.35) saturate(1.3)'}} />
+          </AbsoluteFill>
+          <AbsoluteFill style={{background: 'linear-gradient(180deg, #0b1240cc 0%, #160b38aa 55%, #050510ee 100%)'}} />
+        </>
+      )}
       <div
         style={{
           position: 'absolute',
@@ -116,24 +125,25 @@ export const Showcase = ({showcase = [], phases = []}) => {
           width: 2200,
           height: 2200,
           background: `repeating-conic-gradient(from ${t * 0.6}deg, ${color}55 0deg 8deg, transparent 8deg 20deg)`,
-          WebkitMaskImage: 'radial-gradient(circle, #000 0%, #0007 32%, transparent 60%)',
-          maskImage: 'radial-gradient(circle, #000 0%, #0007 32%, transparent 60%)',
+          WebkitMaskImage: `radial-gradient(circle, #000 0%, #0007 ${32 * K}%, transparent ${60 * K}%)`,
+          maskImage: `radial-gradient(circle, #000 0%, #0007 ${32 * K}%, transparent ${60 * K}%)`,
+          opacity: sc.transparent ? 0.75 : 1,
         }}
       />
       <div
         style={{
           position: 'absolute',
-          left: CX - 330,
-          top: CY - 330,
-          width: 660,
-          height: 660,
-          borderRadius: 330,
+          left: CX - 330 * K,
+          top: CY - 330 * K,
+          width: 660 * K,
+          height: 660 * K,
+          borderRadius: 330 * K,
           background: `radial-gradient(circle, ${color}66 0%, transparent 65%)`,
           transform: `scale(${1 + Math.sin(t / 12) * 0.05})`,
         }}
       />
       {/* Ambient twinkles. */}
-      {Array.from({length: 18}).map((_, i) => {
+      {sc.transparent ? null : Array.from({length: 18}).map((_, i) => {
         const x = random(`tx${i}`) * 1080;
         const y = 300 + random(`ty${i}`) * 1100;
         const tw = Math.max(0, Math.sin(t / (8 + (i % 5)) + i * 1.7));
@@ -155,8 +165,8 @@ export const Showcase = ({showcase = [], phases = []}) => {
         );
       })}
 
-      {sparkle ? <Sparks age={sparkle.age} color={color} /> : null}
-      {slam ? <Sparks age={slam.age} color={color} count={16} seed="sl" /> : null}
+      {sparkle ? <Sparks age={sparkle.age} color={color} CX={CX} CY={CY} K={K} /> : null}
+      {slam ? <Sparks age={slam.age} color={color} count={16} seed="sl" CX={CX} CY={CY} K={K} /> : null}
 
       {/* The item. */}
       <div
@@ -178,7 +188,7 @@ export const Showcase = ({showcase = [], phases = []}) => {
       {shrink && shrink.age < (shrink.age + shrink.left) * 0.7
         ? [0, 1, 2, 3].map((i) => {
             const a = (i / 4) * Math.PI * 2 + Math.PI / 4;
-            const r = interpolate(shrink.age, [0, 30], [420, 200], clamp);
+            const r = interpolate(shrink.age, [0, 30], [420, 200], clamp) * K;
             return (
               <div
                 key={i}
@@ -210,7 +220,7 @@ export const Showcase = ({showcase = [], phases = []}) => {
             [1, 1],
           ].map(([dx, dy], i) => {
             const k = spring({frame: photo.age, fps, config: {damping: 14}});
-            const r = interpolate(k, [0, 1], [560, 400]);
+            const r = interpolate(k, [0, 1], [560, 400]) * K;
             return (
               <div
                 key={i}
@@ -240,7 +250,7 @@ export const Showcase = ({showcase = [], phases = []}) => {
                 style={{
                   position: 'absolute',
                   left: CX + 30,
-                  top: CY + 210,
+                  top: CY + 210 * K,
                   display: 'flex',
                   alignItems: 'center',
                   gap: 18,
@@ -273,7 +283,7 @@ export const Showcase = ({showcase = [], phases = []}) => {
                   position: 'absolute',
                   left: 0,
                   right: 0,
-                  top: CY - 120,
+                  top: CY - 120 * K,
                   display: 'flex',
                   justifyContent: 'center',
                   transform: `scale(${interpolate(k, [0, 1], [3, 1])}) rotate(-14deg)`,
@@ -311,7 +321,7 @@ export const Showcase = ({showcase = [], phases = []}) => {
                   position: 'absolute',
                   left: 0,
                   right: 0,
-                  top: CY + 230 + (1 - k) * 200,
+                  top: CY + 230 * K + (1 - k) * 200,
                   display: 'flex',
                   justifyContent: 'center',
                   opacity: k,
