@@ -15,6 +15,7 @@
 - `bash video-tools/setup.sh` — install everything (run as root; idempotent)
 - `bash video-tools/verify.sh` — run a real job through each tool and print PASS/FAIL
 - `bash video-tools/add-sfx.sh in.mp4 out.mp4 card-pop@4.3 ...` — place sound effects from `assets/sfx/`
+- `video-tools/asr/` — Arabic transcription + word timing for captions (see its README)
 - `bash video-tools/add-music.sh in.mp4 out.mp4` — add the default background music (`assets/music/background-music.m4a`)
 
 Whisper downloads its model on first use from `openaipublic.azureedge.net` (or `huggingface.co`

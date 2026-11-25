@@ -9,7 +9,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -q || true
 apt-get install -y -q ffmpeg unzip mesa-vulkan-drivers vulkan-tools libvulkan1 libgomp1
 
-pip install -q -U yt-dlp scenedetect opencv-python-headless auto-editor openai-whisper faster-whisper "audio-separator[cpu]" audioread standard-aifc standard-sunau
+pip install -q -U yt-dlp scenedetect opencv-python-headless auto-editor openai-whisper faster-whisper "audio-separator[cpu]" audioread standard-aifc standard-sunau sherpa-onnx onnxruntime soundfile
 
 npm install -g -q hyperframes@0.9.70 @remotion/cli@4.0.545
 
@@ -21,6 +21,12 @@ if [ ! -x /opt/realesrgan/realesrgan-ncnn-vulkan ]; then
   rm -rf "$tmp"
 fi
 ln -sf /opt/realesrgan/realesrgan-ncnn-vulkan /usr/local/bin/realesrgan-ncnn-vulkan
+
+mkdir -p /opt/asr
+R=https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models
+for m in sherpa-onnx-whisper-turbo sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-int8-2025-11-12; do
+  [ -d /opt/asr/$m ] || curl -fsSL "$R/$m.tar.bz2" | tar xj -C /opt/asr
+done
 
 (cd "$HERE/remotion-test" && npm install --no-audit --no-fund -q)
 echo "video tools installed"
