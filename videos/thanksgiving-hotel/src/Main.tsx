@@ -3,7 +3,7 @@ import {
   AbsoluteFill, Img, OffthreadVideo, Sequence, continueRender, delayRender,
   interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing,
 } from 'remotion';
-import { CALLBACK, CARDS, Card, DURATION_S, FPS, HOOK, ICONS, Icon, OPENING_END, SHOTS, SWIPE } from './plan';
+import { CALLBACK, CARDS, Card, DURATION_S, FPS, HIGHLIGHT, HOOK, ICONS, IMPACTS, Icon, OPENING_END, SHOTS, SWIPE } from './plan';
 import { WORDS } from './words';
 
 const W = 1080, H = 1920;
@@ -58,7 +58,7 @@ const Caption: React.FC = () => {
   return (
     <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
       <div style={{
-        fontFamily: 'Tajawal', fontWeight: 900, fontSize: 64, color: '#fff', direction: 'rtl',
+        fontFamily: 'Tajawal', fontWeight: 900, fontSize: 64, color: (HIGHLIGHT as readonly string[]).includes(w.word) ? '#FFD400' : '#fff', direction: 'rtl',
         transform: `scale(${sc})`, lineHeight: 1.2, whiteSpace: 'nowrap',
         textShadow: '3px 4px 4px rgba(0,0,0,0.78), 0 0 10px rgba(0,0,0,0.45)',
       }}>{w.word}</div>
@@ -196,14 +196,30 @@ const Opening: React.FC = () => {
   );
 };
 
+// ---------- shake / punch / flash on big hits ----------
+const useImpact = (frame: number) => {
+  let dx = 0, dy = 0, sc = 1, flash = 0, color = '#fff';
+  for (const im of IMPACTS) {
+    const t = frame - f(im.at);
+    if (t < 0 || t > 12) continue;
+    if (im.shake) { const a = im.shake * Math.exp(-t / 3.5); dx += a * Math.sin(t * 2.7); dy += a * Math.cos(t * 3.3); }
+    if (im.punch) sc *= 1 + (im.punch - 1) * Math.exp(-t / 3);
+    if (im.flash) { const o = interpolate(t, [0, 1, 5], [0, 0.55, 0], { extrapolateRight: 'clamp' }); if (o > flash) { flash = o; color = im.flash; } }
+  }
+  return { dx, dy, sc, flash, color };
+};
+
 export const Main: React.FC = () => {
   // map name position on the outro card (map_card.png is 828x623; name sits at ~x180–540, y18–58)
   const mc = CARDS[3];
   const k = mc.w / 828;
   const cardLeft = (W - mc.w) / 2, cardTop = mc.cy * H - mc.h / 2;
   const nameCx = cardLeft + 362 * k, nameCy = cardTop + 38 * k;
+  const frame = useCurrentFrame();
+  const im = useImpact(frame);
   return (
     <AbsoluteFill style={{ background: '#000' }}>
+     <AbsoluteFill style={{ transform: `translate(${im.dx}px, ${im.dy}px) scale(${im.sc * 1.035})` }}>
       <Shots />
       {CARDS.map((c, i) => (
         <Sequence key={i} from={f(c.at)} durationInFrames={Math.min(f(c.until), f(DURATION_S)) - f(c.at)} layout="none">
@@ -223,6 +239,8 @@ export const Main: React.FC = () => {
         </Sequence>
       ))}
       <Caption />
+     </AbsoluteFill>
+      <AbsoluteFill style={{ background: im.color, opacity: im.flash, pointerEvents: 'none' }} />
       <Sequence from={f(SWIPE.at)} durationInFrames={f(SWIPE.dur) + 6} layout="none">
         <Swipe />
       </Sequence>

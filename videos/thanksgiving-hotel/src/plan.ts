@@ -46,3 +46,21 @@ export const HOOK = { until: 1.0, text: 'أفضل ماب بروبلوكس!!' };
 export const OPENING_END = 3.25; // map image + hook, then cut to gameplay
 export const CALLBACK = { at: 20.2, text: 'اسم الماب!!' };
 export const SWIPE = { at: 8.8, dur: 0.5 }; // cut at SWIPE.at + dur/2
+
+// Visual hits synced with the big sound effects: shake (px), punch (zoom), flash colour.
+export type Impact = { at: number; shake?: number; punch?: number; flash?: string };
+export const IMPACTS: Impact[] = [
+  { at: 0.0, shake: 18, punch: 1.08, flash: '#ffffff' }, // vine boom on the hook
+  { at: 1.35, punch: 1.05 }, // anime wow — "أفضل"
+  { at: 4.0, punch: 1.04 }, // followers list chime
+  { at: 8.32, punch: 1.04 }, // correct ding — follow
+  { at: 11.9, shake: 14 }, // akhh — "تزعج"
+  { at: 14.5, shake: 10 }, // oof — rating down
+  { at: 16.3, punch: 1.06, flash: '#FFD84D' }, // ka-ching — earnings
+  { at: 18.62, shake: 16, flash: '#ffffff' }, // violin screech — into the wardrobe
+  { at: 19.85, punch: 1.06, flash: '#ffffff' }, // taco bell — map reveal
+  { at: 20.2, shake: 8 }, // callback circle
+];
+
+// caption words drawn in yellow
+export const HIGHLIGHT = ['أفضل', 'لايك', 'وفولو', 'تزعج', 'ينقص', 'رصيدك', 'تتخبى', 'الدولاب'];

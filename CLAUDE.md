@@ -10,7 +10,12 @@ Be inspired by it — never copy the reference videos literally.
 `assets/sfx/` holds SFX extracted from the user's reference videos (catalog + suggested levels in `assets/sfx/sfx.json`):
 `card-pop` (every card/screenshot pop-in — the signature sound), `hook-alert` / `hook-sting-horror` (hook frame),
 `transition-swoosh` (hook → story dissolve), `transition-fire-swipe` (section swipe), `outro-sting-horror` (hook callback + end card).
-Place them with `bash video-tools/add-sfx.sh in.mp4 out.mp4 name@seconds[@volume] ...`, then add music, then loudnorm to -11 LUFS.
+Meme SFX (from a clean pack the user sent): `meme-vine-boom` (big hit/reveal), `meme-taco-bell` (bong reveal), `meme-anime-wow` ("best"/impressive),
+`meme-correct` (success/follow), `meme-kaching` (money), `meme-roblox` (oof/fail), `meme-akhh` (annoyed), `meme-violin-screech` (scary/hiding),
+`meme-awkward` (fail/cringe), `meme-undertale-yellow` (something appears), `meme-tindeck` (comedic beat).
+The user wants SFX **frequent and loud**: a sound on every card, icon, cut and keyword; meme hits about level with the voice, transitions ~3 dB under, icon pops ~7 dB under.
+Pair big hits with a visual impact (shake / flash / zoom punch). See `videos/thanksgiving-hotel/build.sh` for a worked timeline.
+Place them with `bash video-tools/add-sfx.sh in.mp4 out.mp4 name@seconds[@volume[@max_duration]] ...`, then add music, then loudnorm to -11 LUFS.
 
 ## Default background music — use it in EVERY video you edit or render
 - File: `assets/music/background-music.m4a` (AAC stereo 44.1 kHz, 63.6 s, ≈ -15.6 LUFS), supplied by the user.

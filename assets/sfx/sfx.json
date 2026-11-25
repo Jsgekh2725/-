@@ -1,5 +1,5 @@
 {
-  "note": "Sound effects extracted from the user's two reference videos (voice removed with UVR-MDX-NET-Inst_HQ_3). Files are peak-normalised to -1 dBFS; multiply by suggested_volume to match the original level relative to a ~-11 LUFS voice mix.",
+  "note": "Sound effects extracted from the user's two reference videos (voice removed with UVR-MDX-NET-Inst_HQ_3). Files are peak-normalised to -1 dBFS; multiply by suggested_volume to match the original level relative to a ~-11 LUFS voice mix. Meme SFX (meme-*.wav) come from a clean SFX-pack video the user sent; they are standalone, so use them loud (≈0.5 before the final loudnorm).",
   "sample_rate": 44100,
   "items": [
     {
@@ -55,6 +55,94 @@
       "source": "v2 7.8–8.45s",
       "original_peak_dbfs": -13.8,
       "suggested_volume": 0.229
+    },
+    {
+      "file": "meme-vine-boom.wav",
+      "duration_s": 1.117,
+      "description": "Deep \"boom\" impact — the classic meme emphasis hit.",
+      "use_when": "Big reveal / punchline / hook text slam (pair with a shake or flash).",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-taco-bell.wav",
+      "duration_s": 1.67,
+      "description": "Low resonant \"bong\".",
+      "use_when": "Dramatic reveal, end card, a fact landing.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-undertale-yellow.wav",
+      "duration_s": 0.8,
+      "description": "Bright retro game \"save/notice\" chime.",
+      "use_when": "Something new appears on screen (list, menu, card).",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-awkward.wav",
+      "duration_s": 0.77,
+      "description": "Short awkward/cringe musical sting.",
+      "use_when": "Something goes wrong, a fail, silence after a bad joke.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-violin-screech.wav",
+      "duration_s": 2.8,
+      "description": "Horror violin screech (2.8 s, trim if needed).",
+      "use_when": "Scary moment, hiding, jump-scare, tension.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-correct.wav",
+      "duration_s": 0.78,
+      "description": "\"Correct answer\" ding.",
+      "use_when": "Success, tick, like/follow, a goal completed.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-anime-wow.wav",
+      "duration_s": 1.35,
+      "description": "Anime crowd \"wow\".",
+      "use_when": "Something impressive — \"best\", a cool feature.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-akhh.wav",
+      "duration_s": 1.5,
+      "description": "Annoyed \"akhh\" groan.",
+      "use_when": "Someone gets annoyed / disturbed.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-kaching.wav",
+      "duration_s": 0.8,
+      "description": "Cash register \"ka-ching\".",
+      "use_when": "Money, earnings, balance going up.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-roblox.wav",
+      "duration_s": 0.27,
+      "description": "Short Roblox-style \"oof\".",
+      "use_when": "Something lost / decreases / a fail in a Roblox video.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
+    },
+    {
+      "file": "meme-tindeck.wav",
+      "duration_s": 0.97,
+      "description": "Short comedic sting.",
+      "use_when": "Light comedic beat.",
+      "source": "User-supplied meme SFX pack video (\"SOUND EFFECT Part 1\"), cut by on-screen label",
+      "suggested_volume": 0.5
     }
   ]
 }
