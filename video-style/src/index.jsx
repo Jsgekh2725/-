@@ -11,6 +11,7 @@ import rank3 from './edit-rank3.json';
 import dontstop from './edit-dontstop.json';
 import coffee from './edit-coffee.json';
 import water from './edit-water.json';
+import keyitem from './edit-keyitem.json';
 
 const FPS = 30;
 
@@ -100,7 +101,16 @@ const Root = () => (
     defaultProps={water}
     durationInFrames={Math.round(water.duration * FPS)}
   />
-  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1500} durationInFrames={1} />
+  <Composition
+    id="KeyItem"
+    component={Explainer}
+    fps={FPS}
+    width={1080}
+    height={1920}
+    defaultProps={keyitem}
+    durationInFrames={Math.round(keyitem.duration * FPS)}
+  />
+  <Composition id="IconSheet" component={IconSheet} fps={30} width={3000} height={1600} durationInFrames={1} />
   </>
 );
 

@@ -314,6 +314,34 @@ const WaterMonster = () => (
   </svg>
 );
 
+// Gold hexagon coin reading R$, for a Robux price.
+const RobuxCoin = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <polygon points="120,14 212,66 212,174 120,226 28,174 28,66" fill="#ffc531" stroke="#111" strokeWidth="10" strokeLinejoin="round" />
+    <polygon points="120,42 186,80 186,160 120,198 54,160 54,80" fill="none" stroke="#fff3a8" strokeWidth="8" strokeLinejoin="round" />
+    <text x="120" y="152" textAnchor="middle" fontFamily={FONT} fontSize="90" fill="#111">R$</text>
+  </svg>
+);
+
+// Red price tag struck through, reading "اوف سيل".
+const OffSale = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <path d="M30 90 L90 30 H200 A12 12 0 0 1 212 42 V150 A12 12 0 0 1 200 162 H90 Z" fill="#ff2340" stroke="#111" strokeWidth="9" strokeLinejoin="round" transform="rotate(-12 120 120) translate(0 30)" />
+    <circle cx="74" cy="126" r="12" fill="#fff" stroke="#111" strokeWidth="6" transform="rotate(-12 120 120)" />
+    <text x="146" y="150" textAnchor="middle" fontFamily={FONT} fontSize="54" fill="#fff" stroke="#111" strokeWidth="5" paintOrder="stroke" transform="rotate(-12 120 120)">اوف سيل</text>
+  </svg>
+);
+
+// Gold ribbon badge reading "ليمتد".
+const Limited = () => (
+  <svg viewBox="0 0 240 240" width="100%" height="100%">
+    <path d="M70 150 L48 224 L84 206 L104 236 L120 160 Z M170 150 L192 224 L156 206 L136 236 L120 160 Z" fill="#ff2340" stroke="#111" strokeWidth="7" strokeLinejoin="round" />
+    <circle cx="120" cy="104" r="88" fill="#ffc531" stroke="#111" strokeWidth="9" />
+    <circle cx="120" cy="104" r="68" fill="none" stroke="#fff3a8" strokeWidth="7" strokeDasharray="10 9" />
+    <text x="120" y="126" textAnchor="middle" fontFamily={FONT} fontSize="56" fill="#111">ليمتد</text>
+  </svg>
+);
+
 export const CUSTOM_ICONS = {
   'ghost-shmagh': GhostShmagh,
   arabic: Arabic,
@@ -335,4 +363,7 @@ export const CUSTOM_ICONS = {
   grow: Grow,
   'no-touch-water': NoTouchWater,
   'water-monster': WaterMonster,
+  'robux-coin': RobuxCoin,
+  'off-sale': OffSale,
+  limited: Limited,
 };

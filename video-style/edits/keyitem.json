@@ -1,0 +1,283 @@
+{
+  "name": "keyitem",
+  "out": "src/edit-keyitem.json",
+  "accent": "#ffc531",
+  "iconY": 230,
+  "title": [
+    "افضل ايتم",
+    "نزل",
+    "بروبلوكس"
+  ],
+  "hot": [
+    "افضل",
+    "مفتاح",
+    "افكت",
+    "جامد",
+    "140",
+    "تخفيه",
+    "وبيختفي",
+    "يعجبكم",
+    "اوف",
+    "سيل",
+    "ليمتد",
+    "العملة"
+  ],
+  "icons": {
+    "افضل": "🏆",
+    "بروبلوكس": "🎮",
+    "مفتاح": "🔑",
+    "افكت": "✨",
+    "جامد": "🔥",
+    "ب140": "@robux-coin",
+    "تخفيه": "🫥",
+    "للحجم": "📏",
+    "وبيختفي": "👻",
+    "صورة": "📸",
+    "يعجبكم": "😍",
+    "سيل": "@off-sale",
+    "ينباع": "🚫",
+    "ليمتد": "@limited",
+    "العملة": "💰"
+  },
+  "videos": {
+    "raw": "keyitem/raw.mp4"
+  },
+  "segments": [
+    {
+      "video": "raw",
+      "start": 0.0,
+      "dur": 2.2,
+      "frame": "fill",
+      "kind": "title",
+      "fast": true
+    },
+    {
+      "video": "raw",
+      "say": [
+        2.51,
+        4.59
+      ],
+      "text": "هذا افضل ايتم نزلوه بروبلوكس الى الان",
+      "frame": "fill",
+      "fast": true
+    },
+    {
+      "video": "raw",
+      "say": [
+        8.84,
+        13.0
+      ],
+      "text": "هذا هو الايتم عبارة عن مفتاح لكن المفتاح يعمل لك افكت مرة جامد",
+      "frame": "fill",
+      "fast": true
+    },
+    {
+      "video": "raw",
+      "say": [
+        20.36,
+        22.38
+      ],
+      "text": "والايتم هذا ب140 روبوكس",
+      "frame": "fill",
+      "fast": true,
+      "hold": 0.6
+    },
+    {
+      "video": "raw",
+      "say": [
+        25.84,
+        30.3
+      ],
+      "text": "وعشان تخفيه روحوا خلوه للحجم اقل شي وترجعوه عالجسم وبيختفي بشكل كامل",
+      "frame": "fill",
+      "fast": true,
+      "hold": 0.5
+    },
+    {
+      "video": "raw",
+      "say": [
+        36.45,
+        41.0
+      ],
+      "text": "وهاي صورة الايتم وان شاء الله يعجبكم الايتم والمعلومة ترى الايتم ممكن يصير اوف سيل",
+      "frame": "fill",
+      "fast": true
+    },
+    {
+      "video": "raw",
+      "say": [
+        43.14,
+        45.84
+      ],
+      "text": "يعني ما عاد ينباع وممكن كمان يصير ليمتد زي العملة",
+      "frame": "fill",
+      "fast": true,
+      "hold": 0.8
+    }
+  ],
+  "showcase": [
+    {
+      "seg": 0,
+      "until": 6,
+      "at": 0,
+      "img": "keyitem/key.png",
+      "bg": "keyitem/home.jpg",
+      "color": "#ffc531"
+    }
+  ],
+  "phases": [
+    {
+      "seg": 0,
+      "at": 0.0,
+      "kind": "slam"
+    },
+    {
+      "seg": 2,
+      "at": 3.25,
+      "kind": "sparkle"
+    },
+    {
+      "seg": 3,
+      "at": 1.05,
+      "kind": "price",
+      "text": "140",
+      "until": 3
+    },
+    {
+      "seg": 4,
+      "at": 0.0,
+      "kind": "shrink",
+      "until": 4
+    },
+    {
+      "seg": 5,
+      "at": 0.0,
+      "kind": "photo",
+      "until": 5
+    },
+    {
+      "seg": 5,
+      "at": 4.2,
+      "kind": "stamp",
+      "text": "اوف سيل",
+      "until": 6
+    },
+    {
+      "seg": 6,
+      "at": 1.9,
+      "kind": "limited",
+      "text": "ليمتد",
+      "until": 6
+    }
+  ],
+  "sfx": [
+    {
+      "seg": 0,
+      "at": 0.0,
+      "src": "sfx/impact.wav",
+      "volume": 0.7
+    },
+    {
+      "seg": 0,
+      "at": 0.05,
+      "src": "sfx/ding.wav",
+      "volume": 0.35
+    },
+    {
+      "seg": 0,
+      "at": 0.1,
+      "src": "sfx/pop.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 0,
+      "at": 0.47,
+      "src": "sfx/pop.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 0,
+      "at": 0.83,
+      "src": "sfx/pop.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 1,
+      "at": -0.06,
+      "src": "sfx/glitch.wav",
+      "volume": 0.45
+    },
+    {
+      "seg": 2,
+      "at": 3.25,
+      "src": "sfx/ding.wav",
+      "volume": 0.5
+    },
+    {
+      "seg": 2,
+      "at": 3.2,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.45
+    },
+    {
+      "seg": 3,
+      "at": 1.05,
+      "src": "sfx/coin.wav",
+      "volume": 0.7
+    },
+    {
+      "seg": 3,
+      "at": 1.0,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.45
+    },
+    {
+      "seg": 4,
+      "at": 0.15,
+      "src": "sfx/riser.wav",
+      "volume": 0.25
+    },
+    {
+      "seg": 4,
+      "at": 3.6,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 4,
+      "at": 4.75,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 5,
+      "at": 0.0,
+      "src": "sfx/pop.wav",
+      "volume": 0.6
+    },
+    {
+      "seg": 5,
+      "at": 0.02,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.4
+    },
+    {
+      "seg": 5,
+      "at": 4.2,
+      "src": "sfx/impact.wav",
+      "volume": 0.75
+    },
+    {
+      "seg": 6,
+      "at": 1.9,
+      "src": "sfx/ding.wav",
+      "volume": 0.45
+    },
+    {
+      "seg": 6,
+      "at": 1.85,
+      "src": "sfx/whoosh.wav",
+      "volume": 0.4
+    }
+  ]
+}

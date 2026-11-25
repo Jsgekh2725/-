@@ -103,12 +103,13 @@ def pin(item):
     return o
 
 
-extra = {k: [pin(x) for x in cfg[k]] for k in ("cards", "sfx", "podium") if k in cfg}
+extra = {k: [pin(x) for x in cfg[k]] for k in ("cards", "sfx", "podium", "showcase", "phases") if k in cfg}
 
 out = {"accent": cfg["accent"], "video": None, "title": cfg["title"], "titleEnd": segments[0]["dur"],
        "duration": round(t, 3), "segments": segments, "words": words, "stickers": stickers, **extra}
-if "music" in cfg:
-    out["music"] = cfg["music"]
+for k in ("music", "iconY"):
+    if k in cfg:
+        out[k] = cfg[k]
 json.dump(out, open(cfg["out"], "w"), ensure_ascii=False, indent=1)
 open(sys.argv[2], "w").write("\n".join(jobs) + "\n")
 print(f"{len(segments)} segments, {len(words)} captions, {len(stickers)} stickers, {t:.1f}s")

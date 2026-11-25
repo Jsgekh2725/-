@@ -17,6 +17,7 @@ import '@fontsource/lalezar/latin-400.css';
 import '@fontsource/noto-color-emoji/emoji-400.css';
 import {CUSTOM_ICONS} from './icons';
 import {Podium, RankCards, Sfx} from './Ranking';
+import {Showcase} from './Showcase';
 
 const FONT = 'Lalezar';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'};
@@ -286,7 +287,7 @@ const CustomIcon = ({name}) => {
   return C ? <div style={{width: 230, height: 230, display: 'inline-block'}}><C /></div> : null;
 };
 
-const Icons = ({words, stickers = []}) => {
+const Icons = ({words, stickers = [], top = 470}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const list = [...words.filter((w) => w.icon), ...stickers].sort((x, y) => x.t - y.t);
@@ -305,7 +306,7 @@ const Icons = ({words, stickers = []}) => {
             key={i}
             style={{
               position: 'absolute',
-              top: 470 + (i % 3) * 50,
+              top: top + (i % 3) * 50,
               left: 540 + side * 280 - 120,
               width: 240,
               textAlign: 'center',
@@ -328,7 +329,7 @@ const Icons = ({words, stickers = []}) => {
 // House music bed, used by every edit unless a composition passes `music: null` or another file.
 export const DEFAULT_MUSIC = 'music/default.m4a';
 
-export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, stickers = [], cards = [], podium = [], sfx = [], cuts = []}) => {
+export const Explainer = ({title, titleEnd, words, accent, video, audio, music = DEFAULT_MUSIC, musicVolume = 0.12, segments, stickers = [], cards = [], podium = [], sfx = [], showcase = [], phases = [], iconY = 470, cuts = []}) => {
   const {durationInFrames} = useVideoConfig();
   useFont([...words, ...stickers].map((w) => (w.icon && !w.icon.startsWith('@') ? w.icon : '')).join(''));
   const {fps} = useVideoConfig();
@@ -342,11 +343,12 @@ export const Explainer = ({title, titleEnd, words, accent, video, audio, music =
     <AbsoluteFill style={{background: '#000'}}>
       <Footage video={video} accent={accent} cuts={cuts} segments={segments} />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 38%, #000000e6 100%)'}} />
+      <Showcase showcase={showcase} phases={phases} />
       <Title lines={title} end={titleEnd} accent={accent} />
       <Glitch at={Math.round(titleEnd * fps)} accent={accent} />
       <RankCards cards={cards} />
       <Podium podium={podium} />
-      <Icons words={words} stickers={stickers} />
+      <Icons words={words} stickers={stickers} top={iconY} />
       <Caption words={words} accent={accent} />
       {audio ? <Audio src={src(audio)} /> : null}
       <Sfx sfx={sfx} />
