@@ -3,7 +3,7 @@ import {
   AbsoluteFill, Img, OffthreadVideo, Sequence, continueRender, delayRender,
   interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing,
 } from 'remotion';
-import { CALLBACK, CARDS, Card, FPS, HOOK, ICONS, Icon, SHOTS, SWIPE } from './plan';
+import { CALLBACK, CARDS, Card, DURATION_S, FPS, HOOK, ICONS, Icon, OPENING_END, SHOTS, SWIPE } from './plan';
 import { WORDS } from './words';
 
 const W = 1080, H = 1920;
@@ -25,8 +25,8 @@ const Shots: React.FC = () => {
         const local = frame - f(s.from);
         const z = interpolate(local, [0, len], [s.z0, s.z1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
         // hook → story: 3-frame dissolve into shot 1
-        const fadeIn = i === 1 ? interpolate(local, [-3, 0], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) : 1;
-        const from = i === 1 ? f(s.from) - 3 : f(s.from);
+        const fadeIn = false ? interpolate(local, [-3, 0], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) : 1;
+        const from = false ? f(s.from) - 3 : f(s.from);
         return (
           <Sequence key={i} from={from} durationInFrames={f(s.to) - from} layout="none">
             <AbsoluteFill style={{ opacity: fadeIn, overflow: 'hidden' }}>
@@ -167,6 +167,35 @@ const Swipe: React.FC = () => {
   );
 };
 
+// ---------- opening: the map image (hook 0–1 s, then "هذا أفضل ماب في روبلوكس حالياً") ----------
+const Opening: React.FC = () => {
+  const frame = useCurrentFrame();
+  const len = f(OPENING_END);
+  const cw = 980, k = cw / 828, ch = Math.round(623 * k);
+  const left = (W - cw) / 2, top = 0.53 * H - ch / 2;
+  const pop = interpolate(frame, [0, 3, 6], [0.86, 1.05, 1], { extrapolateRight: 'clamp', easing: Easing.out(Easing.quad) });
+  const drift = interpolate(frame, [0, len], [1, 1.07]);
+  const bgZoom = interpolate(frame, [0, len], [1.0, 1.12]);
+  // the knocking hand on the artwork (art starts at x43,y194 inside the 828-wide card)
+  const hx = left + (43 + 455) * k, hy = top + (194 + 190) * k;
+  return (
+    <AbsoluteFill style={{ background: '#0b0806' }}>
+      <AbsoluteFill style={{ transform: `scale(${bgZoom})` }}>
+        <Img src={staticFile('map_art.png')} style={{ position: 'absolute', height: H, left: '50%', transform: 'translateX(-55%)', filter: 'blur(26px) brightness(0.5) saturate(1.2)' }} />
+      </AbsoluteFill>
+      <div style={{ position: 'absolute', left, top, width: cw, height: ch, borderRadius: 36, overflow: 'hidden',
+        transform: `scale(${pop * drift})`, boxShadow: '0 24px 70px rgba(0,0,0,0.7)' }}>
+        <Img src={staticFile('map_card.png')} style={{ width: '100%', height: '100%' }} />
+        <Img src={staticFile('map_art.png')} style={{ position: 'absolute', left: 43 * k, top: 194 * k, width: 744 * k, height: 414 * k, borderRadius: 18 }} />
+      </div>
+      <Sequence from={0} durationInFrames={f(HOOK.until)} layout="none">
+        <HookMark cx={hx} cy={hy} rx={210} ry={175} text={HOOK.text} tx={0} ty={300} textSize={92}
+          arrow={arrowPath(560, 440, 420, 700, hx - 150, hy - 150)} />
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
+
 export const Main: React.FC = () => {
   // map name position on the outro card (map_card.png is 828x623; name sits at ~x180–540, y18–58)
   const mc = CARDS[3];
@@ -177,13 +206,12 @@ export const Main: React.FC = () => {
     <AbsoluteFill style={{ background: '#000' }}>
       <Shots />
       {CARDS.map((c, i) => (
-        <Sequence key={i} from={f(c.at)} durationInFrames={Math.min(f(c.until), f(22.9)) - f(c.at)} layout="none">
+        <Sequence key={i} from={f(c.at)} durationInFrames={Math.min(f(c.until), f(DURATION_S)) - f(c.at)} layout="none">
           <ProofCard card={c} />
         </Sequence>
       ))}
-      <Sequence from={0} durationInFrames={f(HOOK.until)} layout="none">
-        <HookMark cx={540} cy={1455} rx={290} ry={165} text={HOOK.text} tx={0} ty={560} textSize={90}
-          arrow={arrowPath(720, 700, 900, 1000, 720, 1280)} />
+      <Sequence from={0} durationInFrames={f(OPENING_END)} layout="none">
+        <Opening />
       </Sequence>
       <Sequence from={f(CALLBACK.at)} layout="none">
         <HookMark cx={nameCx} cy={nameCy} rx={255} ry={62} text={CALLBACK.text} tx={0} ty={cardTop - 230} textSize={92}

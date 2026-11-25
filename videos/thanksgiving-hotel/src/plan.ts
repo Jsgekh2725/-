@@ -1,12 +1,11 @@
 // Edit plan (seconds on the output timeline). Speech is pre-cut; see data/timeline.json.
 export const FPS = 30;
-export const DURATION_S = 22.9;
+export const DURATION_S = 24.0;
 
 export type Shot = { from: number; to: number; src: number; z0: number; z1: number; dark?: boolean; video?: string };
 // gameplay.mp4 = lobby / event recording, gameplay2.mp4 = in-hotel gameplay (knocking, hiding, earnings)
 export const SHOTS: Shot[] = [
-  { from: 0.0, to: 1.0, src: 9.3, z0: 1.14, z1: 1.22, video: 'gameplay2.mp4' }, // hook: hiding in the wardrobe, "hold your breath"
-  { from: 1.0, to: 3.25, src: 0.5, z0: 1.08, z1: 1.16 }, // "أفضل ماب" lobby
+  // 0–3.25 s is the map-image opening (see Opening in Main.tsx)
   { from: 3.25, to: 5.8, src: 18.0, z0: 1.1, z1: 1.14 }, // followers card
   { from: 5.8, to: 7.8, src: 21.5, z0: 1.2, z1: 1.24 }, // punch-in
   { from: 7.8, to: 9.05, src: 6.6, z0: 1.18, z1: 1.26 }, // like & follow (jump)
@@ -16,13 +15,13 @@ export const SHOTS: Shot[] = [
   { from: 15.75, to: 17.0, src: 17.3, z0: 1.22, z1: 1.28, video: 'gameplay2.mp4' }, // red door tag, earnings up (punch)
   { from: 17.0, to: 18.62, src: 6.3, z0: 1.1, z1: 1.16, video: 'gameplay2.mp4' }, // run to the wardrobe
   { from: 18.62, to: 19.8, src: 8.2, z0: 1.12, z1: 1.18, video: 'gameplay2.mp4' }, // inside the wardrobe
-  { from: 19.8, to: 22.9, src: 24.0, z0: 1.15, z1: 1.2, dark: true, video: 'gameplay2.mp4' }, // outro: map card
+  { from: 19.8, to: 24.0, src: 24.0, z0: 1.15, z1: 1.2, dark: true, video: 'gameplay2.mp4' }, // outro: map card
 ];
 
 export type Icon = { at: number; until: number; name: string; x?: number; y?: number; size?: number };
 // y = centre as fraction of height; x = offset from centre in px
 export const ICONS: Icon[] = [
-  { at: 1.35, until: 2.55, name: 'trophy.svg' },
+  { at: 1.35, until: 2.7, name: 'trophy.svg', y: 0.2 },
   { at: 6.8, until: 7.8, name: 'clapper-board.svg', y: 0.24 },
   { at: 8.08, until: 9.0, name: 'red-heart.svg', x: -150 },
   { at: 8.32, until: 9.0, name: 'custom-follow.svg', x: 150 },
@@ -44,5 +43,6 @@ export const CARDS: Card[] = [
 ];
 
 export const HOOK = { until: 1.0, text: 'أفضل ماب بروبلوكس!!' };
+export const OPENING_END = 3.25; // map image + hook, then cut to gameplay
 export const CALLBACK = { at: 20.2, text: 'اسم الماب!!' };
 export const SWIPE = { at: 8.8, dur: 0.5 }; // cut at SWIPE.at + dur/2
