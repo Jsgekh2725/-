@@ -1,0 +1,4 @@
+node_modules/
+out/*
+!out/feed-the-lizard.mp4
+public/g*.mp4

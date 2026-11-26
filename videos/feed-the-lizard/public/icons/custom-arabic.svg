@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="512" height="512">
+ <defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3CD27A"/><stop offset="1" stop-color="#0E8A43"/></linearGradient>
+  <linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ </defs>
+ <circle cx="64" cy="70" r="54" fill="#075C2B"/>
+ <circle cx="64" cy="64" r="54" fill="url(#g)"/>
+ <ellipse cx="64" cy="34" rx="38" ry="20" fill="url(#h)"/>
+ <circle cx="64" cy="64" r="45" fill="none" stroke="#FFE07A" stroke-width="4" stroke-dasharray="3 7" stroke-linecap="round"/>
+ <text x="64" y="88" font-family="Tajawal, Arial" font-weight="900" font-size="72" text-anchor="middle" fill="#fff" stroke="#075C2B" stroke-width="3" paint-order="stroke">ع</text>
+</svg>
