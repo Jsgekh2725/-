@@ -5,6 +5,7 @@ import {
 } from 'remotion';
 import { CALLBACK, CARDS, Card, DURATION_S, FPS, HIGHLIGHT, HOOK, ICONS, IMPACTS, Icon, MAP, OPENING_END, SHOTS, SWIPE } from './plan';
 import { WORDS } from './words';
+import { SR } from './sr';
 
 const W = 1080, H = 1920;
 const RED = '#F80304';
@@ -31,8 +32,8 @@ const Shots: React.FC = () => {
           <Sequence key={i} from={from} durationInFrames={f(s.to) - from} layout="none">
             <AbsoluteFill style={{ opacity: fadeIn, overflow: 'hidden' }}>
               <OffthreadVideo
-                src={staticFile(s.video)}
-                startFrom={f(s.src) - (f(s.from) - from)}
+                src={staticFile(SR[i] ?? s.video)}
+                startFrom={SR[i] ? 0 : f(s.src) - (f(s.from) - from)}
                 muted
                 style={{
                   width: W, height: H, transform: `scale(${z})`,

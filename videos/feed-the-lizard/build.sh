@@ -3,7 +3,11 @@
 set -euo pipefail; cd "$(dirname "$0")"; T=../../video-tools
 [ -f public/g2.mp4 ] || bash prep.sh
 [ -d node_modules ] || npm install --no-audit --no-fund -q
-npx remotion render src/index.ts Main out/video_silent.mp4 --muted --concurrency=3 --crf=18 \
+# AI upscale of the gameplay shots (cached in public/sr; delete it after changing SHOTS)
+[ -f public/sr/shots.json ] || python3 $T/sr/upscale_shots.py "$PWD"
+python3 -c "import json;d=json.load(open('public/sr/shots.json'));open('src/sr.ts','w').write('export const SR: Record<number, string> = '+json.dumps({int(k):v['file'] for k,v in d.items()})+';\\n')"
+# PNG frames (no JPEG loss), near-lossless intermediate; the final TikTok encode happens at the end
+npx remotion render src/index.ts Main out/video_silent.mp4 --muted --concurrency=3 --image-format=png --crf=10 --x264-preset=fast --color-space=bt709 \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
 ffmpeg -nostdin -loglevel error -y -i out/video_silent.mp4 -i public/speech_cut.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 256k -af "volume=0.5,apad" -shortest out/step1_voice.mp4
 # SFX timeline: name@seconds@volume[@max_duration]. Voice is at 0.5: meme hits ≈ voice level, transitions ~3 dB under, icon pops ~7 dB under.
@@ -35,5 +39,10 @@ SFX=(
 )
 bash $T/add-sfx.sh out/step1_voice.mp4 out/step2_sfx.mp4 "${SFX[@]}"
 bash $T/add-music.sh out/step2_sfx.mp4 out/step3_music.mp4 0.11
-ffmpeg -nostdin -loglevel error -y -i out/step3_music.mp4 -c:v copy -af "loudnorm=I=-10.4:TP=-1:LRA=7" -ar 48000 -c:a aac -b:a 256k -movflags +faststart out/feed-the-lizard.mp4
+# Final encode for TikTok: H.264 High@4.2, yuv420p TV range, BT.709 tagged, 30 fps CFR, 2 s GOP, AAC 48 kHz, faststart
+ffmpeg -nostdin -loglevel error -y -i out/step3_music.mp4 \
+  -vf "scale=1080:1920:flags=lanczos:in_range=auto:out_range=tv:out_color_matrix=bt709,format=yuv420p" \
+  -c:v libx264 -preset slow -crf 15 -maxrate 20M -bufsize 40M -profile:v high -level:v 4.2 -r 30 -g 60 -keyint_min 30 \
+  -colorspace bt709 -color_primaries bt709 -color_trc bt709 -color_range tv -tag:v avc1 \
+  -af "loudnorm=I=-10.4:TP=-1:LRA=7" -ar 48000 -ac 2 -c:a aac -b:a 256k -movflags +faststart out/feed-the-lizard.mp4
 echo out/feed-the-lizard.mp4
