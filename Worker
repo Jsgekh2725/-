@@ -1,0 +1,323 @@
+// صياد يوزرات روبلوكس — Cloudflare Worker (ملف واحد: الواجهة + الفحص)
+// الصق هذا الملف كامل في محرر الـ Worker واضغط Deploy.
+
+const RBX_API = "https://auth.roblox.com/v1/usernames/validate";
+
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/check") {
+      const u = (url.searchParams.get("u") || "").trim();
+      if (!isValidName(u)) {
+        return json({ name: u, status: "invalid", msg: "صيغة اليوزر غير مسموحة في روبلوكس" });
+      }
+      const api =
+        RBX_API + "?Username=" + encodeURIComponent(u) +
+        "&Birthday=2000-01-01T00:00:00.000Z&Context=Signup";
+      try {
+        const r = await fetch(api, {
+          headers: {
+            "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+          },
+        });
+        if (r.status === 429) return json({ name: u, status: "ratelimit", msg: "روبلوكس حاطة حد للطلبات، انتظر شوي" });
+        if (!r.ok) return json({ name: u, status: "error", msg: "HTTP " + r.status });
+        const d = await r.json();
+        // code 0 = متاح، 1 = مأخوذ، غيره = مرفوض (غير لائق / فيه معلومات خاصة / ...)
+        const status = d.code === 0 ? "available" : d.code === 1 ? "taken" : "blocked";
+        return json({ name: u, status, code: d.code, msg: d.message });
+      } catch (e) {
+        return json({ name: u, status: "error", msg: String(e) });
+      }
+    }
+
+    return new Response(HTML, { headers: { "content-type": "text/html; charset=utf-8" } });
+  },
+};
+
+function isValidName(u) {
+  // 3-20 حرف، حروف إنجليزية وأرقام و _ واحدة بس، وما تكون بالبداية أو النهاية
+  if (!/^[A-Za-z0-9_]{3,20}$/.test(u)) return false;
+  if (u.startsWith("_") || u.endsWith("_")) return false;
+  if ((u.match(/_/g) || []).length > 1) return false;
+  return true;
+}
+
+function json(obj) {
+  return new Response(JSON.stringify(obj), {
+    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
+  });
+}
+
+const HTML = `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>صياد يوزرات روبلوكس</title>
+<style>
+  :root{--bg:#0e1014;--card:#171a21;--line:#262b36;--txt:#e8eaf0;--mute:#8a92a6;
+        --ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--gray:#6b7280;--acc:#3b82f6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:18px}
+  h1{font-size:22px;margin:4px 0 2px}
+  .sub{color:var(--mute);font-size:13px;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+  label{display:block;font-size:13px;color:var(--mute);margin:10px 0 6px}
+  select,input,textarea{width:100%;background:#0b0d11;color:var(--txt);border:1px solid var(--line);
+        border-radius:10px;padding:10px;font-size:15px;font-family:inherit}
+  textarea{min-height:80px;direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  button{border:0;border-radius:10px;padding:11px 16px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+  .go{background:var(--acc);color:#fff;flex:1}
+  .stop{background:#2a2f3a;color:var(--txt)}
+  .ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+  .stat b{display:block;font-size:20px}
+  .stat span{font-size:12px;color:var(--mute)}
+  .ok b{color:var(--ok)} .bad b{color:var(--bad)} .gray b{color:var(--gray)} .warn b{color:var(--warn)}
+  .bar{height:6px;background:#0b0d11;border-radius:9px;overflow:hidden;margin-top:12px}
+  .bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .2s}
+  .now{font-size:13px;color:var(--mute);margin-top:8px;min-height:18px}
+  .tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+  .tab{background:#0b0d11;border:1px solid var(--line);color:var(--mute);padding:7px 12px;font-size:13px}
+  .tab.on{color:var(--txt);border-color:var(--acc)}
+  #list{display:flex;flex-direction:column;gap:6px;max-height:420px;overflow:auto}
+  .it{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:10px;
+      background:#0b0d11;border-inline-start:4px solid var(--gray)}
+  .it .n{font-family:ui-monospace,Consolas,monospace;font-size:16px;direction:ltr}
+  .it .s{font-size:12px;color:var(--mute)}
+  .it.available{border-color:var(--ok)} .it.available .s{color:var(--ok);font-weight:700}
+  .it.taken{border-color:var(--bad)}
+  .it.ratelimit,.it.error{border-color:var(--warn)}
+  .empty{color:var(--mute);text-align:center;padding:18px;font-size:14px}
+  .hint{font-size:12px;color:var(--mute);margin-top:6px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎯 صياد يوزرات روبلوكس</h1>
+  <div class="sub">يولّد يوزرات ثلاثية وشبه ثلاثية ويفحصها مباشرة من روبلوكس</div>
+
+  <div class="card">
+    <label>نوع اليوزر</label>
+    <select id="mode">
+      <option value="L3">ثلاثي حروف فقط — abc</option>
+      <option value="A3">ثلاثي حروف + أرقام — a1b</option>
+      <option value="U3">ثلاثي بشرطة — a_b</option>
+      <option value="S1">شبه ثلاثي — a_bc</option>
+      <option value="S2">شبه ثلاثي — ab_c</option>
+      <option value="L4">رباعي حروف — abcd</option>
+      <option value="P">نمط مخصص</option>
+      <option value="M">قائمة يدوية</option>
+    </select>
+
+    <div id="patBox" style="display:none">
+      <label>النمط</label>
+      <input id="pattern" value="L_LL" dir="ltr">
+      <div class="hint">L = حرف، D = رقم، A = حرف أو رقم، _ = شرطة، وأي حرف ثاني يُكتب كما هو. مثال: xLL أو L_DD</div>
+    </div>
+
+    <div id="manBox" style="display:none">
+      <label>اليوزرات (كل واحد بسطر أو بينها مسافة)</label>
+      <textarea id="manual" placeholder="abc&#10;x_yz&#10;q1w"></textarea>
+    </div>
+
+    <div class="row" id="genRow">
+      <div>
+        <label>كم يوزر يفحص</label>
+        <input id="count" type="number" min="1" max="5000" value="100">
+      </div>
+      <div>
+        <label>التأخير بين كل فحص (ملّي ثانية)</label>
+        <input id="delay" type="number" min="200" value="1200">
+      </div>
+    </div>
+    <label><input id="onlyOk" type="checkbox" style="width:auto"> أوقف أول ما يلقى يوزر متاح</label>
+
+    <div class="btns">
+      <button class="go" id="start">ابدأ الصيد</button>
+      <button class="stop" id="stop" disabled>إيقاف</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="stats">
+      <div class="stat ok"><b id="cOk">0</b><span>متاح</span></div>
+      <div class="stat bad"><b id="cTaken">0</b><span>مأخوذ</span></div>
+      <div class="stat gray"><b id="cBlk">0</b><span>مرفوض</span></div>
+      <div class="stat warn"><b id="cErr">0</b><span>أخطاء</span></div>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+    <div class="now" id="now"></div>
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab on" data-f="available">المتاحة</button>
+      <button class="tab" data-f="all">الكل</button>
+      <button class="tab" data-f="taken">المأخوذة</button>
+      <button class="tab" data-f="other">مرفوض/خطأ</button>
+    </div>
+    <div id="list"><div class="empty">ما فيه نتائج للحين</div></div>
+    <div class="btns">
+      <button class="ghost" id="copy">نسخ المتاحة</button>
+      <button class="ghost" id="clear">مسح النتائج</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var LET = "abcdefghijklmnopqrstuvwxyz";
+var DIG = "0123456789";
+var ALN = LET + DIG;
+var PATTERNS = { L3:"LLL", A3:"AAA", U3:"A_A", S1:"A_AA", S2:"AA_A", L4:"LLLL" };
+var LABEL = { available:"متاح ✅", taken:"مأخوذ", blocked:"مرفوض", invalid:"صيغة غلط", ratelimit:"ضغط طلبات", error:"خطأ" };
+
+var results = [];
+var running = false;
+var filter = "available";
+var $ = function(id){ return document.getElementById(id); };
+
+function pick(s){ return s[Math.floor(Math.random()*s.length)]; }
+
+function fromPattern(p){
+  var out = "";
+  for (var i=0;i<p.length;i++){
+    var c = p[i];
+    if (c==="L") out += pick(LET);
+    else if (c==="D") out += pick(DIG);
+    else if (c==="A") out += pick(ALN);
+    else out += c.toLowerCase();
+  }
+  return out;
+}
+
+function validName(u){
+  if (!/^[A-Za-z0-9_]{3,20}$/.test(u)) return false;
+  if (u[0]==="_" || u[u.length-1]==="_") return false;
+  return (u.match(/_/g)||[]).length <= 1;
+}
+
+function patternSpace(p){
+  var n = 1;
+  for (var i=0;i<p.length;i++){
+    var c = p[i];
+    n *= c==="L" ? 26 : c==="D" ? 10 : c==="A" ? 36 : 1;
+  }
+  return n;
+}
+
+function buildQueue(){
+  var mode = $("mode").value;
+  if (mode === "M"){
+    var arr = $("manual").value.split(/[\\s,]+/).map(function(s){return s.trim();}).filter(Boolean);
+    var seen = {}; var q = [];
+    arr.forEach(function(u){ var k=u.toLowerCase(); if(!seen[k]){seen[k]=1;q.push(u);} });
+    return q;
+  }
+  var p = mode === "P" ? $("pattern").value.trim() : PATTERNS[mode];
+  if (!p) return [];
+  var want = Math.max(1, Math.min(5000, parseInt($("count").value,10) || 100));
+  var space = patternSpace(p);
+  want = Math.min(want, space);
+  var done = {};
+  results.forEach(function(r){ done[r.name.toLowerCase()] = 1; });
+  var q = []; var used = {}; var tries = 0;
+  while (q.length < want && tries < want*50){
+    tries++;
+    var u = fromPattern(p);
+    if (!validName(u) || used[u] || done[u]) continue;
+    used[u] = 1; q.push(u);
+  }
+  return q;
+}
+
+function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+
+async function checkOne(u){
+  var wait = 4000;
+  for (var attempt=0; attempt<4; attempt++){
+    try{
+      var r = await fetch("/check?u=" + encodeURIComponent(u));
+      var d = await r.json();
+      if (d.status !== "ratelimit") return d;
+      $("now").textContent = "روبلوكس ضاغطة الطلبات… ننتظر " + Math.round(wait/1000) + " ثواني";
+      await sleep(wait); wait *= 2;
+      if (!running) return d;
+    }catch(e){
+      return { name:u, status:"error", msg:String(e) };
+    }
+  }
+  return { name:u, status:"ratelimit" };
+}
+
+async function start(){
+  var q = buildQueue();
+  if (!q.length){ $("now").textContent = "ما فيه يوزرات للفحص — تأكد من الإعدادات"; return; }
+  running = true;
+  $("start").disabled = true; $("stop").disabled = false;
+  var delay = Math.max(200, parseInt($("delay").value,10) || 1200);
+  for (var i=0;i<q.length && running;i++){
+    $("now").textContent = "يفحص: " + q[i] + "  (" + (i+1) + " / " + q.length + ")";
+    var d = await checkOne(q[i]);
+    d.name = q[i];
+    results.unshift(d);
+    render();
+    $("prog").style.width = ((i+1)/q.length*100) + "%";
+    if (d.status === "available" && $("onlyOk").checked){ running = false; break; }
+    if (i < q.length-1 && running) await sleep(delay);
+  }
+  running = false;
+  $("start").disabled = false; $("stop").disabled = true;
+  $("now").textContent = "خلص ✔︎ — لقيت " + count("available") + " متاح";
+}
+
+function count(s){ return results.filter(function(r){return r.status===s;}).length; }
+
+function render(){
+  $("cOk").textContent = count("available");
+  $("cTaken").textContent = count("taken");
+  $("cBlk").textContent = count("blocked") + count("invalid");
+  $("cErr").textContent = count("error") + count("ratelimit");
+  var rows = results.filter(function(r){
+    if (filter==="all") return true;
+    if (filter==="other") return r.status!=="available" && r.status!=="taken";
+    return r.status===filter;
+  });
+  if (!rows.length){ $("list").innerHTML = '<div class="empty">ما فيه نتائج هنا</div>'; return; }
+  $("list").innerHTML = rows.slice(0,500).map(function(r){
+    return '<div class="it '+r.status+'"><span class="n">'+esc(r.name)+'</span><span class="s">'+(LABEL[r.status]||r.status)+'</span></div>';
+  }).join("");
+}
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+$("mode").onchange = function(){
+  var m = this.value;
+  $("patBox").style.display = m==="P" ? "block" : "none";
+  $("manBox").style.display = m==="M" ? "block" : "none";
+  $("count").parentNode.style.display = m==="M" ? "none" : "block";
+};
+$("start").onclick = start;
+$("stop").onclick = function(){ running = false; $("now").textContent = "توقف"; };
+$("clear").onclick = function(){ results = []; render(); $("prog").style.width="0"; };
+$("copy").onclick = function(){
+  var t = results.filter(function(r){return r.status==="available";}).map(function(r){return r.name;}).join("\\n");
+  if (!t){ $("now").textContent = "ما فيه يوزرات متاحة للنسخ"; return; }
+  navigator.clipboard.writeText(t).then(function(){ $("now").textContent = "انسخت ✔︎"; });
+};
+document.querySelectorAll(".tab").forEach(function(b){
+  b.onclick = function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on"); filter = b.getAttribute("data-f"); render();
+  };
+});
+</script>
+</body>
+</html>`;
