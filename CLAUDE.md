@@ -25,5 +25,10 @@ Place them with `bash video-tools/add-sfx.sh in.mp4 out.mp4 name@seconds[@volume
 - Remotion: copy the file into `public/` and use `<Audio src={staticFile("background-music.m4a")} loop />`.
 - HyperFrames: copy the file next to `index.html` and add it as the composition's audio track.
 
+## Quality + TikTok export — do this for EVERY video
+- AI-upscale the gameplay shots the edit uses: `python3 video-tools/sr/upscale_shots.py <project>` (Real-ESRGAN general-x4v3 on CPU, ~4 s/frame → public/sr/), and small cards with `video-tools/sr/upscale_image.py`.
+- Render Remotion with `--image-format=png --crf=10 --color-space=bt709` (default JPEG-80 frames lose quality).
+- Final encode (see `videos/feed-the-lizard/build.sh`): H.264 High@4.2, yuv420p **TV range**, BT.709 tags, 30 fps CFR, GOP 60, crf 15 / maxrate 20M, AAC 48 kHz 256k, `-movflags +faststart`, `-tag:v avc1`. Never ship yuvj420p/full-range.
+
 ## Video tools
 See `video-tools/README.md`. Install with `bash video-tools/setup.sh`, check with `bash video-tools/verify.sh`.

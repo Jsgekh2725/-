@@ -1,2 +1,1 @@
-// AI-upscaled shot files (index in SHOTS → file in public/). Written by video-tools/sr/upscale_shots.py via make_sr_ts.
-export const SR: Record<number, string> = {};
+export const SR: Record<number, string> = {"0": "sr/shot0.mp4", "1": "sr/shot1.mp4", "2": "sr/shot2.mp4", "3": "sr/shot3.mp4", "4": "sr/shot4.mp4", "5": "sr/shot5.mp4", "6": "sr/shot6.mp4", "7": "sr/shot7.mp4", "8": "sr/shot8.mp4", "9": "sr/shot9.mp4"};
